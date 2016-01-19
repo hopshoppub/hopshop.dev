@@ -20,7 +20,7 @@
 	    <ul>
 	      <li class="cs_skeleton"><img src="cssslider_files/csss_images1/craftbeer.jpg" style="width: 100%;"></li>
 	      <li class="num0 img slide"> <img src="cssslider_files/csss_images1/craftbeer.jpg" alt="craft-beer" title="craft-beer"></li>
-	      <li class="num1 img slide"> <img src="cssslider_files/csss_images1/beerlogos.png" alt="beer-logos" title="beer-logos"></li>
+	      <li class="num1 img slide"> <img src="cssslider_files/csss_images1/holy-grail.jpg" alt="beer-logos" title="beer-logos"></li>
 	      <li class="num2 img slide"> <img src="cssslider_files/csss_images1/tanks.jpg" alt="tanks" title="tanks"></li>
 	    </ul><div class="cs_engine"><a href="http://cssslider.com"></a> </div>
 	    <div class="cs_description">
@@ -48,7 +48,7 @@
 	      <label class="num0" for="cs_slide1_0"> <span class="cs_point"></span>
 	        <span class="cs_thumb"><img src="cssslider_files/csss_tooltips1/craftbeer.jpg" alt="craft-beer" title="craft-beer"></span></label>
 	      <label class="num1" for="cs_slide1_1"> <span class="cs_point"></span>
-	        <span class="cs_thumb"><img src="cssslider_files/csss_tooltips1/beerlogos.png" alt="beer-logos" title="beer-logos"></span></label>
+	        <span class="cs_thumb"><img src="cssslider_files/csss_tooltips1/holy-grail.jpg" alt="beer-logos" title="beer-logos"></span></label>
 	      <label class="num2" for="cs_slide1_2"> <span class="cs_point"></span>
 	        <span class="cs_thumb"><img src="cssslider_files/csss_tooltips1/tanks.jpg" alt="tanks" title="tanks"></span></label>
     	</div>
@@ -58,6 +58,9 @@
     <div class='seasonal-heading'>
     	<h1 class='seasonal-heading-left'>What's<br> in<br> Season?</h1>
     </div>
+</div>
+<div class='beer-posts'>
+    	<h1>Beer Posts</h1>
 </div>
   
     <!-- End cssSlider.com -->
