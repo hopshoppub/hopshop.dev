@@ -15,3 +15,5 @@
 Route::get('/', 'HomeController@showHome');
 
 Route::resource('/beer', 'BeerController');
+
+Route::resource('/pitch', 'PitchController');
