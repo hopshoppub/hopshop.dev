@@ -14,14 +14,10 @@ class CreateBlocksTable extends Migration {
 	{
 		Schema::create('blocks', function(Blueprint $table)
 		{
-			$table->integer('loc_id')->unsigned();
-			$table->string('country', 2);
-			$table->string('region',2);
-			$table->string('city',50)->nullable()->default(null);
-			$table->
-			$table->
-			$table->
-			$table->timestamps();
+			$table->integer('startIpNum')->unsigned();
+			$table->integer('endIpNum')->unsigned();
+			$table->integer('locId')->unsigned();
+			$table->foreign('locId')->references('loc_id')->on('locations');
 		});
 	}
 
