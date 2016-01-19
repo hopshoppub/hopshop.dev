@@ -31,7 +31,7 @@ class Pitch extends BaseModel {
 	 */
 	public function contributors()
 	{
-		return $this->hasManyThrough('User','Contribution')
+		return $this->hasManyThrough('User','Contribution');
 	}
 
 	/*
