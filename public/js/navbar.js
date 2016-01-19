@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$('#navbarHide').click(function() {
-		$('#navbarCollapse').delete();
+		$('#navbarCollapse').hide();
 		console.log('testing');
 	});
 });
