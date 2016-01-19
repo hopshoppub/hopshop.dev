@@ -1,0 +1,41 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+body {
+	background-image: url(/img/hot-wood2.jpg);
+}
+
+.logo {
+	height:100px;
+	background-color: white;
+	background-image: url(/img/hot-wood2.jpg);
+}
+.navbar {
+	background-color: #F0B310;
+}
+.cover {
+	height:30px;
+}
+.seasonal-heading {
+	position: relative;
+	background-color: black;
+	height:600px;
+	background-image: url(/img/seasonal-background.png);
+	background-size: 55%;
+	background-repeat: no-repeat;
+}
+.seasonal-heading-left {
+	background-image: url(/img/seasonal.jpg);
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: 63%;
+	color:white;
+	font-family: Times New Roman;
+	font-size: 1000%;
+	height:600px;
+}
+.footer {
+	background-color: #F0B310;
+	height:55px;
+	margin-top: 17px;
+	margin-bottom: 10px;
+}
+
