@@ -38,4 +38,13 @@ body {
 	margin-top: 17px;
 	margin-bottom: 10px;
 }
+.navbar-color {
+	height:5px;
+	background-color: black;
+}
+.beer-posts {
+	height:600px;
+	margin-top: 100px;
+	border:2px;
+}
 
