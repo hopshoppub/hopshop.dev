@@ -60,7 +60,93 @@
     </div>
 </div>
 <div class='beer-posts'>
-    	<h1>Beer Posts</h1>
+	<div class='container'>
+    	<h1>How Much Do You Know About Beer?</h1>
+		<form method="POST" action="/MyFirstForm.php">
+		<p>
+		<p>What is Cenosillicaphobia the fear of?</p>
+			<label>
+			    <input type="radio" name="q1" value="Fear of an empty glass">
+			    Fear of an empty glass
+			</label>
+			<label>
+			    <input type="radio" name="q1" value="Fear of a full glass">
+			    Fear of a full glass
+			</label>
+			<label>
+			    <input type="radio" name="q1" value="Fear of beer">
+			    Fear of beer
+			</label>
+			<label>
+			    <input type="radio" name="q1" value="Fear of pictures with beer in them">
+			    Fear of pictures with beer in them
+			</label>
+		</p>
+		
+		<p>How Fast Does a Donkey Run?</p>
+		<p>
+			<label>
+			    <input type="radio" name="q2" value="43mph">
+			    43 MPH
+			</label>
+			<label>
+			    <input type="radio" name="q2" value="15mph">
+			    15 MPH
+			</label>
+			<label>
+			    <input type="radio" name="q2" value="20mph">
+			    20 MPH
+			</label>
+			<label>
+			    <input type="radio" name="q2" value="25mph">
+			    25 MPH
+			</label>
+		</p>
+	</div>
+	<div class='container'>
+	<p>How Many Types Of Bananas Are There?</p>
+	<p>
+		<label>
+		    <input type="checkbox" id="answer" name="q3" value="1000">
+		    1000
+		</label>
+		<label>
+		    <input type="checkbox" id="answer" name="q3" value="500">
+		    500
+		</label>
+		<label>
+		    <input type="checkbox" id="answer" name="q3" value="550">
+		    550
+		</label>
+		<label>
+		    <input type="checkbox" id="answer" name="q3" value="200">
+		    200
+		</label>
+	</p>
+	<p>How Many Types Of Bananas Are There?</p>
+	<p>
+		<label>
+		    <input type="checkbox" id="answer" name="q3" value="1000">
+		    1000
+		</label>
+		<label>
+		    <input type="checkbox" id="answer" name="q3" value="500">
+		    500
+		</label>
+		<label>
+		    <input type="checkbox" id="answer" name="q3" value="550">
+		    550
+		</label>
+		<label>
+		    <input type="checkbox" id="answer" name="q3" value="200">
+		    200
+		</label>
+	</p>
+	<p>
+		<button type="Submit">Submit</button>
+	</p>
+	</form>
+	</div>
 </div>
   
     <!-- End cssSlider.com -->
