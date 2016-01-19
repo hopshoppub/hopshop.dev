@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
 @section('top-script')
- <script type='text/javascript' src='js/master.js'></script>
+    <link rel="stylesheet" href="/css/home.css">
+    <script type='text/javascript' src='js/master.js'></script>
 
 @stop
 
@@ -27,7 +28,7 @@
               <li class="num2 img slide"> <img src="cssslider_files/csss_images1/tanks.jpg" alt="tanks" title="tanks"></li>
             </ul><div class="cs_engine"><a href="http://cssslider.com"></a> </div>
             <div class="cs_description">
-              <label class="num0"><span class="cs_title"><span class="cs_wrapper" id='beerOfTheDay'>Beer Of The Day</span></span></label>
+              <label class="num0"><span class="cs_title"><span class="cs_wrapper">Beer Of The Day</span></span></label>
               <label class="num1"><span class="cs_title"><span class="cs_wrapper">Top-Rated Craft Beers</span></span></label>
               <label class="num2"><span class="cs_title"><span class="cs_wrapper">Brewery Beer Pitches</span></span></label>
             </div>
@@ -51,7 +52,7 @@
               <label class="num0" for="cs_slide1_0"> <span class="cs_point"></span>
                 <span class="cs_thumb"><img src="cssslider_files/csss_tooltips1/craftbeer.jpg" alt="craft-beer" title="craft-beer"></span></label>
               <label class="num1" for="cs_slide1_1"> <span class="cs_point"></span>
-                <span class="cs_thumb"><img src="cssslider_files/csss_tooltips1/holy-grail.jpg" alt="beer-logos" title="beer-logos"></span></label>
+                <span class="cs_thumb"><img src="cssslider_files/csss_tooltips1/beerlogos.png" alt="beer-logos" title="beer-logos"></span></label>
               <label class="num2" for="cs_slide1_2"> <span class="cs_point"></span>
                 <span class="cs_thumb"><img src="cssslider_files/csss_tooltips1/tanks.jpg" alt="tanks" title="tanks"></span></label>
             </div>

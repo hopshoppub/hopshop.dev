@@ -31,7 +31,7 @@
         {{--
                 Bottom border for nav bar
         --}}
-        <div class='navbar-color'></div>
+        <div class='carousel-color'></div>
 
 
         @yield('content')
