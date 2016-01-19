@@ -14,8 +14,15 @@ class CreateLocationsTable extends Migration {
 	{
 		Schema::create('locations', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->timestamps();
+			$table->integer('loc_id')->unsigned()->primary();
+			$table->string('country', 2);
+			$table->string('region',2);
+			$table->string('city',50)->nullable()->default(null);
+			$table->string('postalCode', 20);
+			$table->double('latitude', 7, 4);
+			$table->double('longitude', 7, 4);
+			$table->integer('dmaCode')->default(null);
+			$table->integer('areaCode')->default(null);
 		});
 	}
 

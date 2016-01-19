@@ -15,6 +15,13 @@ class CreateBreweriesTable extends Migration {
 		Schema::create('breweries', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->string('name',100);
+			$table->string('address',100);
+			$table->string('phone',20);
+			$table->string('website',100);
+			$table->text('description');
+			$table->integer('loc_id')->unsigned();
+			$table->foreign('loc_id')->references('loc_id')->on('locations');
 			$table->timestamps();
 		});
 	}
