@@ -10,4 +10,12 @@ class Update extends BaseModel {
 	// Don't forget to fill this array
 	protected $fillable = [];
 
+	/*
+	 *	Updates belongsTo a pitch on Pitch
+	 */
+	public function pitch()
+	{
+		return $this->belongsTo('Pitch');
+	}
+
 }

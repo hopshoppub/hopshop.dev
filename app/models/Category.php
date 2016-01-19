@@ -10,4 +10,12 @@ class Category extends BaseModel {
 	// Don't forget to fill this array
 	protected $fillable = [];
 
+	/*
+	 *	Category hasMany beers on Beer
+	 */
+	public function beers()
+	{
+		return $this->hasMany('Beer');
+	}
+
 }

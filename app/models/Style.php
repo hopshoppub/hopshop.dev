@@ -10,4 +10,11 @@ class Style extends BaseModel {
 	// Don't forget to fill this array
 	protected $fillable = [];
 
+	/*
+	 *	Style hasMany beers on Beer
+	 */
+	public function beers()
+	{
+		return $this->hasMany('Beer');
+	}
 }
