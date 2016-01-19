@@ -14,7 +14,16 @@ class CreateContributionsTable extends Migration {
 	{
 		Schema::create('contributions', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('user_id')->on('users');
+
+			$table->integer('pitch_id')->unsigned();
+			$table->foreign('pitch_id')->references('pitch_id')->on('pitches');
+
+			$table->primary( ['user_id', 'pitch_id'] );
+
+			$table->decimal('contribution', 6, 2);
+
 			$table->timestamps();
 		});
 	}

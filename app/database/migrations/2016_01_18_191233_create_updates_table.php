@@ -14,7 +14,12 @@ class CreateUpdatesTable extends Migration {
 	{
 		Schema::create('updates', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('update_id');
+
+			$table->integer('pitch_id')->unsigned()->foreign()->references('pitch_id')->on('pitches');
+
+			$table->text('update');
+			
 			$table->timestamps();
 		});
 	}

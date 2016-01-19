@@ -14,7 +14,14 @@ class CreatePitchesTable extends Migration {
 	{
 		Schema::create('pitches', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('pitch_id');
+
+			$table->integer('user_id')->unsigned();
+			$table->text('statment')->nullable();
+			$table->integer('goal');
+			$table->string('image',200);
+			$table->text('recipe');
+			
 			$table->timestamps();
 		});
 	}

@@ -14,7 +14,11 @@ class CreateWatchesTable extends Migration {
 	{
 		Schema::create('watches', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->integer('user_id')->unsigned()->foreign()->references('user_id')->on('users');
+			$table->integer('pitch_id')->unsigned()->foreign()->references('pitch_id')->on('pitches');
+
+			$table->primary( [ 'user_id' , 'pitch_id'] );
+
 			$table->timestamps();
 		});
 	}
