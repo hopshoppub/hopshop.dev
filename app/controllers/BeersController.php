@@ -9,8 +9,21 @@ class BeersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$beers = Beer::with('brewery')->paginate(10);
-		return View::make('beers.index')->with(['beers' => $beers]);
+		if (Input::has('search')) {
+			$query = Beer::with('brewery')->orderBy('created_at', 'desc');
+			$search = Input::get('search');
+			$query->where('name', 'like', "%$search%");
+			$query->orWhereHas('brewery', function($q){
+				$query = Beer::with('brewery');
+				$search = Input::get('search');
+				$q->where('name','like',"%$search%");
+				$beers = $query->paginate(10);
+			});
+			$beers = $query->paginate(10);
+		} else {
+			$beers = Beer::with('brewery')->orderBy('created_at','desc')->paginate(10);
+		}
+			return View::make('beers.index')->with(['beers' => $beers]);
 	}
 
 	/**
