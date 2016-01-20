@@ -10,6 +10,8 @@ class Brewery extends BaseModel {
 	// Don't forget to fill this array
 	protected $fillable = [];
 
+	protected $primaryKey = 'brewery_id';
+
 	/*
 	 *	brewery hasMany beers on Beer
 	 */

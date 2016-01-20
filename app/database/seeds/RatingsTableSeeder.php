@@ -7,14 +7,12 @@ class RatingsTableSeeder extends Seeder {
 
 	public function run()
 	{
-		// $faker = Faker::create();
-
-		// foreach(range(1, 10) as $index)
-		// {
-		// 	Rating::create([
-
-		// 	]);
-		// }
+		$rating = new Rating();
+		$rating->user_id = 1;
+		$rating->beer_id = 2;
+		$rating->rating = '5';
+		$rating->comment = 'Great Beer!';
+		$rating->save();
 	}
 
 }
