@@ -10,6 +10,8 @@ class Style extends BaseModel {
 	// Don't forget to fill this array
 	protected $fillable = [];
 
+	protected $primaryKey = 'style_id';
+
 	/*
 	 *	Style hasMany beers on Beer
 	 */
