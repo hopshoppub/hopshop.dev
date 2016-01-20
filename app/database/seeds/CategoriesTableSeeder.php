@@ -7,14 +7,15 @@ class CategoriesTableSeeder extends Seeder {
 
 	public function run()
 	{
-		// $faker = Faker::create();
+		for($i = 0; $i < 59; $i++)
+		{
+			$style = new Category();
 
-		// foreach(range(1, 10) as $index)
-		// {
-		// 	Category::create([
+			$style->category_name = "$i";
+			$style->image = "$i";
 
-		// 	]);
-		// }
+			$style->save();
+		}
 	}
 
 }
