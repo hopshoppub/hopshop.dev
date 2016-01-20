@@ -9,9 +9,7 @@ class BeersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$beers = Beer::all();
-
-		return View::make('beers.index', compact('beers'));
+		return View::make('beers.index');
 	}
 
 	/**
