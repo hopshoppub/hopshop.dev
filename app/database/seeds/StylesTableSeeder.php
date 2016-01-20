@@ -7,14 +7,15 @@ class StylesTableSeeder extends Seeder {
 
 	public function run()
 	{
-		// $faker = Faker::create();
+		for($i = 0; $i < 150; $i++)
+		{
+			$style = new Style();
 
-		// foreach(range(1, 10) as $index)
-		// {
-		// 	Style::create([
+			$style->style_name = "$i";
+			$style->image = "$i";
 
-		// 	]);
-		// }
+			$style->save();
+		}
 	}
 
 }

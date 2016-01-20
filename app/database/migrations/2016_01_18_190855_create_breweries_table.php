@@ -14,8 +14,7 @@ class CreateBreweriesTable extends Migration {
 	{
 		Schema::create('breweries', function(Blueprint $table)
 		{
-			// $table->increments('brewery_id');
-			$table->integer('brewery_id')->unsigned();
+			$table->increments('brewery_id')->unsigned();
 			$table->string('name',100);
 			$table->string('address',100);
 			$table->string('phone',20);

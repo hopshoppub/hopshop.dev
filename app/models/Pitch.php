@@ -51,4 +51,13 @@ class Pitch extends BaseModel {
 	{
 		return $this->hasMany('Update');
 	}
+
+    /*
+     *  Pitch belongsTo brewery on Pitch
+     */ 
+    public function brewery()
+    {
+        return $this->belongsTo('Brewery');
+    }
+
 }

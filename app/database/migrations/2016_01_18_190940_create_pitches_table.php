@@ -17,10 +17,14 @@ class CreatePitchesTable extends Migration {
 			$table->increments('pitch_id');
 
 			$table->integer('user_id')->unsigned();
-			$table->text('statement')->nullable();
+			$table->integer('brewery_id')->unsigned();
+			$table->string('title');
+			$table->text('campaign')->nullable();
 			$table->integer('goal');
-			$table->string('image',200);
+			$table->date('deadline');
+			$table->string('video',200);
 			$table->text('recipe');
+
 			
 			$table->timestamps();
 		});
