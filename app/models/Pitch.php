@@ -10,6 +10,8 @@ class Pitch extends BaseModel {
 	// Don't forget to fill this array
 	protected $fillable = [];
 
+	protected $primaryKey = 'pitch_id';
+
 	/*
 	 *	Pitch belongsTo a user on User
 	 */
