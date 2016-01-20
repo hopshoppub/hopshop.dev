@@ -17,7 +17,7 @@ class CreatePitchesTable extends Migration {
 			$table->increments('pitch_id');
 
 			$table->integer('user_id')->unsigned();
-			$table->text('statment')->nullable();
+			$table->text('statement')->nullable();
 			$table->integer('goal');
 			$table->string('image',200);
 			$table->text('recipe');

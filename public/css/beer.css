@@ -1,0 +1,16 @@
+#beer-table {
+	border: groove 4px;
+	border-color: black;
+	background-color:black;
+}
+.row {
+	margin:2px;
+}
+#description-link {
+	font-size: 150%;
+}
+#beer-table-outline {
+	background-color: black;
+	background-image: url(/img/beer.back.jpg);
+	background-size: 500px;
+}
