@@ -17,7 +17,7 @@ class Beer extends BaseModel {
 	 */
 	public function brewery()
 	{
-		return $this->belongsTo('brewery');
+		return $this->belongsTo('Brewery');
 	}
 
 	/*

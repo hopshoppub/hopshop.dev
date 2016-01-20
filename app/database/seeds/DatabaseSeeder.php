@@ -15,13 +15,13 @@ class DatabaseSeeder extends Seeder {
 		// $this->call('BlocksTableSeeder');
 		$this->call('BreweriesTableSeeder');
 		$this->call('UsersTableSeeder');
-		$this->call('BeersTableSeeder');
-		$this->call('RatingsTableSeeder');
 		$this->call('StylesTableSeeder');
 		$this->call('CategoriesTableSeeder');
-		$this->call('ContributionsTableSeeder');
-		$this->call('WatchesTableSeeder');
+		$this->call('BeersTableSeeder');
+		$this->call('RatingsTableSeeder');
 		$this->call('PitchesTableSeeder');
+		$this->call('WatchesTableSeeder');
+		$this->call('ContributionsTableSeeder');
 		$this->call('UpdatesTableSeeder');
 	}
 
