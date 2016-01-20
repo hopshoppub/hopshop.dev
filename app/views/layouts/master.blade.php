@@ -5,6 +5,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta id="token" name="token" value="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
         <link rel="stylesheet" href="/css/master.css">
@@ -19,7 +20,6 @@
             <div class='logo-image'>
             </div>
         </div>
-
 
         {{--
                 Top border for nav bar
@@ -39,7 +39,7 @@
         @yield('bottom-script')
        
 {{--         @yield('stuff') --}}
-
+        <script src="/js/navbar_browserify.js"></script>
     </body>
 
     <footer>
