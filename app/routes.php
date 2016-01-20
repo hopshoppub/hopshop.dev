@@ -11,9 +11,18 @@
 |
 */
 
-
+/*
+ *		Home Routes
+ */
+Route::post('/login', 'HomeController@postLogin');
 Route::get('/', 'HomeController@showHome');
 
+/*
+ *		Beer Routes
+ */
 Route::resource('/beers', 'BeersController');
 
+/*
+ *		Pitch Routes
+ */
 Route::resource('/pitches', 'PitchesController');
