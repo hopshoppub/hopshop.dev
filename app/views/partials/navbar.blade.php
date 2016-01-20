@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="#">Beer Of The Day</a></li>
-        <li><a href="#">Top-Rated</a></li>
+        <li><a href="{{{ action('BeersController@index') }}}">Top-Rated</a></li>
         <li><a href="#">Brewery Pitches</a></li>
         <li class="divider"></li>
       </ul>
