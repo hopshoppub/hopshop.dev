@@ -16,7 +16,7 @@ class CreateUpdatesTable extends Migration {
 		{
 			$table->increments('update_id');
 
-			$table->integer('pitch_id')->unsigned()->foreign()->references('pitch_id')->on('pitches');
+			$table->integer('pitch_id')->unsigned()->foreign('pitch_id')->references('pitch_id')->on('pitches');
 
 			$table->text('update');
 			

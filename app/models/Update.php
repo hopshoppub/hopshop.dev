@@ -9,6 +9,7 @@ class Update extends BaseModel {
 
 	// Don't forget to fill this array
 	protected $fillable = [];
+	protected $primaryKey = 'update_id';
 
 	/*
 	 *	Updates belongsTo a pitch on Pitch

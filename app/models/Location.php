@@ -10,6 +10,7 @@ class Location extends BaseModel {
 	// Don't forget to fill this array
 	protected $fillable = [];
 
+	protected $primaryKey = 'locId';
 	/*
 	 *	Location hasMany blocks on Block
 	 */

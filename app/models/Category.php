@@ -10,6 +10,8 @@ class Category extends BaseModel {
 	// Don't forget to fill this array
 	protected $fillable = [];
 
+	protected $primaryKey = 'category_id';
+
 	/*
 	 *	Category hasMany beers on Beer
 	 */

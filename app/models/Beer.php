@@ -6,6 +6,7 @@ class Beer extends BaseModel {
 	public static $rules = [
 		// 'title' => 'required'
 	];
+	protected $primaryKey = 'beer_id';
 
 	// Don't forget to fill this array
 	protected $fillable = [];
@@ -16,7 +17,7 @@ class Beer extends BaseModel {
 	 */
 	public function brewery()
 	{
-		return $this->belongsTo('Brewery');
+		return $this->belongsTo('brewery');
 	}
 
 	/*
