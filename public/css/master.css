@@ -21,4 +21,11 @@ body {
     height:5px;
     background-color: #F0B310;
 }
-
+#myNavbar{
+    font-family: "Indie Flower", cursive;
+    font-size: 140%;
+}
+.navbar-brand {
+    font-family: "Indie Flower", cursive;
+    font-size: 140%;
+}
