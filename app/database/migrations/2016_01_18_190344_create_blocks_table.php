@@ -17,7 +17,7 @@ class CreateBlocksTable extends Migration {
 			$table->integer('startIpNum')->unsigned();
 			$table->integer('endIpNum')->unsigned();
 			$table->integer('locId')->unsigned();
-			$table->foreign('locId')->references('loc_id')->on('locations');
+			$table->foreign('locId')->references('locId')->on('locations');
 		});
 	}
 
