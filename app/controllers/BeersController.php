@@ -9,7 +9,8 @@ class BeersController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('beers.index');
+		$beers = Beer::with('brewery')->paginate(10);
+		return View::make('beers.index')->with(['beers' => $beers]);
 	}
 
 	/**
