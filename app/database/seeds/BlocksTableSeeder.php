@@ -5,16 +5,9 @@ use Faker\Factory as Faker;
 
 class BlocksTableSeeder extends Seeder {
 
-	public function run()
-	{
-		$faker = Faker::create();
-
-		foreach(range(1, 10) as $index)
-		{
-			Block::create([
-
-			]);
-		}
-	}
+    public function run()
+    {
+        DB::unprepared(file_get_contents(storage_path()."/csvs/blocks.sql"));
+    }
 
 }
