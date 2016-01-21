@@ -34,22 +34,22 @@
         <div class='row'>
             
             <div class='col-lg-12' show>
-                {{-- <ul class="list-inline">
-                    <li id="campaign"><button>Campaign</button></li>
-                    <li id="updates"><button>Updates</button></li>
-                    <li id="hopmakers"><button>HopMakers</button></li>
-                </ul> --}}
-                <ul class="nav nav-tabs">
-                   <li><a href="#home" data-toggle="tab">Campaign</a></li>
-                   <li><a href="#profile" data-toggle="tab">Updates</a></li>
-                   <li><a href="#messages" data-toggle="tab">HopMakers</a></li>
+
+                <ul id="myTabs" class="nav nav-tabs">
+                  <li role="presentation" class="active"><a href="#campaign">Campaign</a></li>
+                  <li role="presentation"><a href="#updates">Updates</a></li>
+                  <li role="presentation"><a href="#hopmakers">hopmakers</a></li>
                 </ul>
-                <div class="home">
-                    <p>Come be a part of the Plan & Tentative Recipe.  We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!</p>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="campaign">Come be a part of the Plan & Tentative Recipe.  We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!</div>
+                    <div role="tabpanel" class="tab-pane" id="updates">This is different. We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!"</div>
+                    <div role="tabpanel" class="tab-pane" id="hopmakers">These are the hopmakers</div>
                 </div>
-                <div class="profile">
-                    <p>This is different. We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!"
-                </div>
+
+            
+                
 
             </div>
       
@@ -64,10 +64,10 @@
 
 @section('bottom-script')
 <script>
-$('#tab').click(function (e) {
-  e.preventDefault();
+$('#myTabs a').click(function (e) {
+  e.preventDefault()
   $(this).tab('show');
-})
+});
 </script>
 
 
