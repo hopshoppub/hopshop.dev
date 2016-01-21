@@ -7,14 +7,29 @@ class StylesTableSeeder extends Seeder {
 
 	public function run()
 	{
-		for($i = 0; $i < 150; $i++)
-		{
-			$style = new Style();
+		$row = 0;
+		if (($handle = fopen(storage_path() . "/csvs/styles.csv", "r")) !== FALSE) {
+		   
+		    while (($data = fgetcsv($handle)) !== FALSE) {
 
-			$style->style_name = "$i";
-			$style->image = "$i";
+		    	$row++;
+		    	if($row > 1) {
+			    	try {
+			    		
+			    		$style = new Style();
+			    		$style->style_name = $data[2];
+				        // $beer->beer_id = $data[0];
+				       
 
-			$style->save();
+				        $style->save();
+			    		
+			    	} catch (Exception $e) {
+
+			    	}
+			    }
+
+		    }
+		    fclose($handle);
 		}
 	}
 
