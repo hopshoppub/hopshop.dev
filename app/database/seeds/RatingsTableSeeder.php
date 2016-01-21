@@ -8,8 +8,8 @@ class RatingsTableSeeder extends Seeder {
 	public function run()
 	{
 		$rating = new Rating();
-		$rating->user_id = User::first()->user_id;
-		$rating->beer_id = Beer::first()->beer_id;
+		$rating->user_id = 1;
+		$rating->beer_id = 9;
 		$rating->rating = '5';
 		$rating->comment = 'Great Beer!';
 		$rating->save();

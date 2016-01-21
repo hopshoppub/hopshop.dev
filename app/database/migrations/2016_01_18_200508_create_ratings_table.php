@@ -20,7 +20,7 @@ class CreateRatingsTable extends Migration {
 			$table->integer('beer_id')->unsigned();
 			$table->foreign('beer_id')->references('beer_id')->on('beers');
 
-			$table->primary( ['user_id', 'beer_id'] );
+			$table->primary(['beer_id', 'user_id']);
 
 			$table->integer('rating');
 			$table->string('comment',300);

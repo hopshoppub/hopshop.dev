@@ -27,8 +27,12 @@ Route::resource('/beers', 'BeersController');
  */
 Route::resource('/pitches', 'PitchesController');
 
+
+	
 /*
  *		User Routes
  */
 Route::post('/users/store', 'UsersController@make');
 Route::resource('/users', 'UsersController');
+Route::resource('/breweries', 'BreweriesController');
+
