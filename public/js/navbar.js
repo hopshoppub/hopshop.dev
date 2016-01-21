@@ -17,8 +17,17 @@ $(document).ready(function() {
 
 	    data: {
 
-	        loginEmail: '',
-	        loginPassword: '',
+	    	loggedIn: false,
+
+	    	user: {
+
+		        email: '',
+		        password: '',
+	    	},
+
+	    	loginPassword: '',
+	    	loginEmail: '',
+
 
 	        signupFirstName:'',
 	        signupLastName:'',
@@ -42,6 +51,7 @@ $(document).ready(function() {
 
             login(loginInfo);
         	},
+
         	signupClicked: function() {
 
         		var signupInfo = {
@@ -56,18 +66,39 @@ $(document).ready(function() {
 	        		zip_code : this.signupZipCode,
         		};
         		signup( signupInfo );
+        	},
+
+        	logoutClicked: function() {
+        		logout();
         	}
 	    }
 	});
+
+	function logout() {
+
+	    Vue.http.get('/logout', function (data, status, request) {
+	        // tableVue.$data.contacts.push(data);
+	        // console.log(data);
+		    testVue.$data.loggedIn = data['loggedIn'];
+	    }).error(function (data, status, request) {
+	        console.log(data);
+	        console.log(request);
+	    }); 
+	}
 
 
 	function login(obj) {
 
 	    Vue.http.post('/login', obj, function (data, status, request) {
-	        // tableVue.$data.contacts.push(data);
-	        console.log(data);
+
+	        if ( data['login_error'] == true ){
+	        	console.log('errro');
+	        } else{
+
+		        testVue.$data.loggedIn = true;
+	        }
 	    }).error(function (data, status, request) {
-	        alert("error");
+	        console.log("error");
 	    }); 
 	}
 

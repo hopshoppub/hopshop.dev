@@ -26,17 +26,23 @@ class UsersController extends \BaseController {
 
 	public function make()
 	{
-		$user = new User();
+		try {
+			
+			$user = new User();
 
-		$user->email = Input::get('email');
-		$user->user_name = Input::get('user_name');
-		$user->password = Hash::make( Input::get('password') );
-		$user->first_name = Input::get('first_name');
-		$user->last_name = Input::get('last_name');
-		$user->zip_code = Input::get('zip_code');
-		$user->role = 1;
+			$user->email = Input::get('email');
+			$user->user_name = Input::get('user_name');
+			$user->password = Hash::make( Input::get('password') );
+			$user->first_name = Input::get('first_name');
+			$user->last_name = Input::get('last_name');
+			$user->zip_code = Input::get('zip_code');
+			$user->role = 1;
 
-		$user->save();
+			$user->save();
+		} catch (Exception $e) {
+			
+			return Response::json($e);
+		}
 
 		return Response::json( 'woot' );
 	}
