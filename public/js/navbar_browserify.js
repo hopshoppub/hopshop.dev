@@ -11056,23 +11056,18 @@ $(document).ready(function() {
 
 	    data: {
 
-	        email: '',
-	        password: '',
+	        loginEmail: '',
+	        loginPassword: '',
 
-	        // search:'',
+	        signupFirstName:'',
+	        signupLastName:'',
+	        signupEmail:'',
+	        signupConfirmEmail:'',
+	        signupPassword:'',
+	        signupConfirmPassword:'',
+	        signupZipCode:'',
+	        signupUserName:'',
 
-	        // contacts: [
-	        //     {
-	        //         name: 'shawn',
-	        //         email: 'sprov03@david.com',
-	        //         phone: '979'
-	        //     },
-	        //     {
-	        //         name: 'dogman',
-	        //         email: 'wolfman@gmail.com',
-	        //         phone: '210'
-	        //     }
-	        // ]
 	    },
 
 	    methods: {
@@ -11080,18 +11075,27 @@ $(document).ready(function() {
 	        loginClicked: function() {
 
 	            var loginInfo  = {
-	                email : this.email,
-	                password  : this.password,
+	                email : this.loginEmail,
+	                password  : this.loginPassword,
 	            };
 
             login(loginInfo);
-        },
+        	},
+        	signupClicked: function() {
 
-	    //     removeClicked: function(index) {
+        		var signupInfo = {
 
-	    //         var contact = this.contacts[index];
-	    //         deleteContactAjax(contact);
-	    //     }
+        			first_name : this.signupFirstName,
+	        		last_name : this.signupLastName,
+	        		user_name : this.signupUserName,
+	        		email : this.signupEmail,
+	        		// signupConfirmEmail:'',
+	        		password : this.signupPassword,
+	        		// signupConfirmPassword:'',
+	        		zip_code : this.signupZipCode,
+        		};
+        		signup( signupInfo );
+        	}
 	    }
 	});
 
@@ -11106,6 +11110,14 @@ $(document).ready(function() {
 	    }); 
 	}
 
-
+	function signup(obj) {
+		console.log('pressed');
+	    Vue.http.post('/users/store', obj, function (data, status, request) {
+	        // tableVue.$data.contacts.push(data);
+	        console.log(data);
+	    }).error(function (data, status, request) {
+	        alert("error");
+	    }); 
+	}
 });
 },{"vue":25,"vue-resource":14}]},{},[26]);
