@@ -8,7 +8,8 @@
 		"laravel/framework": "4.2.*"
 	},
 	"require-dev": {
-    "way/generators": "~2.0"
+    "way/generators": "~2.0",
+    "stripe/stripe-php": "1.8.3"
 	},
 	"autoload": {
 		"classmap": [

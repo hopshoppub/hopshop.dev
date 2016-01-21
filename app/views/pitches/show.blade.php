@@ -27,6 +27,7 @@
                 <h3>Current Level</h3>
                 <h3>Goal or Fund Bar</h3>
                 <h4>Deadline</h4>
+                <button class="btn btn-default">Fund the Brew!</button>
             </div>
         </div>
 
