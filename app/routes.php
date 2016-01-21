@@ -27,7 +27,11 @@ Route::resource('/beers', 'BeersController');
  */
 Route::resource('/pitches', 'PitchesController');
 
-	/*
-	 * Rating routes
-	 */ 
-Route::resource('/rating', 'RatingsController');
+
+	
+/*
+ *		User Routes
+ */
+Route::post('/users/store', 'UsersController@make');
+Route::resource('/users', 'UsersController');
+

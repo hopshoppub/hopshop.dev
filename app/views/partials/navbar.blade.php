@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav">
         <li><a href="#">Beer Of The Day</a></li>
         <li><a href="{{{ action('BeersController@index') }}}">Top-Rated</a></li>
-        <li><a href="#">Brewery Pitches</a></li>
+        <li><a href="{{{ action('PitchesController@index') }}}">Brewery Pitches</a></li>
         <li class="divider"></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

@@ -6,6 +6,7 @@
 
 @section('content')
 
+
 /vagrant/sites/hopshop.dev/app/views/categories/index.blade.php
 
 @stop
