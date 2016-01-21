@@ -21,8 +21,8 @@
             <div class="col-xs-8 col-md-3"><img src="http://placehold.it/350x150" alt="Mountain View" style="width:250px;height:200px;"></div>
             <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3>{{{ $beer->name }}}</h3></div>
             <div class="col-xs-5 col-md-3"><h4>Rating:</h4>
-                {{ Form::open(array('action' => 'RatingsController@store')) }}
-                    <div class="stars" name =id:'{{{ $beer->beer_id }}}'>
+               {{--  {{ Form::open(array('action' => 'RatingsController@store')) }} --}}
+                    <div class="stars">
                         <input type="radio" name="star" class="star-1" id="star-1" value='1'/>
                         <label class="star-1" for="star-1">1</label>
                         <input type="radio" name="star" class="star-2" id="star-2" value='2'/>
@@ -36,7 +36,7 @@
                         <span></span>
                     </div>
                   <button class="btn btn-primary btn-block" id='margin-button'type="submit">Submit Your Rating!</button>
-                {{Form::close()}}
+               {{--  {{Form::close()}} --}}
             </div>
         </div>
         <hr>
@@ -44,9 +44,9 @@
         <div class="row">
             <div class="col-xs-8 col-md-3"><h4>ABV: </h4> <h3>{{{ $beer->abv }}}</h3></div>
             <div class="col-xs-5 col-md-3"><h4>Style: </h4> <h3>{{{ $beer->style->style_name }}}</h3></div>
-            <div class="col-xs-5 col-md-3"><h4>Brewery: </h4> <h3>{{{ $beer->brewery->name }}}</h3></div>
+            <a href="{{{ action("BreweriesController@show", $beer->brewery_id) }}}" class="col-xs-5 col-md-3"><h4>Brewery: </h4> <h3>{{{ $beer->brewery->name }}}</h3></div>
         </div>
-    <a href="#" class='pull-right' id='description-link'>Description: </a>
+    {{-- <a href='#' class='pull-right' id='description-link'>Description: </a> --}}
     </div>
 </div>
 @endforeach
