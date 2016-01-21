@@ -21,22 +21,22 @@ $(document).ready(function() {
 
 	    	user: {
 
-		        email: '',
-		        password: '',
+		        // email: '',
+		        // password: '',
 	    	},
 
 	    	loginPassword: '',
 	    	loginEmail: '',
 
 
-	        signupFirstName:'',
-	        signupLastName:'',
-	        signupEmail:'',
-	        signupConfirmEmail:'',
-	        signupPassword:'',
-	        signupConfirmPassword:'',
-	        signupZipCode:'',
-	        signupUserName:'',
+	        // first_name:'',
+	        // last_name:'',
+	        // email:'',
+	        // confirm_email:'',
+	        // password:'',
+	        // confirm_password:'',
+	        // zip_code:'',
+	        // user_name:'',
 
 	    },
 
@@ -49,7 +49,8 @@ $(document).ready(function() {
 	                password  : this.loginPassword,
 	            };
 
-            login(loginInfo);
+            // login(loginInfo);
+            login(testVue.$data.user);
         	},
 
         	signupClicked: function() {
@@ -65,7 +66,8 @@ $(document).ready(function() {
 	        		// signupConfirmPassword:'',
 	        		zip_code : this.signupZipCode,
         		};
-        		signup( signupInfo );
+        		// signup( signupInfo );
+        		signup ( testVue.$data.user );	
         	},
 
         	logoutClicked: function() {
@@ -77,23 +79,25 @@ $(document).ready(function() {
 	function logout() {
 
 	    Vue.http.get('/logout', function (data, status, request) {
-	        // tableVue.$data.contacts.push(data);
-	        // console.log(data);
-		    testVue.$data.loggedIn = data['loggedIn'];
+
+		    testVue.$data.loggedIn = false;
+
+		    testVue.$data.user = data;
+
 	    }).error(function (data, status, request) {
-	        console.log(data);
-	        console.log(request);
+	        alert('sorry an error accored and you were not logged out');
 	    }); 
 	}
-
 
 	function login(obj) {
 
 	    Vue.http.post('/login', obj, function (data, status, request) {
 
 	        if ( data['login_error'] == true ){
-	        	console.log('errro');
+	        	console.log('error');
 	        } else{
+
+	        	testVue.$data.user = data;
 
 		        testVue.$data.loggedIn = true;
 	        }
