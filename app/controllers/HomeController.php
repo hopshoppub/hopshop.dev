@@ -27,15 +27,28 @@ class HomeController extends BaseController {
 
 		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
 
-		    $user = [];
-			$user['user_id'] = Auth::user()->user_id;
-			$user['zip_code'] = Auth::user()->zip_code;
-			$user['role'] = Auth::user()->role;
+			$user = Auth::user();
+
 		    return Response::json( $user );
 		} else {
-			Session::flash('errorMessage' , 'invalid username or password');
-		    return Redirect::back();
+			
+
+		    return Response::json( ['login_error' => true] );
 		}
+	}
+
+	public function getLogout()
+	{
+		Auth::logout();
+
+		if ( Auth::user() )
+		{
+			$response = ['loggedIn' => true];
+		} else
+		{
+			$response = ['loggedIn' => false];
+		}
+		return Response::json( $response );
 	}
 
 }

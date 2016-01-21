@@ -15,6 +15,7 @@
  *		Home Routes
  */
 Route::post('/login', 'HomeController@postLogin');
+Route::get('/logout', 'HomeController@getLogout');
 Route::get('/', 'HomeController@showHome');
 
 /*
