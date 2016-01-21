@@ -15,7 +15,7 @@
     <div class='container' style={{-- "background-color:fuchsia;" --}}>
 
         <div class='row'>
-            <h2 style="color:papayawhip;text-align: center;">Beer Pitch Name</h2>
+            <h2 style="color:papayawhip;text-align: center;">{{{ $pitch->title }}}</h2>
         </div>
 
         <div class='row'>
@@ -23,10 +23,10 @@
                 <iframe width="650" height="366" src="https://www.youtube.com/embed/aV36ytSgC3o" frameborder="0" allowfullscreen></iframe>  
             </div>
             <div class='col-xs-12 col-sm-12 col-md-4 col-lg-4' style="padding-left: 30px">
-                <h3>Brewery</h3>
+                <h3>{{{ $pitch->brewery->name }}}</h3>
                 <h3>Current Level</h3>
-                <h3>Goal or Fund Bar</h3>
-                <h4>Deadline</h4>
+                <h3>{{{ $pitch->goal }}}</h3>
+                <h4>{{{ $pitch->deadline }}}</h4>
                 <button class="btn btn-default">Fund the Brew!</button>
             </div>
         </div>
