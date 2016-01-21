@@ -43,8 +43,25 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="campaign">Come be a part of the Plan & Tentative Recipe.  We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!</div>
-                    <div role="tabpanel" class="tab-pane" id="updates">This is different. We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!"</div>
+                    <div role="tabpanel" class="tab-pane active" id="campaign">
+        
+                        Come be a part of the Plan & Tentative Recipe.  We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!
+
+
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="updates">
+                        <form>
+                            <fieldset class="form-group">
+                                <label for="exampleTextarea">This is only for the hopstarter/creator to post.</label>
+                                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                            </fieldset>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+
+                        This is different. We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!
+
+                    </div>
                     <div role="tabpanel" class="tab-pane" id="hopmakers">These are the hopmakers</div>
                 </div>
 
