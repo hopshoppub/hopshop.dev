@@ -32,3 +32,5 @@ Route::resource('/pitches', 'PitchesController');
  */
 Route::post('/users/store', 'UsersController@make');
 Route::resource('/users', 'UsersController');
+
+
