@@ -16,25 +16,28 @@
             <div class="modal-body">
                 
                 <label for="signup_first_name">First Name</label>
-                <input id="signup_first_name" type="text" class="form-control" placeholder="Enter first name" v-model="firstName">
+                <input id="signup_first_name" type="text" class="form-control" placeholder="Enter first name" v-model="signupFirstName">
 
                 <label for="signup_last_name">Last Name</label>
-                <input id="signup_last_name" type="email" class="form-control" placeholder="Enter last name" v-model="lastName">
+                <input id="signup_last_name" type="text" class="form-control" placeholder="Enter last name" v-model="signupLastName">
+
+                <label for="signup_user_name">Last Name</label>
+                <input id="signup_user_name" type="text" class="form-control" placeholder="Enter user name" v-model="signupUserName">
 
                 <label for="signup_email">Email</label>
-                <input id="signup_email" type="text" class="form-control" placeholder="Enter email" v-model="email">
+                <input id="signup_email" type="text" class="form-control" placeholder="Enter email" v-model="signupEmail">
 
                 <label for="signup_confirm_email">Confirm Email</label>
-                <input id="signup_confirm_email" type="text" class="form-control" placeholder="Confirm email" v-model="confirmEmail">
+                <input id="signup_confirm_email" type="text" class="form-control" placeholder="Confirm email" v-model="signupConfirmEmail">
 
                 <label for="signup_password">Password</label>
-                <input id="signup_password" type="password" class="form-control" placeholder="Enter password" v-model="password">
+                <input id="signup_password" type="password" class="form-control" placeholder="Enter password" v-model="signupPassword">
 
                 <label for="signup_confirm_password">Confirm Password</label>
-                <input id="signup_confirm_password" type="password" class="form-control" placeholder="Confirm password" v-model="confirmPassword">
+                <input id="signup_confirm_password" type="password" class="form-control" placeholder="Confirm password" v-model="signupConfirmPassword">
 
                 <label for="signup_zip_code">Zip Code</label>
-                <input id="signup_zip_code" type="text" class="form-control" placeholder="Enter zip code" v-model="zipCode">
+                <input id="signup_zip_code" type="text" class="form-control" placeholder="Enter zip code" v-model="signupZipCode">
 
             </div>
 
@@ -43,7 +46,7 @@
             --}}
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" v-on:click="signupClicked">Save changes</button>
             </div>
 
             

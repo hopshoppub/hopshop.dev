@@ -24,6 +24,23 @@ class UsersController extends \BaseController {
 		return View::make('users.create');
 	}
 
+	public function make()
+	{
+		$user = new User();
+
+		$user->email = Input::get('email');
+		$user->user_name = Input::get('user_name');
+		$user->password = Hash::make( Input::get('password') );
+		$user->first_name = Input::get('first_name');
+		$user->last_name = Input::get('last_name');
+		$user->zip_code = Input::get('zip_code');
+		$user->role = 1;
+
+		$user->save();
+
+		return Response::json( 'woot' );
+	}
+
 	/**
 	 * Store a newly created user in storage.
 	 *
@@ -31,16 +48,32 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), User::$rules);
+		// $validator = Validator::make($data = Input::all(), User::$rules);
 
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
+		// if ($validator->fails())
+		// {
+		// 	return Redirect::back()->withErrors($validator)->withInput();
+		// }
 
-		User::create($data);
+		// User::create($data);
 
-		return Redirect::route('users.index');
+		// return Redirect::route('users.index');
+
+		// $data = [];
+
+		$user = new User();
+
+		$user->email = Input::get('email');
+		$user->user_name = Input::get('user_name');
+		$user->password = Hash::make( Input::get('password') );
+		$user->first_name = Input::get('first_name');
+		$user->last_name = Input::get('last_name');
+		$user->zip_code = Input::get('zip_code');
+		$user->role = 1;
+
+		$user->save();
+
+		return Response::json( 'woot' );
 	}
 
 	/**

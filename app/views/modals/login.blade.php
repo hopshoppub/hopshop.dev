@@ -16,10 +16,10 @@
             <div class="modal-body">
                 
                     <label for="login_email">Email address</label>
-                    <input id="login_email" type="text" class="form-control" placeholder="Enter email" v-model="email">
+                    <input id="login_email" type="text" class="form-control" placeholder="Enter email" v-model="loginEmail">
 
                     <label for="login_password">Password</label>
-                    <input id="login_password" type="password" class="form-control" placeholder="Enter password" v-model="password">
+                    <input id="login_password" type="password" class="form-control" placeholder="Enter password" v-model="loginPassword">
                 
             </div>
 
