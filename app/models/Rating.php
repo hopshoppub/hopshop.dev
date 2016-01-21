@@ -7,6 +7,7 @@ class Rating extends BaseModel {
 		// 'title' => 'required'
 	];
 
+	protected $primaryKey = 'rating_id';
 	// Don't forget to fill this array
 	protected $fillable = [];
 

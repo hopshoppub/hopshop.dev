@@ -31,17 +31,14 @@ class RatingsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Rating::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		Rating::create($data);
-
-		return Redirect::route('ratings.index');
-	}
+		$rating = new Rating();
+		$rating->user_id = 1;
+		$rating->beer_id = $rating->beer_id;
+		$rating->rating = 5;
+		$rating->comment = 'Great beer, totally';
+		$rating->save();
+		return Redirect::action('BeersController@index');
+ 	}
 
 	/**
 	 * Display the specified rating.

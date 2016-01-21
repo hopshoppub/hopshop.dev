@@ -9,9 +9,9 @@ class BreweriesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$breweries = Brewery::all();
+		$breweries = Brewery::with('beer')->get();
 
-		return View::make('breweries.index', compact('breweries'));
+		return View::make('breweries.index')->with(['breweries' => $breweries]);
 	}
 
 	/**
@@ -53,7 +53,7 @@ class BreweriesController extends \BaseController {
 	{
 		$brewery = Brewery::findOrFail($id);
 
-		return View::make('breweries.show', compact('brewery'));
+		return View::make('breweries.show')->with(['brewery' => $brewery]);
 	}
 
 	/**
