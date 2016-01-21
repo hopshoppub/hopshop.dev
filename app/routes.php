@@ -26,3 +26,8 @@ Route::resource('/beers', 'BeersController');
  *		Pitch Routes
  */
 Route::resource('/pitches', 'PitchesController');
+
+	/*
+	 * Rating routes
+	 */ 
+Route::resource('/rating', 'RatingsController');
