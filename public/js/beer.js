@@ -1,21 +1,23 @@
 $(document).ready(function() {
-	$.get("/views/beers/index.blade.php").done(function(data) {
-		console.log(data);
-	})
-})
+	$('.description-toggle').hide();
+	$('.description-button').click(function(e) {
+		$idOfBeer = ($(this).data('grabId'));
+		$('[data-beer-id="' + $idOfBeer + '"]').slideToggle();
+		e.preventDefault();
+	});
 
-// $('#star-1').click(function() {
-	// 	console.log('1');
-	// })
-	// $('#star-2').click(function() {
-	// 	console.log('2');
-	// })
-	// $('#star-3').click(function() {
-	// 	console.log('3');
-	// })
-	// $('#star-4').click(function() {
-	// 	console.log('4');
-	// })
-	// $('#star-5').click(function() {
-	// 	console.log('5');
-	// })
+
+
+	function getBeerIdAndStarsNumber() {
+		$('.stars').click(function(e) {
+			$idOfBeer = ($(this).data('starId'));
+			$ratingNumber = event.target.value;
+		});
+	}
+	function getUrlData() {
+		$.get( "/beers", function( data ) {
+			console.log(data)
+		});
+	}
+	getUrlData();
+});

@@ -52,6 +52,7 @@ class PitchesController extends \BaseController {
 	public function show($id)
 	{
 		// 	
+		$pitch=Pitch::find($id);
 
 		return View::make('pitches.show', compact('pitch'));
 	}
@@ -102,6 +103,11 @@ class PitchesController extends \BaseController {
 		Pitch::destroy($id);
 
 		return Redirect::route('pitches.index');
+	}
+
+	public function fund()
+	{
+		return View::make('pitches.fund');
 	}
 
 }

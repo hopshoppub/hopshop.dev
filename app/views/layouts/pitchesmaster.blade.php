@@ -20,3 +20,8 @@
 
 
 @stop
+
+@section('bottom-script')
+<script src="https://js.stripe.com/v2/"></script>
+
+@stop

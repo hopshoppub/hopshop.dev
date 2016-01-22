@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 #beer-table {
 	border: groove 4px;
 	border-color: black;
@@ -14,4 +15,15 @@
 	background-image: url(/img/beer.back.jpg);
 	background-size: 500px;
 	margin:20px;
+}
+.hide-description {
+	display:none;
+	visibility: hidden;
+}
+.center {
+	text-align: center;
+}
+.beer-font {
+	font-family: "Indie Flower", cursive;
+	font-size: 200%;
 }
