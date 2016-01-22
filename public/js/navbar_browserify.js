@@ -11139,13 +11139,27 @@ $(document).ready(function() {
 
 	    	testVue.$data.user = data;
 
-	    	// console.log(data + 'form fb login');
-	    	// console.log('fb_id: ' + testVue.$data.user.facebook_id);
-	    	console.log(data);
+	    	// console.log(data);
         
 	    }).catch(function (data, status, request) {
 	        alert("error");
 	    });
+	}
+
+	function getProfilePic(id){
+	
+		FB.api(
+		    "/" + id + "/picture",
+		    function (response) {
+			console.log('getting pic id');
+		      if (response && !response.error) {
+		        /* handle the result */
+		    	console.log( 'pic_id: ' + response.id );
+		    	console.log(response.data.url);
+				document.getElementById('#user_profile_pic').innerHTML = '<img src=' + response.data.url + ' />';
+		      }
+		    }
+		);
 	}
 
 
@@ -11164,6 +11178,7 @@ $(document).ready(function() {
 	      // Logged into your app and Facebook.
 	      // testAPI();
 	      facebookLogin( testVue.$data.user.facebook_id );
+	      getProfilePic(testVue.$data.user.facebook_id );
 	    } else if (response.status === 'not_authorized') {
 	      // The person is logged into Facebook, but not your app.
 	      document.getElementById('status').innerHTML = 'Please log ' +
