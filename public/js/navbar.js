@@ -100,9 +100,7 @@ $(document).ready(function() {
 
 	    	testVue.$data.user = data;
 
-	    	// console.log(data + 'form fb login');
-	    	// console.log('fb_id: ' + testVue.$data.user.facebook_id);
-	    	console.log(data);
+	    	// console.log(data);
         
 	    }).catch(function (data, status, request) {
 	        alert("error");

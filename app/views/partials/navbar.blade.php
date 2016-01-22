@@ -8,12 +8,12 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>                        
 			</button>
-			<a class="navbar-brand" href="#">HopShop</a>
+			<a class="navbar-brand" href="{{{ action('HomeController@showHome')}}}">HopShop</a>
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 
 			<ul class="nav navbar-nav">
-				<li><a href="#">Beer Of The Day</a></li>
+				<li><a href="{{{ action('BeersController@show', 9) }}}">Beer Of The Day</a></li>
 				<li><a href="{{{ action('BeersController@index') }}}">Top-Rated</a></li>
 				<li><a href="{{{ action('PitchesController@index') }}}">Brewery Pitches</a></li>
 				<li class="divider"></li>
