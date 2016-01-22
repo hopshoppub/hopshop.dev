@@ -9,7 +9,7 @@
 <div class="col-xs-5 col-md-3"><h4>Brewery: </h4> <h3>{{{ $breweries->name }}}</h3></div>
 @foreach($breweries as $brewery)
 <div id='beer-table-outline'>
-<div class="container" id='beer-table'>
+	<div class="container" id='beer-table'>
         <div class="row">
             <div class="col-xs-8 col-md-3"><img src="http://placehold.it/350x150" alt="Mountain View" style="width:250px;height:200px;"></div>
             <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3>{{{ $breweries->beer->name }}}</h3></div>
