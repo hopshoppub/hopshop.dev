@@ -14,7 +14,7 @@
 	background-color: black;
 	background-image: url(/img/beer.back.jpg);
 	background-size: 500px;
-	margin:20px;
+	margin-top:20px;
 }
 .hide-description {
 	display:none;
