@@ -65,7 +65,7 @@
 <div class='col-12'>
     <div class='contain' id='reSizeBeerSeason'>
         <div class='seasonal-heading' id='reSizeHeading'>
-            <h1 class='seasonal-heading-left' id='reSizeHeadingLeft'>What's<br> in<br> Season?</h1>
+            <h1 class='seasonal-heading-left' id='reSizeHeadingLeft'>What's in Season?</h1>
         </div>
     </div>
 </div>
@@ -74,7 +74,7 @@
 --}}
 <div class='col-12'>
     <div class='beer-posts' id='beer-trivia'>
-    <h1>How Much Do You Know About Beer?</h1>
+    <h1 class='trivia-title'>How Much Do You Know About Beer?</h1>
         <div class='container'>
             <form method="POST" action="/MyFirstForm.php">
             <div class='trivia' id='trivia-inner'>
