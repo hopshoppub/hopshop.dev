@@ -1,12 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 body {
-    background-image: url(/img/hot-wood2.jpg);
+    background-image: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/purty_wood.png");
+    background-color: saddlebrown;
+    background-blend-mode: hard-light;
 }
 
 .logo {
     height:100px;
-    background-color: white;
-    background-image: url(/img/hot-wood2.jpg);
 }
 .cover {
     height:30px;
@@ -19,7 +19,7 @@ body {
 }
 .navbar-color {
     height:5px;
-    background-color: #F0B310;
+    background-color: #299A2B;
 }
 #myNavbar {
     font-family: "Indie Flower", cursive;
@@ -36,6 +36,13 @@ body {
 .beerpitches {
     font-family: "Indie Flower", cursive;
     
+}
+.navbar-inverse .navbar-brand {
+    color: #4AB94C;
+    font-size: 200%;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
 }
 /*
 .pitchesindex {
