@@ -1,6 +1,16 @@
 
 $(document).ready(function() {
 
+
+	$('#beer-of-day').click(function() {
+		window.location.href='/beers/9';
+	})
+	$('#top-rated').click(function() {
+		window.location.href='/beers';
+	})
+	$('#brewery-pitches').click(function() {
+		window.location.href='/pitches';
+	})
 	function reSizeBeerTrivia() {
 		var win = $(this);
 		$triviaHeight = $('#trivia-inner').height();

@@ -23,9 +23,9 @@
             <input name="cs_anchor1" id="cs_pause1_2" type="radio" class="cs_anchor pause">
             <ul>
               <li class="cs_skeleton"><img src="cssslider_files/csss_images1/craftbeer.jpg" style="width: 100%;"></li>
-              <li class="num0 img slide"> <img src="cssslider_files/csss_images1/craftbeer.jpg" alt="craft-beer" title="craft-beer"></li>
-              <li class="num1 img slide"> <img src="cssslider_files/csss_images1/holy-grail.jpg" alt="beer-logos" title="beer-logos"></li>
-              <li class="num2 img slide"> <img src="cssslider_files/csss_images1/tanks.jpg" alt="tanks" title="tanks"></li>
+              <li class="num0 img slide"> <img src="cssslider_files/csss_images1/craftbeer.jpg" id='beer-of-day'alt="craft-beer" title="craft-beer"></li>
+              <li class="num1 img slide"> <img src="cssslider_files/csss_images1/holy-grail.jpg" id='top-rated'alt="beer-logos" title="beer-logos"></li>
+              <li class="num2 img slide"> <img src="cssslider_files/csss_images1/tanks.jpg" id='brewery-pitches'alt="tanks" title="tanks"></li>
             </ul><div class="cs_engine"><a href="http://cssslider.com"></a> </div>
             <div class="cs_description">
               <label class="num0"><span class="cs_title"><span class="cs_wrapper">Beer Of The Day</span></span></label>
