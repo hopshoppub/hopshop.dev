@@ -20,10 +20,10 @@ $(document).ready(function() {
 	}
 	getBeerIdAndStarsNumber();
 
-	function sendRating(id, rating) {
+	function sendRating(id, ratingNumber) {
 
-		$.get("/beers/" + id + "/" + rating , function(){
-			
+		$.get("/beers/" + id + "/" + ratingNumber , function(data){
+			console.log(ratingNumber)
 		});
 	}
 
