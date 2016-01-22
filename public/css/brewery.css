@@ -13,7 +13,7 @@
 .beer-table-outline {
 	background-color: black;
 	background-image: url(/img/beer.back.jpg);
-	background-color: #C3C32C;
+	background-color: green;
 	 background-blend-mode: color-burn;
 	background-size: 500px;
 	margin-top:20px;
