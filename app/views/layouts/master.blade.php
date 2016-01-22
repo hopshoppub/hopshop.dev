@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html>
-
+<img src="/img/hopshop (1).jpg" style="width:300px;height:200px;">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
