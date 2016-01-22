@@ -26,6 +26,7 @@ Route::resource('/beers', 'BeersController');
 /*
  *		Pitch Routes
  */
+Route::get('/pitches/fund', 'PitchesController@fund');
 Route::resource('/pitches', 'PitchesController');
 
 
@@ -37,5 +38,10 @@ Route::post('/users/store', 'UsersController@make');
 Route::resource('/users', 'UsersController');
 
 Route::resource('/breweries', 'BreweriesController');
+
+
+// {
+// 	return View::make('pitches.fund');
+// });
 
 

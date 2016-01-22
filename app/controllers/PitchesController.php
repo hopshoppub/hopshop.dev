@@ -105,4 +105,9 @@ class PitchesController extends \BaseController {
 		return Redirect::route('pitches.index');
 	}
 
+	public function fund()
+	{
+		return View::make('pitches.fund');
+	}
+
 }
