@@ -20,7 +20,7 @@
 <div class="container" id='beer-table'>
         <div class="row">
             <div class="col-xs-8 col-md-3"><img src="http://placehold.it/350x150" alt="Mountain View" style="width:250px;height:200px;"></div>
-            <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3>{{{ $beer->name }}}</h3></div>
+            <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3 class='beer-font'>{{{ $beer->name }}}</h3></div>
             <div class="col-xs-5 col-md-3"><h4>Rating:</h4>
                 <div>
                     <div class="stars" data-star-id="{{{ $beer->beer_id }}}">
@@ -41,14 +41,14 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-xs-8 col-md-3"><h4>ABV: </h4> <h3>{{{ $beer->abv }}}</h3></div>
-            <div class="col-xs-5 col-md-3"><h4>Style: </h4> <h3>{{{ $beer->style->style_name }}}</h3></div>
+            <div class="col-xs-8 col-md-3"><h4>ABV: </h4> <h3 class='beer-font'>{{{ $beer->abv }}}</h3></div>
+            <div class="col-xs-5 col-md-3"><h4>Style: </h4> <h3 class='beer-font'>{{{ $beer->style->style_name }}}</h3></div>
             <a href="{{{ action("BreweriesController@show", $beer->brewery_id) }}}" class="col-xs-5 col-md-3"><h4>Brewery: </h4> <h3>{{{ $beer->brewery->name }}}</h3></a>
         </div>
         <div class='row'>
             <div class="description-toggle" data-beer-id="{{{ $beer->beer_id }}}">
                 <h2>Description: </h2>
-                <div class="col-xs-8 col-md-12"><h4> </h4> <h3>{{{ $beer->description }}}</h3></div>
+                <div class="col-xs-8 col-md-12"><h4> </h4> <h3 class='beer-font'>{{{ $beer->description }}}</h3></div>
             </div>
         </div>
         <button class='pull-right description-button btn' data-grab-id="{{{ $beer->beer_id }}}">Click Here For Description: </button>

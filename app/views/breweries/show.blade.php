@@ -12,8 +12,21 @@
 @section('content')
 <div id='beer-table-outline'>
 	<div class="container" id='beer-table'>
+		<div class="row">
+			<div class="col-xs-8 col-md-11 center"><h2>Brewery: </h2></div>
+		</div>
+	</div>
+</div>
+<div id='beer-table-outline'>
+	<div class="container" id='beer-table'>
         <div class="row">
-			<div class="col-xs-5 col-md-3"><h4>Brewery: </h4> <h3>{{{ $brewery->name }}}</h3></div>
+			<div class="col-xs-8 col-md-11"><h3>{{{ $brewery->name }}}</h3></div>
+			<hr>
+			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Website:  </strong>{{{ $brewery->website }}}</h3></div>
+			<hr>
+			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Phone:   </strong>{{{ $brewery->phone }}}</h3></div>
+			<hr>
+			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Address:   </strong>{{{ $brewery->address }}}</h3></div>
 		</div>
 	</div>
 </div>
@@ -22,7 +35,7 @@
 	<div class="container" id='beer-table'>
 		<div class="row">
             <div class="col-xs-8 col-md-3"><img src="http://placehold.it/350x150" alt="Mountain View" style="width:250px;height:200px;"></div>
-            <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3>{{{ $beers->name }}}</h3></div>
+            <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3 class='beer-font'>{{{ $beers->name }}}</h3></div>
             <div class="col-xs-5 col-md-3"><h4>Rating:</h4>
                <form id="ratingsForm">
 					<div class="stars">
@@ -42,12 +55,12 @@
 				</form>
         	</div>
         <div class="row">
-            <div class="col-xs-5 col-md-3"><h4>Style: </h4> <h3>{{{ $beers->style->style_name }}}</h3></div>
-            <div class="col-xs-8 col-md-3"><h4>ABV: </h4> <h3>{{{ $beers->abv }}}</h3></div>
+            <div class="col-xs-5 col-md-3"><h4>Style: </h4> <h3 class='beer-font'>{{{ $beers->style->style_name }}}</h3></div>
+            <div class="col-xs-8 col-md-3"><h4>ABV: </h4> <h3 class='beer-font'>{{{ $beers->abv }}}</h3></div>
         </div>
         <div class='row'>
 	        <div class="description-toggle" data-beer-id="{{{ $beers->beer_id }}}">
-	        	<div class="col-xs-8 col-md-12"><h4> </h4> <h3>{{{ $beers->description }}}</h3></div>
+	        	<div class="col-xs-8 col-md-12"><h4> </h4> <h3 class='beer-font'>{{{ $beers->description }}}</h3></div>
 	        </div>
 	    </div>
     		<button class='pull-right description-button' data-grab-id="{{{ $beers->beer_id }}}">Click Here For Description: </button>
