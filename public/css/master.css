@@ -29,6 +29,9 @@ body {
     font-family: "Indie Flower", cursive;
     font-size: 140%;
 }
+#facebook_login_button_navbar{
+    margin-top:10px;
+}
 
 .beerpitches {
     font-family: "Indie Flower", cursive;
