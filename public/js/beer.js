@@ -1,8 +1,17 @@
 $(document).ready(function() {
-	$.get("/views/beers/index.blade.php").done(function(data) {
-		console.log(data);
-	})
-})
+	$('.description-toggle').hide();
+	$('.description-button').click(function(e) {
+		$idOfBeer = ($(this).data('grabId'));
+		$('[data-beer-id="' + $idOfBeer + '"]').slideToggle();
+		e.preventDefault();
+	});
+
+	// $( "#description-click-here" ).click(function() {
+	//   alert( "Handler for .click() called." );
+	// });
+
+	// console.log('woot');
+});
 
 // $('#star-1').click(function() {
 	// 	console.log('1');

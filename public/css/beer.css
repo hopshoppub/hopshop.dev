@@ -15,3 +15,7 @@
 	background-size: 500px;
 	margin:20px;
 }
+.hide-description {
+	display:none;
+	visibility: hidden;
+}
