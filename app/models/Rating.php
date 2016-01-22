@@ -26,4 +26,5 @@ class Rating extends BaseModel {
 	{
 		return $this->belongsTo('Beer');
 	}
+
 }
