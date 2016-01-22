@@ -12,8 +12,6 @@ $(document).ready(function() {
 		$('.stars').click(function(e) {
 			$idOfBeer = ($(this).data('starId'));
 			$ratingNumber = event.target.value;
-			console.log($idOfBeer);
-			console.log($ratingNumber);
 			sendRating($idOfBeer, $ratingNumber);
 			// changeStars();
 		});
