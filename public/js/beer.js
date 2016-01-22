@@ -15,10 +15,9 @@ $(document).ready(function() {
 		});
 	}
 	function getUrlData() {
-		$.get( "/beers?param1=blah&param2=blahh", 
-			{ beerId: '2'}, 
-			function( data ) {
-		  	console.log(data);
+		$.get( "/beers", function( data ) {
+			console.log(data)
 		});
 	}
+	getUrlData();
 });

@@ -32,4 +32,10 @@ $(document).ready(function() {
 		reSizeBeerTrivia();
 		reSizeSeasonalBeerPost();
 	});
+
+
+
+
+
+
 });

@@ -8,12 +8,15 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>                        
 			</button>
-			<a class="navbar-brand" >HopShop</a>
+
+
+			<a class="navbar-brand" href="{{{ action('HomeController@showHome')}}}">hopshop</a>
+
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 
 			<ul class="nav navbar-nav">
-				<li><a href="#">Beer Of The Day</a></li>
+				<li><a href="{{{ action('BeersController@show', 9) }}}">Beer Of The Day</a></li>
 				<li><a href="{{{ action('BeersController@index') }}}">Top-Rated</a></li>
 				<li><a href="{{{ action('PitchesController@index') }}}">Brewery Pitches</a></li>
 				<li class="divider"></li>
@@ -25,7 +28,7 @@
             <div v-if="!loggedIn">
     			<ul class="nav navbar-nav navbar-right">
     				<li><a href="#" data-toggle="modal" data-target="#signup_modal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-
+					
     				<li><a href="#" data-toggle="modal" data-target="#login_modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     			</ul>
             </div>
@@ -44,6 +47,10 @@
 @include('modals.login')
 @include('modals.signup')
 </nav>
+
+
+<div id="status">
+</div>
 
 
 
