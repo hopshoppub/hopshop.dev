@@ -12,12 +12,26 @@ $(document).ready(function() {
 		$('.stars').click(function(e) {
 			$idOfBeer = ($(this).data('starId'));
 			$ratingNumber = event.target.value;
+			console.log($idOfBeer);
+			console.log($ratingNumber);
+			sendRating($idOfBeer, $ratingNumber);
+			// changeStars();
 		});
 	}
-	function getUrlData() {
-		$.get( "/beers", function( data ) {
-			console.log(data)
+	getBeerIdAndStarsNumber();
+
+	function sendRating(id, rating) {
+
+		$.get("/beers/" + id + "/" + rating , function(){
+			
 		});
 	}
-	getUrlData();
+
+	// function changeStar
+	// function getUrlData() {
+	// 	$.get( "/beers", function( data ) {
+	// 		console.log(data)
+	// 	});
+	// }
+	// getUrlData();
 });
