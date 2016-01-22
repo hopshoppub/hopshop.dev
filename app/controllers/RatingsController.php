@@ -39,6 +39,10 @@ class RatingsController extends \BaseController {
 		$rating->save();
 		return Redirect::action('BeersController@index');
  	}
+ 	public function storeRating() 
+ 	{
+ 		echo'hello';
+ 	}
 
 	/**
 	 * Display the specified rating.
