@@ -14,7 +14,7 @@
 
 <h1>Fund for $20</h1>
 
-{{ Form::open() }}
+{{ Form::open(['id'=>'billing-form']) }}
 	<div class="form-row"></div>
 		<label>
 			<span>Card number:</span>
@@ -41,5 +41,9 @@
 {{ Form::close() }}
 
 
+@stop
+
+@section('footer')
+	<script src="js/billing.js"></script>
 @stop
 
