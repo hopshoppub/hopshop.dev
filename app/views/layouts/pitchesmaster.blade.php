@@ -1,20 +1,22 @@
 @extends('layouts.master')
 
-
 @section('top-script')
+<meta name="publishable-key" content="{{ Config::get('stripe.publishable_key') }}">
 
-<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'
+>
+    
 
 
 @stop
 
 
-@section('content')
+
 <div class="container">
-	<div class='row'>
-		<h2 id="title">Pitches</h2>
-	</div>
+    {{-- <div class='row'>
+        <h2 id="title">Pitches</h2> --}}
+        @yield('content')
+    {{-- </div> --}}
 </div>
 
 
@@ -23,5 +25,6 @@
 
 @section('bottom-script')
 <script src="https://js.stripe.com/v2/"></script>
+@yield('footer')
 
 @stop

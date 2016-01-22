@@ -41,8 +41,6 @@ Route::resource('/users', 'UsersController');
 Route::resource('/breweries', 'BreweriesController');
 
 
-// {
-// 	return View::make('pitches.fund');
-// });
+
 
 
