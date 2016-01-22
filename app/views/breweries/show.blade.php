@@ -40,7 +40,7 @@
 					</div>
 				  
 				</form>
-        </div>
+        	</div>
         <div class="row">
             <div class="col-xs-5 col-md-3"><h4>Style: </h4> <h3>{{{ $beers->style->style_name }}}</h3></div>
             <div class="col-xs-8 col-md-3"><h4>ABV: </h4> <h3>{{{ $beers->abv }}}</h3></div>
@@ -50,13 +50,11 @@
 	        	<div class="col-xs-8 col-md-12"><h4> </h4> <h3>{{{ $beers->description }}}</h3></div>
 	        </div>
 	    </div>
-    	<button class='pull-right description-button' data-grab-id="{{{ $beers->beer_id }}}">Click Here For Description: </button>
-    </div>
+    		<button class='pull-right description-button' data-grab-id="{{{ $beers->beer_id }}}">Click Here For Description: </button>
+    	</div>
+	</div>
 </div>
     @endforeach
-        <hr>
-        
-</div>
 {{-- {{  (Input::has('search')) ? null: $beers->links() }} --}}
         
 @stop
