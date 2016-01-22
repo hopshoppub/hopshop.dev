@@ -16,8 +16,8 @@ $(document).ready(function() {
 		if (win.width() < 767) {
 			var text_input = $('#reSizeBeerSeason');
 			text_input.css("font-size", "3.7px");
-			$('#reSizeHeadingLeft').height(165);
-			$('#reSizeHeading').height(165);
+			$('#reSizeHeadingLeft').height(300);
+			$('#reSizeHeading').height(300);
 			$('#beer-trivia').css({'margin-top':'50px'}); 
 			$('#beer-trivia').css({'margin-bottom':'50px'}); 
 		} else if (win.width() >= 1200) {

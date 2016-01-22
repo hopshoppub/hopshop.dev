@@ -11,28 +11,25 @@
 
 @section('content')
 <div id='beer-table-outline'>
-	<div class="container" id='beer-table'>
+	<div id='beer-table'>
 		<div class="row">
 			<div class="col-xs-8 col-md-11 center"><h2>Brewery: </h2></div>
 		</div>
 	</div>
 </div>
 <div id='beer-table-outline'>
-	<div class="container" id='beer-table'>
+	<div id='beer-table'>
         <div class="row">
 			<div class="col-xs-8 col-md-11"><h3>{{{ $brewery->name }}}</h3></div>
-			<hr>
 			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Website:  </strong>{{{ $brewery->website }}}</h3></div>
-			<hr>
 			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Phone:   </strong>{{{ $brewery->phone }}}</h3></div>
-			<hr>
 			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Address:   </strong>{{{ $brewery->address }}}</h3></div>
 		</div>
 	</div>
 </div>
 @foreach($brewery->beers as $beers )
 <div id='beer-table-outline'>
-	<div class="container" id='beer-table'>
+	<div id='beer-table'>
 		<div class="row">
             <div class="col-xs-8 col-md-3"><img src="http://placehold.it/350x150" alt="Mountain View" style="width:250px;height:200px;"></div>
             <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3 class='beer-font'>{{{ $beers->name }}}</h3></div>
