@@ -51,4 +51,26 @@ class HomeController extends BaseController {
 		return Response::json( $response );
 	}
 
+	public function fbLogin( $fb_id ) 
+	{
+		// return $fb_id;
+		try {
+			$user = User::where('facebook_id', $fb_id)->findOrFail();
+
+		} catch (Exception $e) {
+
+			$user = new User();
+
+			$user->facebook_id = $fb_id;
+			$user->role = 1;
+
+			$user->save();
+			// dd($fb_id);
+			$user = User::where('facebook_id', $fb_id)->first();
+		}
+		Auth::login($user);
+		return Response::json( Auth::user() );
+			// return Response::json( $user );
+	}
+
 }

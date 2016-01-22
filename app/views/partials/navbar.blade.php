@@ -25,7 +25,7 @@
             <div v-if="!loggedIn">
     			<ul class="nav navbar-nav navbar-right">
     				<li><a href="#" data-toggle="modal" data-target="#signup_modal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-
+					
     				<li><a href="#" data-toggle="modal" data-target="#login_modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     			</ul>
             </div>
@@ -44,6 +44,10 @@
 @include('modals.login')
 @include('modals.signup')
 </nav>
+
+
+<div id="status">
+</div>
 
 
 

@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration {
 			$table->string('last_name', 50)->nullable();
 			$table->string('zip_code',10)->nullable()->index();
 			$table->integer('role')->unsigned()->index();
-			$table->integer('facebook_id')->unsigned()->index()->nullable();
+			$table->bigInteger('facebook_id')->unsigned()->index()->nullable();
 			$table->rememberToken();
 			$table->timestamps();
 		});
