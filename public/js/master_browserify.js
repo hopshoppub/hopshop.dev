@@ -11169,7 +11169,6 @@ function run(myVue){
 module.exports = run;
 },{}],28:[function(require,module,exports){
 function reSizeBeerTrivia() {
-	console.log('resizing');
 	var win = $(this);
 	$triviaHeight = $('#trivia-inner').height();
 	$beerHeight = $('#beer-trivia').height();
@@ -11306,6 +11305,8 @@ var theVue = new Vue ({
 
                 theVue.$data.loggedIn = false;
                 theVue.$data.user = data;
+                document.getElementById('status').innerHTML =
+                'Thanks for visiting or site!!';
 
             }).catch(function (data, status, request) {
                 alert('sorry an error accored and you were not logged out');

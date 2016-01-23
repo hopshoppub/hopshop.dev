@@ -50,7 +50,8 @@
 </nav>
 
 
-<div id="status">
+<div id="status" class="right">
+	Login with Facebook!
 </div>
 
 

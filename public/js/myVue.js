@@ -63,6 +63,8 @@ var theVue = new Vue ({
 
                 theVue.$data.loggedIn = false;
                 theVue.$data.user = data;
+                document.getElementById('status').innerHTML =
+                'Thanks for visiting or site!!';
 
             }).catch(function (data, status, request) {
                 alert('sorry an error accored and you were not logged out');

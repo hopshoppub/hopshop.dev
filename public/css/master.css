@@ -1,10 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+/*
+ *      Global Tags and Classes
+ */
+
 body {
     background-image: url(/img/hot-wood.png);
     background-color: saddlebrown;
     background-blend-mode: hard-light;
 }
 
+.right{
+    text-align: right;
+}
 .logo {
     background-image:url(/img/hopshop.jpg);
     background-size: 205px;
@@ -19,6 +27,13 @@ body {
     height:55px;
     margin-top: 17px;
 }
+
+/*
+ *      Navbar 
+ */
+ #status{
+    margin-right:15px;
+ }
 .navbar-color {
     height:5px;
     background-color: #BBCC33;
@@ -34,7 +49,6 @@ body {
 #facebook_login_button_navbar{
     margin-top:10px;
 }
-
 .beerpitches {
     font-family: "Indie Flower", cursive;
     
