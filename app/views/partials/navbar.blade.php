@@ -38,14 +38,15 @@
             --}}
             <div v-if="loggedIn">
                 <ul class="nav navbar-nav navbar-right">
+                	<li id="user_profile_picture"></li>
+
                     <li><a href="#" v-on:click="logoutClicked"><span class="glyphicon glyphicon-user"></span>Log Out</a></li>
                 </ul>
             </div>
-
 		</div>
 	</div>
-@include('modals.login')
-@include('modals.signup')
+	@include('modals.login')
+	@include('modals.signup')
 </nav>
 
 
