@@ -112,12 +112,12 @@ $(document).ready(function() {
 		FB.api(
 		    "/" + id + "/picture",
 		    function (response) {
-			console.log('getting pic id');
+			// console.log('getting pic id');
 		      if (response && !response.error) {
 		        /* handle the result */
-		    	console.log( 'pic_id: ' + response.id );
-		    	console.log(response.data.url);
-				document.getElementById('#user_profile_pic').innerHTML = '<img src=' + response.data.url + ' />';
+		    	// console.log( 'pic_id: ' + response.id );
+		    	// console.log(response.data.url);
+				// document.getElementById('#user_profile_pic').innerHTML = '<img src=' + response.data.url + ' />';
 		      }
 		    }
 		);
