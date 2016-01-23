@@ -16,6 +16,7 @@
     padding:20px;
     font-family: "Indie Flower", cursive;
     background-color: #C1C0AC;
+    border-radius: 15px;
 }
 .seasonal-heading {
     background-image: url(/img/seasonal.jpg);

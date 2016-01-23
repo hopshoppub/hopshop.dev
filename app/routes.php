@@ -40,6 +40,8 @@ Route::resource('/users', 'UsersController');
 
 Route::resource('/breweries', 'BreweriesController');
 
+Route::get('/beers/{id}/{rating}', 'RatingsController@storeRating');
+
 
 
 

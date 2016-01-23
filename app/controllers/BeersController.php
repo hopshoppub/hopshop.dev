@@ -75,7 +75,7 @@ class BeersController extends \BaseController {
 	{
 		$beer = Beer::findOrFail($id);
 
-		return View::make('beers.show', compact('beer'));
+		return View::make('beers.show')->with(['beer' => $beer]);
 	}
 
 	/**

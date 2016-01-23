@@ -31,13 +31,16 @@ class RatingsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$rating = new Rating();
-		$rating->user_id = 1;
-		$rating->beer_id = $rating->beer_id;
-		$rating->rating = 5;
-		$rating->comment = 'Great beer, totally';
-		$rating->save();
-		return Redirect::action('BeersController@index');
+		
+ 	}
+ 	public function storeRating($id,$ratingNumber) 
+ 	{
+ 		$inputRating = new Rating();
+ 		$inputRating->user_id = 1;
+ 		$inputRating->beer_id = $id;
+ 		$inputRating->rating = $ratingNumber;
+ 		$inputRating->comment = 'Awesome beer, i would reccomend to anyone!';
+ 		$inputRating->save();
  	}
 
 	/**

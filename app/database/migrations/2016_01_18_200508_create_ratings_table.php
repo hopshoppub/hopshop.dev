@@ -22,7 +22,7 @@ class CreateRatingsTable extends Migration {
 
 			$table->primary(['beer_id', 'user_id']);
 
-			$table->integer('rating');
+			$table->string('rating');
 			$table->string('comment',300);
 
 			$table->timestamps();
