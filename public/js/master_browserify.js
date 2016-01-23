@@ -11037,137 +11037,223 @@ function merge(target, source, deep) {
 
 }));
 },{}],26:[function(require,module,exports){
-'use strict';
+$('.description-toggle').hide();
+$('.description-button').click(function(e) {
+	$idOfBeer = ($(this).data('grabId'));
+	$('[data-beer-id="' + $idOfBeer + '"]').slideToggle();
+	e.preventDefault();
+});
 
-var Vue = require('vue');
-
-Vue.use(require('vue-resource'));
 
 
+function getBeerIdAndStarsNumber() {
+	$('.stars').click(function(e) {
+		$idOfBeer = ($(this).data('starId'));
+		$ratingNumber = event.target.value;
+		console.log($idOfBeer);
+		console.log($ratingNumber);
+		sendRating($idOfBeer, $ratingNumber);
+		// changeStars();
+	});
+}
+getBeerIdAndStarsNumber();
 
-// This is called with the results from from FB.getLoginStatus().
-function statusChangeCallback(response) {
+function sendRating(id, ratingNumber) {
 
-  console.log('statusChangeCallback');
-  console.log(response.authResponse);
+	$.get("/beers/" + id + "/" + ratingNumber , function(data){
+		console.log(ratingNumber)
+	});
+}
 
-    FB.api('/me', function(me){
+	// function changeStar
+	// function getUrlData() {
+	// 	$.get( "/beers", function( data ) {
+	// 		console.log(data)
+	// 	});
+	// }
+	// getUrlData();
 
-      if (me.id) {
-          // var facebook_userid = me.id;
-          // alert(facebook_userid);
-          testVue.$data.user.facebook_id = me.id;
 
-        if (response.status === 'connected') {
-          // Logged into your app and Facebook.
-          // testAPI();
-          facebookLogin( testVue.$data.user.facebook_id );
-          getProfilePic(testVue.$data.user.facebook_id );
-        } else if (response.status === 'not_authorized') {
-          // The person is logged into Facebook, but not your app.
-          document.getElementById('status').innerHTML = 'Please log ' +
-            'into this app.';
-        } else {
-          // The person is not logged into Facebook, so we're not sure if
-          // they are logged into this app or not.
-          document.getElementById('status').innerHTML = 'Please log ' +
-            'into Facebook.';
+},{}],27:[function(require,module,exports){
+function run(myVue){
+
+
+    // This is called with the results from from FB.getLoginStatus().
+    function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response.authResponse);
+        FB.api('/me', function(me){
+            if (me.id) {
+              console.log(me.id);
+                // var facebook_userid = me.id;
+                // alert(facebook_userid);
+                myVue.$data.user.facebook_id = me.id;
+                console.log(myVue.$data.user.facebook_id);
+            // console.log( 'new test' + testVue.$data.user.facebook_id );
+
+          if (response.status === 'connected') {
+            // Logged into your app and Facebook.
+            // testAPI();
+            myVue.facebookLogin( myVue.$data.user.facebook_id );
+            // getProfilePic(myVue.$data.user.facebook_id );
+          } else if (response.status === 'not_authorized') {
+            // The person is logged into Facebook, but not your app.
+            document.getElementById('status').innerHTML = 'Please log ' +
+              'into this app.';
+          } else {
+            // The person is not logged into Facebook, so we're not sure if
+            // they are logged into this app or not.
+            document.getElementById('status').innerHTML = 'Please log ' +
+              'into Facebook.';
+          }
         }
-      }
-  });
-}
+    });
+    }
 
-// This function is called when someone finishes with the Login
-// Button.  See the onlogin handler attached to it in the sample
-// code below.
-function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-}
+    // This function is called when someone finishes with the Login
+    // Button.  See the onlogin handler attached to it in the sample
+    // code below.
+    function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+    }
 
-window.fbAsyncInit = function() {
-
-  FB.init({
+    window.fbAsyncInit = function() {
+    FB.init({
     appId      : '1670397703235376',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.2' // use version 2.2
-  });
+    });
 
-  // Now that we've initialized the JavaScript SDK, we call 
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
+    // Now that we've initialized the JavaScript SDK, we call 
+    // FB.getLoginStatus().  This function gets the state of the
+    // person visiting this page and can return one of three states to
+    // the callback you provide.  They can be:
+    //
+    // 1. Logged into your app ('connected')
+    // 2. Logged into Facebook, but not your app ('not_authorized')
+    // 3. Not logged into Facebook and can't tell if they are logged into
+    //    your app or not.
+    //
+    // These three cases are handled in the callback function.
 
-  FB.getLoginStatus(function(response) {
+    FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
-  });
-};
+    });
 
-// Load the SDK asynchronously
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+    };
 
-// Here we run a very simple test of the Graph API after login is
-// successful.  See statusChangeCallback() for when this call is made.
-function testAPI() {
+    // Load the SDK asynchronously
+    (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 
-  console.log('Welcome!  Fetching your information.... ');
-  FB.api('/me', function(response) {
-    console.log('Successful login for: ' + response.name);
-    document.getElementById('status').innerHTML =
-      'Thanks for logging in, ' + response.name + '!';
-  });
+    // Here we run a very simple test of the Graph API after login is
+    // successful.  See statusChangeCallback() for when this call is made.
+    function testAPI() {
+    // console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      // console.log('Successful login for: ' + response.name);
+      // document.getElementById('status').innerHTML =
+      //   'Thanks for logging in, ' + response.name + '!';
+    });
+    }
 }
 
+module.exports = run;
+},{}],28:[function(require,module,exports){
+function reSizeBeerTrivia() {
+	console.log('resizing');
+	var win = $(this);
+	$triviaHeight = $('#trivia-inner').height();
+	$beerHeight = $('#beer-trivia').height();
+	if (win.height() < 767) {
+		$('#beer-trivia').height($triviaHeight + 250);
+	} else if (win.width() >= 1200) {
+    	$('#beer-trivia').height(600);
+	}
+}
+
+function reSizeSeasonalBeerPost() {
+	var win = $(this)
+	if (win.width() < 767) {
+		var text_input = $('#reSizeBeerSeason');
+		text_input.css("font-size", "3.7px");
+		$('#reSizeHeadingLeft').height(300);
+		$('#reSizeHeading').height(300);
+		$('#beer-trivia').css({'margin-top':'50px'}); 
+		$('#beer-trivia').css({'margin-bottom':'50px'}); 
+	} else if (win.width() >= 1200) {
+		var text_input = $('#reSizeBeerSeason');
+    	text_input.css("font-size", "15px");
+		$('#reSizeHeadingLeft').height(600);
+		$('#reSizeHeading').height(600);
+	}
+}
+
+/*
+ *		Event Listeners
+ */
+ 
+$('#beer-of-day').click(function() {
+	window.location.href='/beers/9';
+});
+
+$('#top-rated').click(function() {
+	window.location.href='/beers';
+});
+
+$('#brewery-pitches').click(function() {
+	window.location.href='/pitches';
+});
+
+$(window).on('resize', function(){
+	var win = $(this); //this = window
+	reSizeBeerTrivia();
+	reSizeSeasonalBeerPost();
+});
+},{}],29:[function(require,module,exports){
+
+$(document).ready(function() {
+
+	"use strict";
+
+	var myVue = require('../js/myVue.js');
+
+	var fbLogin = require('../js/facebook.js');
+	fbLogin(myVue);
+
+	require('../js/homepage.js');
+
+	require('../js/beer.js');
+
+	// require('../js/billing.js');
 
 
 
 
+});
 
+},{"../js/beer.js":26,"../js/facebook.js":27,"../js/homepage.js":28,"../js/myVue.js":30}],30:[function(require,module,exports){
+var Vue = require('vue');
 
+Vue.use(require('vue-resource'));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// require(public_path() + 'facebook.js');
-// require(public_path() + 'navbar.js');
+Vue.http.options.root = '/root';
+Vue.http.headers.common['csrftoken'] = document.querySelector('#token').getAttribute('value');
 
 /*
  *	Vue Instance
  */
-var Vue = new Vue ({
-    el: '#everything_for_vue',
+var theVue = new Vue ({
+    el: '#everything_is_coved_by_vue_now',
 
     data: {
 
@@ -11187,171 +11273,80 @@ var Vue = new Vue ({
 
         loginClicked: function() {
 
-        	login( Vue.$data.user );
+		    Vue.http.post('/login', theVue.$data.user, function (data, status, request) {
+
+		        if ( data['login_error'] == true ){
+		        	console.log('error');
+		        } else{
+
+		        	theVue.$data.user = data;
+
+			        theVue.$data.loggedIn = true;
+
+			        $('#login_modal').modal('toggle');
+		        }
+		    }).catch(function (data, status, request) {
+		        console.log("error");
+		    });
     	},
 
     	signupClicked: function() {
 
-    		signup ( Vue.$data.user );	
+		    Vue.http.post('/users/store', theVue.$data.user, function (data, status, request) {
+				theVue.$data.user = data;
+
+				$('#signup_modal').modal('toggle');	        
+		    }).catch(function (data, status, request) {
+		        alert("error");
+		    }); 
     	},
 
     	logoutClicked: function() {
 
-    		logout();
-    	}
+		    Vue.http.get('/logout', function (data, status, request) {
+
+			    theVue.$data.loggedIn = false;
+
+			    theVue.$data.user = data;
+
+		    }).catch(function (data, status, request) {
+		        alert('sorry an error accored and you were not logged out');
+		    }); 
+    	},
+
+    	getProfilePic: function(id){
+
+			FB.api(
+			    "/" + id + "/picture",
+			    function (response) {
+				// console.log('getting pic id');
+			      if (response && !response.error) {
+			        /* handle the result */
+			    	// console.log( 'pic_id: ' + response.id );
+			    	// console.log(response.data.url);
+					// document.getElementById('#user_profile_pic').innerHTML = '<img src=' + response.data.url + ' />';
+			      }
+			    }
+			);
+		},
+
+		facebookLogin: function(id) {
+
+	            console.log( 'tsting it' + id );
+		    Vue.http.post('/facebookLogin/' + id , function (data, status, request) {
+				
+		    	theVue.$data.loggedIn = true;
+
+		    	theVue.$data.user = data;
+
+		    	// console.log(data);
+	        
+		    }).catch(function (data, status, request) {
+		        alert("error");
+		    });
+		},
     }
 });
 
-function logout() {
-
-    Vue.http.get('/logout', function (data, status, request) {
-
-	    Vue.$data.loggedIn = false;
-
-	    Vue.$data.user = data;
-
-    }).catch(function (data, status, request) {
-        alert('sorry an error accored and you were not logged out');
-    }); 
-}
-
-function login(obj) {
-
-    Vue.http.post('/login', obj, function (data, status, request) {
-
-        if ( data['login_error'] == true ){
-        	console.log('error');
-        } else{
-
-        	Vue.$data.user = data;
-
-	        Vue.$data.loggedIn = true;
-
-	        $('#login_modal').modal('toggle');
-        }
-    }).catch(function (data, status, request) {
-        console.log("error");
-    }); 
-}
-
-function signup(obj) {
-
-    Vue.http.post('/users/store', obj, function (data, status, request) {
-		Vue.$data.user = data;
-
-		$('#signup_modal').modal('toggle');	        
-    }).catch(function (data, status, request) {
-        alert("error");
-    }); 
-}
-
-function facebookLogin(id) {
-
-        console.log( 'tsting it' + id );
-    Vue.http.post('/facebookLogin/' + id , function (data, status, request) {
-		
-    	Vue.$data.loggedIn = true;
-
-    	Vue.$data.user = data;
-
-    	// console.log(data);
-    
-    }).catch(function (data, status, request) {
-        alert("error");
-    });
-}
-
-function getProfilePic(id){
-
-	FB.api(
-	    "/" + id + "/picture",
-	    function (response) {
-		console.log('getting pic id');
-	      if (response && !response.error) {
-	        /* handle the result */
-	    	console.log( 'pic_id: ' + response.id );
-	    	console.log(response.data.url);
-			document.getElementById('#user_profile_pic').innerHTML = '<img src=' + response.data.url + ' />';
-	      }
-	    }
-	);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Vue.http.options.root = '/root';
-Vue.http.headers.common['csrftoken'] = document.querySelector('#token').getAttribute('value');
-
-
-$(document).ready(function() {
-
-	function reSizeBeerTrivia() {
-		var win = $(this);
-		$triviaHeight = $('#trivia-inner').height();
-		$beerHeight = $('#beer-trivia').height();
-		if (win.height() < 767) {
-			$('#beer-trivia').height($triviaHeight + 250);
-		} else if (win.width() >= 1200) {
-	    	$('#beer-trivia').height(600);
-		}
-	}
-	function reSizeSeasonalBeerPost() {
-		var win = $(this)
-		if (win.width() < 767) {
-			var text_input = $('#reSizeBeerSeason');
-			text_input.css("font-size", "3.7px");
-			$('#reSizeHeadingLeft').height(300);
-			$('#reSizeHeading').height(300);
-			$('#beer-trivia').css({'margin-top':'50px'}); 
-			$('#beer-trivia').css({'margin-bottom':'50px'}); 
-		} else if (win.width() >= 1200) {
-			var text_input = $('#reSizeBeerSeason');
-	    	text_input.css("font-size", "15px");
-			$('#reSizeHeadingLeft').height(600);
-			$('#reSizeHeading').height(600);
-		}
-	}
-	$(window).on('resize', function(){
-		var win = $(this); //this = window
-		reSizeBeerTrivia();
-		reSizeSeasonalBeerPost();
-	});
-
-
-
-
-
-
-});
-
-},{"vue":25,"vue-resource":14}]},{},[26]);
+module.exports = theVue;
+},{"vue":25,"vue-resource":14}]},{},[29]);

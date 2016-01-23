@@ -4,7 +4,6 @@
 @section('top-script')
     <link rel="stylesheet" href="/css/beer.css">
     <link rel="stylesheet" href="/stars/style.css" />
-     <script type='text/javascript' src='js/beer.js'></script>
 @stop
 
 @section('content')
