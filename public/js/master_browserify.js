@@ -11077,35 +11077,34 @@ function sendRating(id, ratingNumber) {
 },{}],27:[function(require,module,exports){
 function run(myVue){
 
-
-    // This is called with the results from from FB.getLoginStatus().
+    /*
+     *  This is called with the results from from FB.getLoginStatus().
+     */
     function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response.authResponse);
-        FB.api('/me', function(me){
-            if (me.id) {
-              console.log(me.id);
-                // var facebook_userid = me.id;
-                // alert(facebook_userid);
-                myVue.$data.user.facebook_id = me.id;
-                console.log(myVue.$data.user.facebook_id);
-            // console.log( 'new test' + testVue.$data.user.facebook_id );
+        FB.api('/me', function(user){
+            if (user.id) {
 
-          if (response.status === 'connected') {
-            // Logged into your app and Facebook.
-            // testAPI();
-            myVue.facebookLogin( myVue.$data.user.facebook_id );
-            // getProfilePic(myVue.$data.user.facebook_id );
-          } else if (response.status === 'not_authorized') {
-            // The person is logged into Facebook, but not your app.
-            document.getElementById('status').innerHTML = 'Please log ' +
-              'into this app.';
-          } else {
-            // The person is not logged into Facebook, so we're not sure if
-            // they are logged into this app or not.
-            document.getElementById('status').innerHTML = 'Please log ' +
-              'into Facebook.';
-          }
+                document.getElementById('status').innerHTML =
+                'Thanks for logging in, ' + user.name + '!';
+                myVue.$data.user.facebook_id = user.id;
+
+            if (response.status === 'connected') {
+              // Logged into your app and Facebook.
+
+              myVue.facebookLogin( myVue.$data.user.facebook_id );
+              // getProfilePic(myVue.$data.user.facebook_id );
+            } else if (response.status === 'not_authorized') {
+              // The person is logged into Facebook, but not your app.
+
+              document.getElementById('status').innerHTML = 'Please log ' +
+                'into this app.';
+            } else {
+              // The person is not logged into Facebook, so we're not sure if
+              // they are logged into this app or not.
+
+              document.getElementById('status').innerHTML = 'Please log ' +
+                'into Facebook.';
+            }
         }
     });
     }
@@ -11113,37 +11112,39 @@ function run(myVue){
     // This function is called when someone finishes with the Login
     // Button.  See the onlogin handler attached to it in the sample
     // code below.
-    function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
+    window.checkLoginState = function(){
+
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+            $('#login_modal').modal('toggle');
+        });
     }
 
+
     window.fbAsyncInit = function() {
-    FB.init({
-    appId      : '1670397703235376',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.2' // use version 2.2
-    });
+        FB.init({
+            appId      : '1670397703235376',
+            cookie     : true,  // enable cookies to allow the server to access 
+                                // the session
+            xfbml      : true,  // parse social plugins on this page
+            version    : 'v2.2' // use version 2.2
+        });
 
-    // Now that we've initialized the JavaScript SDK, we call 
-    // FB.getLoginStatus().  This function gets the state of the
-    // person visiting this page and can return one of three states to
-    // the callback you provide.  They can be:
-    //
-    // 1. Logged into your app ('connected')
-    // 2. Logged into Facebook, but not your app ('not_authorized')
-    // 3. Not logged into Facebook and can't tell if they are logged into
-    //    your app or not.
-    //
-    // These three cases are handled in the callback function.
+        // Now that we've initialized the JavaScript SDK, we call 
+        // FB.getLoginStatus().  This function gets the state of the
+        // person visiting this page and can return one of three states to
+        // the callback you provide.  They can be:
+        //
+        // 1. Logged into your app ('connected')
+        // 2. Logged into Facebook, but not your app ('not_authorized')
+        // 3. Not logged into Facebook and can't tell if they are logged into
+        //    your app or not.
+        //
+        // These three cases are handled in the callback function.
 
-    FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-    });
-
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
     };
 
     // Load the SDK asynchronously
@@ -11158,11 +11159,9 @@ function run(myVue){
     // Here we run a very simple test of the Graph API after login is
     // successful.  See statusChangeCallback() for when this call is made.
     function testAPI() {
-    // console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      // console.log('Successful login for: ' + response.name);
-      // document.getElementById('status').innerHTML =
-      //   'Thanks for logging in, ' + response.name + '!';
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
     });
     }
 }
@@ -11250,21 +11249,21 @@ Vue.http.options.root = '/root';
 Vue.http.headers.common['csrftoken'] = document.querySelector('#token').getAttribute('value');
 
 /*
- *	Vue Instance
+ *  Vue Instance
  */
 var theVue = new Vue ({
     el: '#everything_is_coved_by_vue_now',
 
     data: {
 
-    	loggedIn: false,
+        loggedIn: false,
 
-    	user: {
+        user: {
 
-    	},
+        },
 
-    	loginPassword: '',
-    	loginEmail: '',
+        loginPassword: '',
+        loginEmail: '',
 
 
     },
@@ -11273,78 +11272,82 @@ var theVue = new Vue ({
 
         loginClicked: function() {
 
-		    Vue.http.post('/login', theVue.$data.user, function (data, status, request) {
+            Vue.http.post('/login', theVue.$data.user, function (data, status, request) {
 
-		        if ( data['login_error'] == true ){
-		        	console.log('error');
-		        } else{
+                if ( data['login_error'] == true ){
+                    console.log('error');
+                } else{
 
-		        	theVue.$data.user = data;
+                    theVue.$data.user = data;
 
-			        theVue.$data.loggedIn = true;
+                    theVue.$data.loggedIn = true;
 
-			        $('#login_modal').modal('toggle');
-		        }
-		    }).catch(function (data, status, request) {
-		        console.log("error");
-		    });
-    	},
+                    $('#login_modal').modal('toggle');
+                }
+            }).catch(function (data, status, request) {
+                alert('server side error sorry for the inconveniance');
+            });
+        },
 
-    	signupClicked: function() {
+        signupClicked: function() {
 
-		    Vue.http.post('/users/store', theVue.$data.user, function (data, status, request) {
-				theVue.$data.user = data;
+            Vue.http.post('/users/store', theVue.$data.user, function (data, status, request) {
+                theVue.$data.user = data;
 
-				$('#signup_modal').modal('toggle');	        
-		    }).catch(function (data, status, request) {
-		        alert("error");
-		    }); 
-    	},
+                $('#signup_modal').modal('toggle');         
+            }).catch(function (data, status, request) {
+                alert("error");
+            }); 
+        },
 
-    	logoutClicked: function() {
+        logoutClicked: function() {
 
-		    Vue.http.get('/logout', function (data, status, request) {
+            Vue.http.get('/logout', function (data, status, request) {
 
-			    theVue.$data.loggedIn = false;
+                theVue.$data.loggedIn = false;
+                theVue.$data.user = data;
 
-			    theVue.$data.user = data;
+            }).catch(function (data, status, request) {
+                alert('sorry an error accored and you were not logged out');
+            }); 
+        },
 
-		    }).catch(function (data, status, request) {
-		        alert('sorry an error accored and you were not logged out');
-		    }); 
-    	},
+        getProfilePic: function(id){
 
-    	getProfilePic: function(id){
+            FB.api( "/" + id + "/picture", function (response) {
+                // console.log('getting pic id');
+                if (response && !response.error) {
+                  /* handle the result */
 
-			FB.api(
-			    "/" + id + "/picture",
-			    function (response) {
-				// console.log('getting pic id');
-			      if (response && !response.error) {
-			        /* handle the result */
-			    	// console.log( 'pic_id: ' + response.id );
-			    	// console.log(response.data.url);
-					// document.getElementById('#user_profile_pic').innerHTML = '<img src=' + response.data.url + ' />';
-			      }
-			    }
-			);
-		},
+                  var pic = document.getElementById('user_profile_picture');
+                  pic.src = response.data.url;
+                }
+            });
+        },
 
-		facebookLogin: function(id) {
+        getFbFriends: function(id){
 
-	            console.log( 'tsting it' + id );
-		    Vue.http.post('/facebookLogin/' + id , function (data, status, request) {
-				
-		    	theVue.$data.loggedIn = true;
+            FB.api("/" + id + "/friends", function(response) {
+                if (response && !response.error) {
 
-		    	theVue.$data.user = data;
+                    // console.log(response);
+                }
+            });
+        },
 
-		    	// console.log(data);
-	        
-		    }).catch(function (data, status, request) {
-		        alert("error");
-		    });
-		},
+        facebookLogin: function(id) {
+
+            Vue.http.post('/facebookLogin/' + id , function (data, status, request) {
+                
+                theVue.$data.loggedIn = true;
+                theVue.getFbFriends( data.facebook_id );
+                theVue.getProfilePic( data.facebook_id );
+                theVue.$data.user = data;
+            
+            }).catch(function (data, status, request) {
+                alert("error");
+            });
+        },
     }
 });
 
