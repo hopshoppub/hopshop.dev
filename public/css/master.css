@@ -16,10 +16,17 @@ body {
     text-align: right;
 }
 .logo {
-    background-image:url(/img/hopshop.jpg);
+    background-image:url(/img/hopshop.png);
     background-size: 205px;
-    background-repeat: repeat;
+    /*background-repeat: repeat;*/
     height:100px;
+}
+
+.logo_navbar {
+    background-image:url(/img/hopshoplogo.png);
+    width: 205px;
+    height:100px;
+
 }
 .cover {
     height:30px;
