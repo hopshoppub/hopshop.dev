@@ -11,25 +11,25 @@ function run(myVue){
                 'Thanks for logging in, ' + user.name + '!';
                 myVue.$data.user.facebook_id = user.id;
 
-            if (response.status === 'connected') {
-              // Logged into your app and Facebook.
+                if (response.status === 'connected') {
+                  // Logged into your app and Facebook.
 
-              myVue.facebookLogin( myVue.$data.user.facebook_id );
-              // getProfilePic(myVue.$data.user.facebook_id );
-            } else if (response.status === 'not_authorized') {
-              // The person is logged into Facebook, but not your app.
+                  myVue.facebookLogin( myVue.$data.user.facebook_id );
+                  // getProfilePic(myVue.$data.user.facebook_id );
+                } else if (response.status === 'not_authorized') {
+                  // The person is logged into Facebook, but not your app.
 
-              document.getElementById('status').innerHTML = 'Please log ' +
-                'into this app.';
-            } else {
-              // The person is not logged into Facebook, so we're not sure if
-              // they are logged into this app or not.
+                  document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+                } else {
+                  // The person is not logged into Facebook, so we're not sure if
+                  // they are logged into this app or not.
 
-              document.getElementById('status').innerHTML = 'Please log ' +
-                'into Facebook.';
+                  document.getElementById('status').innerHTML = 'Please log ' +
+                    'into Facebook.';
+                }
             }
-        }
-    });
+        });
     }
 
     // This function is called when someone finishes with the Login
@@ -38,8 +38,8 @@ function run(myVue){
     window.checkLoginState = function(){
 
         FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
             $('#login_modal').modal('toggle');
+            statusChangeCallback(response);
         });
     }
 
@@ -65,9 +65,19 @@ function run(myVue){
         //
         // These three cases are handled in the callback function.
 
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
+
+        /*
+         *      The if statment is to suppres the function if a user
+         *      is currently logged in
+         */
+        if ( myVue.$data.loggedIn === 'false'){
+
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        } else {
+            myVue.getUserInfo();
+        }
     };
 
     // Load the SDK asynchronously
