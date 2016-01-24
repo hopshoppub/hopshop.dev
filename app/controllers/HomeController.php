@@ -15,6 +15,19 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	public function testing()
+	{
+		return View::make('vueTemplates.test');
+	}
+
+	public function test()
+	{
+		// $beers = Beer::with('brewery')->orderBy('created_at','desc')->paginate(10);
+		$beers = Beer::with('brewery')->paginate(20);
+		return Response::json( $beers );
+		return View::make('home');
+	}
+
 	public function showHome()
 	{
 		return View::make('home');

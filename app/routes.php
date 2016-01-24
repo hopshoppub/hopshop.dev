@@ -14,6 +14,8 @@
 /*
  *		Home Routes
  */
+Route::get('/testing', 'HomeController@testing');
+Route::get('/test', 'HomeController@test');
 Route::post('/facebookLogin/{fb_id}', 'HomeController@fbLogin');
 Route::post('/login', 'HomeController@postLogin');
 Route::get('/logout', 'HomeController@getLogout');
