@@ -19,6 +19,10 @@ var theVue = new Vue ({
 
         },
 
+        beers: [
+
+        ],
+
         loginPassword: '',
         loginEmail: '',
 
@@ -26,6 +30,24 @@ var theVue = new Vue ({
     },
 
     methods: {
+
+        test: function () {
+            Vue.http.get('/test', function (data, status, request) {
+
+                if ( data['login_error'] == true ){
+                    console.log('error');
+                } else{
+
+                    data.data.forEach(function(element) {
+                        theVue.$data.beers.push(element);
+                    });
+                    console.log( theVue.$data.beers[0]);
+
+                }
+            }).catch(function (data, status, request) {
+                alert('server side error sorry for the inconveniance');
+            });
+        },
 
         loginClicked: function() {
 
@@ -51,7 +73,7 @@ var theVue = new Vue ({
             Vue.http.post('/users/store', theVue.$data.user, function (data, status, request) {
                 theVue.$data.user = data;
 
-                $('#signup_modal').modal('toggle');         
+                $('#signup_modal    ').modal('toggle');         
             }).catch(function (data, status, request) {
                 alert("error");
             }); 
@@ -67,7 +89,7 @@ var theVue = new Vue ({
                 'Thanks for visiting or site!!';
 
             }).catch(function (data, status, request) {
-                alert('sorry an error accored and you were not logged out');
+                alert('sorry an error accored and were not logged out');
             }); 
         },
 

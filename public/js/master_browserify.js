@@ -11223,14 +11223,21 @@ $(document).ready(function() {
 
 	"use strict";
 
+	// var wayPoint = require('waypoints');
+
 	var myVue = require('../js/myVue.js');
 
 	var fbLogin = require('../js/facebook.js');
 	fbLogin(myVue);
 
+	var testing = require('../js/test.js');
+	testing(myVue);
+
 	require('../js/homepage.js');
 
 	require('../js/beer.js');
+
+	// require('../js/test.js');
 
 	// require('../js/billing.js');
 
@@ -11239,7 +11246,7 @@ $(document).ready(function() {
 
 });
 
-},{"../js/beer.js":26,"../js/facebook.js":27,"../js/homepage.js":28,"../js/myVue.js":30}],30:[function(require,module,exports){
+},{"../js/beer.js":26,"../js/facebook.js":27,"../js/homepage.js":28,"../js/myVue.js":30,"../js/test.js":31}],30:[function(require,module,exports){
 var Vue = require('vue');
 
 Vue.use(require('vue-resource'));
@@ -11261,6 +11268,10 @@ var theVue = new Vue ({
 
         },
 
+        beers: [
+
+        ],
+
         loginPassword: '',
         loginEmail: '',
 
@@ -11268,6 +11279,24 @@ var theVue = new Vue ({
     },
 
     methods: {
+
+        test: function () {
+            Vue.http.get('/test', function (data, status, request) {
+
+                if ( data['login_error'] == true ){
+                    console.log('error');
+                } else{
+
+                    data.data.forEach(function(element) {
+                        theVue.$data.beers.push(element);
+                    });
+                    console.log( theVue.$data.beers[0]);
+
+                }
+            }).catch(function (data, status, request) {
+                alert('server side error sorry for the inconveniance');
+            });
+        },
 
         loginClicked: function() {
 
@@ -11293,7 +11322,7 @@ var theVue = new Vue ({
             Vue.http.post('/users/store', theVue.$data.user, function (data, status, request) {
                 theVue.$data.user = data;
 
-                $('#signup_modal').modal('toggle');         
+                $('#signup_modal    ').modal('toggle');         
             }).catch(function (data, status, request) {
                 alert("error");
             }); 
@@ -11309,7 +11338,7 @@ var theVue = new Vue ({
                 'Thanks for visiting or site!!';
 
             }).catch(function (data, status, request) {
-                alert('sorry an error accored and you were not logged out');
+                alert('sorry an error accored and were not logged out');
             }); 
         },
 
@@ -11353,4 +11382,15 @@ var theVue = new Vue ({
 });
 
 module.exports = theVue;
-},{"vue":25,"vue-resource":14}]},{},[29]);
+},{"vue":25,"vue-resource":14}],31:[function(require,module,exports){
+function run(myVue){
+
+	$(window).scroll(function() {
+	   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+	       myVue.test();
+	   }
+	});
+}
+
+module.exports = run;
+},{}]},{},[29]);
