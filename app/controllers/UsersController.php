@@ -143,4 +143,12 @@ class UsersController extends \BaseController {
 		return Redirect::route('users.index');
 	}
 
+	/**
+	 *	@return the logged in user
+	 */
+	public function getInfo()
+	{
+		return Response::json( Auth::user() );
+	}
+
 }
