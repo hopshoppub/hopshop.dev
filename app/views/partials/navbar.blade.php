@@ -10,7 +10,7 @@
 			</button>
 
 
-			<a class="navbar-brand" href="{{{ action('HomeController@showHome')}}}">Hopshop</a>
+			<a class="navbar-brand logo_navbar" href="{{{ action('HomeController@showHome')}}}"></a>
 
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
