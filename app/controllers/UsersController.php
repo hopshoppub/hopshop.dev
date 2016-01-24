@@ -79,7 +79,9 @@ class UsersController extends \BaseController {
 
 		$user->save();
 
-		return Response::json( 'woot' );
+		Auth::login($user);
+
+		return Response::json( Auth::user() );
 	}
 
 	/**

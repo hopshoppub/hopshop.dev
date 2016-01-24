@@ -39,7 +39,6 @@ Route::resource('/pitches', 'PitchesController');
  *		User Routes
  */
 Route::get('/users/info', 'UsersController@getInfo');
-Route::post('/users/store', 'UsersController@make');
 Route::resource('/users', 'UsersController');
 
 /*
