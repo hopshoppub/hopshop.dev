@@ -27,8 +27,8 @@ $(document).ready(function() {
 	 *	Calls Methods on myVue,
 	 *	for this reason myVue has to be passed as a perametter
 	 */
-	var testing = require('../js/test.js');
-	testing(myVue);
+	// var testing = require('../js/test.js');
+	// testing(myVue);
 
 	require('../js/homepage.js');
 

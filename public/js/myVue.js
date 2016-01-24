@@ -85,7 +85,7 @@ var myVue = new Vue ({
 
                     myVue.$data.user = data;
 
-                    myVue.$data.loggedIn = true;
+                    myVue.$data.loggedIn = 'true';
 
                     $('#login_modal').modal('toggle');
                 }
@@ -109,12 +109,12 @@ var myVue = new Vue ({
 
         signupClicked: function() {
 
-            Vue.http.post('/users/store', myVue.$data.user, function (data, status, request) {
+            Vue.http.post('/users', myVue.$data.user, function (data, status, request) {
                 myVue.$data.user = data;
-
-                $('#signup_modal    ').modal('toggle');         
+                myVue.$data.loggedIn = 'true';
+                $('#signup_modal').modal('toggle');         
             }).catch(function (data, status, request) {
-                alert("error");
+                console.log(data);
             }); 
         },
 

@@ -11257,8 +11257,8 @@ $(document).ready(function() {
 	 *	Calls Methods on myVue,
 	 *	for this reason myVue has to be passed as a perametter
 	 */
-	var testing = require('../js/test.js');
-	testing(myVue);
+	// var testing = require('../js/test.js');
+	// testing(myVue);
 
 	require('../js/homepage.js');
 
@@ -11274,7 +11274,7 @@ $(document).ready(function() {
 
 });
 
-},{"../js/beer.js":26,"../js/facebook.js":27,"../js/homepage.js":28,"../js/myVue.js":30,"../js/test.js":31}],30:[function(require,module,exports){
+},{"../js/beer.js":26,"../js/facebook.js":27,"../js/homepage.js":28,"../js/myVue.js":30}],30:[function(require,module,exports){
 var Vue = require('vue');
 
 Vue.use(require('vue-resource'));
@@ -11362,7 +11362,7 @@ var myVue = new Vue ({
 
                     myVue.$data.user = data;
 
-                    myVue.$data.loggedIn = true;
+                    myVue.$data.loggedIn = 'true';
 
                     $('#login_modal').modal('toggle');
                 }
@@ -11386,12 +11386,12 @@ var myVue = new Vue ({
 
         signupClicked: function() {
 
-            Vue.http.post('/users/store', myVue.$data.user, function (data, status, request) {
+            Vue.http.post('/users', myVue.$data.user, function (data, status, request) {
                 myVue.$data.user = data;
-
-                $('#signup_modal    ').modal('toggle');         
+                myVue.$data.loggedIn = 'true';
+                $('#signup_modal').modal('toggle');         
             }).catch(function (data, status, request) {
-                alert("error");
+                console.log(data);
             }); 
         },
 
@@ -11449,19 +11449,4 @@ var myVue = new Vue ({
 
 
 module.exports = myVue;
-},{"vue":25,"vue-resource":14}],31:[function(require,module,exports){
-function run(myVue){
-
-	$(window).scroll(function() {
-		// if( myVue.$data.infinateFlag !== false )
-		// {
-		    if($(window).scrollTop() + $(window).height() == $(document).height()) {
-		        myVue.test();
-		    }
-			// myVue.$data.infinateFlag = false;
-		// }
-	});
-}
-
-module.exports = run;
-},{}]},{},[29]);
+},{"vue":25,"vue-resource":14}]},{},[29]);
