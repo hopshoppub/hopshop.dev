@@ -13,7 +13,7 @@
 
     @yield('top-script')
 
-    <body>
+    <body id="everything_is_coved_by_vue_now">
 
         <div class='logo'>
             <div class='logo-image'>
@@ -38,7 +38,7 @@
         @yield('bottom-script')
        
 {{--         @yield('stuff') --}}
-        <script src="/js/navbar_browserify.js"></script>
+        <script src="/js/master_browserify.js"></script>
     </body>
 
     <footer>
