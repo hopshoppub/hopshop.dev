@@ -20,12 +20,25 @@ class HomeController extends BaseController {
 		return View::make('vueTemplates.test');
 	}
 
-	public function test()
+	public function test($offset)
 	{
 		// $beers = Beer::with('brewery')->orderBy('created_at','desc')->paginate(10);
-		$beers = Beer::with('brewery')->paginate(20);
+		$beers = Beer::with('brewery')->paginate(10);
+		// try {
+			
+		// $beers = Beer::with('brewery')->skip(10)->take(5)->get();
+		// } catch (Exception $e) {
+		// 	return $e;
+		// }
 		return Response::json( $beers );
 		return View::make('home');
+	}
+
+	public function test2()
+	{
+		$data = Auth::user();
+		$data['template'] = View::make('vueTemplates.testInner');
+		return View::make( $data );
 	}
 
 	public function showHome()

@@ -8,7 +8,7 @@
 
 @section('content')
 
-<div class="infinite-container">
+<div class="infinite-container" id="contents">
     <div v-for="beer in beers" class='beer-table-outline infinite-item'>
         <div class="container test_beers" id='beer-table'>
             <div class="row">
@@ -51,12 +51,11 @@
 </div>
 
 <button v-on:click="test">test the ajax</button>
+<button v-on:click='test2'>test 2</button>
         
 @stop
 
 @section('bottom-script')
-
-<script src="/js/test.js"></script>
 
 
 @stop

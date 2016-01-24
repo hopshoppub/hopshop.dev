@@ -11088,25 +11088,25 @@ function run(myVue){
                 'Thanks for logging in, ' + user.name + '!';
                 myVue.$data.user.facebook_id = user.id;
 
-            if (response.status === 'connected') {
-              // Logged into your app and Facebook.
+                if (response.status === 'connected') {
+                  // Logged into your app and Facebook.
 
-              myVue.facebookLogin( myVue.$data.user.facebook_id );
-              // getProfilePic(myVue.$data.user.facebook_id );
-            } else if (response.status === 'not_authorized') {
-              // The person is logged into Facebook, but not your app.
+                  myVue.facebookLogin( myVue.$data.user.facebook_id );
+                  // getProfilePic(myVue.$data.user.facebook_id );
+                } else if (response.status === 'not_authorized') {
+                  // The person is logged into Facebook, but not your app.
 
-              document.getElementById('status').innerHTML = 'Please log ' +
-                'into this app.';
-            } else {
-              // The person is not logged into Facebook, so we're not sure if
-              // they are logged into this app or not.
+                  document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+                } else {
+                  // The person is not logged into Facebook, so we're not sure if
+                  // they are logged into this app or not.
 
-              document.getElementById('status').innerHTML = 'Please log ' +
-                'into Facebook.';
+                  document.getElementById('status').innerHTML = 'Please log ' +
+                    'into Facebook.';
+                }
             }
-        }
-    });
+        });
     }
 
     // This function is called when someone finishes with the Login
@@ -11115,8 +11115,8 @@ function run(myVue){
     window.checkLoginState = function(){
 
         FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
             $('#login_modal').modal('toggle');
+            statusChangeCallback(response);
         });
     }
 
@@ -11142,9 +11142,19 @@ function run(myVue){
         //
         // These three cases are handled in the callback function.
 
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
+
+        /*
+         *      The if statment is to suppres the function if a user
+         *      is currently logged in
+         */
+        if ( myVue.$data.loggedIn === 'false'){
+
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        } else {
+            myVue.getUserInfo();
+        }
     };
 
     // Load the SDK asynchronously
@@ -11223,13 +11233,30 @@ $(document).ready(function() {
 
 	"use strict";
 
-	// var wayPoint = require('waypoints');
-
+	/*
+	 *	The Vue Object contains all the information
+	 *	returned from the server, 
+	 *	user info, 
+	 *	beer info for infinate scrolling,
+	 *	if user is logged in or not
+	 *	and a hand full of methods for seamless UX
+	 */ 
 	var myVue = require('../js/myVue.js');
 
+	/*
+	 *	Contains the JS for comunicating with 
+	 *	Facebook and calls methods on myVue
+	 *	in order to transision from verification
+	 *	from facebook to logging in thew an ajax
+	 */
 	var fbLogin = require('../js/facebook.js');
 	fbLogin(myVue);
 
+	/*
+	 *	First test of infanate scroll
+	 *	Calls Methods on myVue,
+	 *	for this reason myVue has to be passed as a perametter
+	 */
 	var testing = require('../js/test.js');
 	testing(myVue);
 
@@ -11240,6 +11267,7 @@ $(document).ready(function() {
 	// require('../js/test.js');
 
 	// require('../js/billing.js');
+	console.log(myVue.$data.loggedIn);
 
 
 
@@ -11257,12 +11285,10 @@ Vue.http.headers.common['csrftoken'] = document.querySelector('#token').getAttri
 /*
  *  Vue Instance
  */
-var theVue = new Vue ({
+var myVue = new Vue ({
     el: '#everything_is_coved_by_vue_now',
 
     data: {
-
-        loggedIn: false,
 
         user: {
 
@@ -11281,34 +11307,62 @@ var theVue = new Vue ({
     methods: {
 
         test: function () {
-            Vue.http.get('/test', function (data, status, request) {
+
+            var offset = myVue.$data.beers.length;
+            console.log(offset);
+            Vue.http.get('/test' + '/' + offset, function (data, status, request) {
 
                 if ( data['login_error'] == true ){
                     console.log('error');
                 } else{
 
                     data.data.forEach(function(element) {
-                        theVue.$data.beers.push(element);
+                        myVue.$data.beers.push(element);
                     });
-                    console.log( theVue.$data.beers[0]);
+                    console.log( myVue.$data.beers[0]);
+                    myVue.$data.infinateFlag = true;
 
                 }
             }).catch(function (data, status, request) {
-                alert('server side error sorry for the inconveniance');
+                myVue.$data.infinateFlag = true;
+                alert(data);
             });
         },
 
-        loginClicked: function() {
+        test2: function () {
 
-            Vue.http.post('/login', theVue.$data.user, function (data, status, request) {
+            // var offset = myVue.$data.beers.length;
+            // console.log(offset);
+            Vue.http.get('/test2', function (data, status, request) {
 
                 if ( data['login_error'] == true ){
                     console.log('error');
                 } else{
 
-                    theVue.$data.user = data;
+                    // data.data.forEach(function(element) {
+                    //     myVue.$data.beers.push(element);
+                    // });
+                    console.log( data );
+                    $('#contents').replaceWith( data['template'] );
 
-                    theVue.$data.loggedIn = true;
+
+                }
+            }).catch(function (data, status, request) {
+                alert(data);
+            });
+        },
+
+        loginClicked: function() {
+
+            Vue.http.post('/login', myVue.$data.user, function (data, status, request) {
+
+                if ( data['login_error'] == true ){
+                    console.log('error');
+                } else{
+
+                    myVue.$data.user = data;
+
+                    myVue.$data.loggedIn = true;
 
                     $('#login_modal').modal('toggle');
                 }
@@ -11317,10 +11371,23 @@ var theVue = new Vue ({
             });
         },
 
+        getUserInfo: function() {
+
+            Vue.http.get('/users/info', function (data, status, request) {
+
+                myVue.$data.user = data;
+                console.log(data.facebook_id);
+                myVue.getProfilePic( data.facebook_id );
+    
+            }).catch(function (data, status, request) {
+                alert('server side error sorry for the inconveniance');
+            });
+        },
+
         signupClicked: function() {
 
-            Vue.http.post('/users/store', theVue.$data.user, function (data, status, request) {
-                theVue.$data.user = data;
+            Vue.http.post('/users/store', myVue.$data.user, function (data, status, request) {
+                myVue.$data.user = data;
 
                 $('#signup_modal    ').modal('toggle');         
             }).catch(function (data, status, request) {
@@ -11332,8 +11399,8 @@ var theVue = new Vue ({
 
             Vue.http.get('/logout', function (data, status, request) {
 
-                theVue.$data.loggedIn = false;
-                theVue.$data.user = data;
+                myVue.$data.loggedIn = 'false';
+                myVue.$data.user = data;
                 document.getElementById('status').innerHTML =
                 'Thanks for visiting or site!!';
 
@@ -11347,10 +11414,9 @@ var theVue = new Vue ({
             FB.api( "/" + id + "/picture", function (response) {
                 // console.log('getting pic id');
                 if (response && !response.error) {
-                  /* handle the result */
-
-                  var pic = document.getElementById('user_profile_picture');
-                  pic.src = response.data.url;
+                   // handle the result 
+                    var pic = document.getElementById('user_profile_picture');
+                    pic.src = response.data.url;
                 }
             });
         },
@@ -11369,10 +11435,10 @@ var theVue = new Vue ({
 
             Vue.http.post('/facebookLogin/' + id , function (data, status, request) {
                 
-                theVue.$data.loggedIn = true;
-                theVue.getFbFriends( data.facebook_id );
-                theVue.getProfilePic( data.facebook_id );
-                theVue.$data.user = data;
+                myVue.$data.loggedIn = 'true';
+                myVue.getFbFriends( data.facebook_id );
+                myVue.getProfilePic( data.facebook_id );
+                myVue.$data.user = data;
             
             }).catch(function (data, status, request) {
                 alert("error");
@@ -11381,14 +11447,19 @@ var theVue = new Vue ({
     }
 });
 
-module.exports = theVue;
+
+module.exports = myVue;
 },{"vue":25,"vue-resource":14}],31:[function(require,module,exports){
 function run(myVue){
 
 	$(window).scroll(function() {
-	   if($(window).scrollTop() + $(window).height() == $(document).height()) {
-	       myVue.test();
-	   }
+		// if( myVue.$data.infinateFlag !== false )
+		// {
+		    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+		        myVue.test();
+		    }
+			// myVue.$data.infinateFlag = false;
+		// }
 	});
 }
 
