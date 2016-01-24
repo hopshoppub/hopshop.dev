@@ -11267,7 +11267,6 @@ $(document).ready(function() {
 	// require('../js/test.js');
 
 	// require('../js/billing.js');
-	console.log(myVue.$data.loggedIn);
 
 
 
