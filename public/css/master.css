@@ -9,7 +9,9 @@ body {
     background-color: saddlebrown;
     background-blend-mode: hard-light;
 }
-
+.center{
+    text-align: center;
+}
 .right{
     text-align: right;
 }
