@@ -9,6 +9,7 @@ class BeersController extends \BaseController {
 	 */
 	public function index()
 	{
+		$i = 0;
 		if (Input::has('search')) {
 			$query = Beer::with('brewery')->orderBy('created_at', 'desc');
 			$search = Input::get('search');
@@ -23,7 +24,7 @@ class BeersController extends \BaseController {
 		} else {
 			$beers = Beer::with('brewery')->orderBy('created_at','desc')->paginate(10);
 		}
-			return View::make('beers.index')->with(['beers' => $beers]);
+			return View::make('beers.index')->with(['beers' => $beers, 'i' => $i]);
 	}
 
 	/**

@@ -10,9 +10,11 @@ $(document).ready(function() {
 
 	function getBeerIdAndStarsNumber() {
 		$('.stars').click(function(e) {
-			$idOfBeer = ($(this).data('starId'));
-			$ratingNumber = event.target.value;
-			sendRating($idOfBeer, $ratingNumber);
+			$idOfBeerStars = ($(this).data('starId'));
+			$ratingNumber = event.target.innerHTML;
+			console.log($idOfBeerStars);
+			console.log($ratingNumber);
+			sendRating($idOfBeerStars, $ratingNumber);
 			// changeStars();
 		});
 	}

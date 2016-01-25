@@ -2,7 +2,7 @@
 #beer-table {
 	border: groove 4px;
 	border-color: black;
-	background-color:#DDD;
+	background-color:#FFF;
 }
 .row {
 	margin:2px;
@@ -28,4 +28,9 @@
 .beer-font {
 	font-family: "Indie Flower", cursive;
 	font-size: 200%;
+}
+.beer-table-solid {
+	background-color: #151111;
+	
+	margin-top:20px;
 }
