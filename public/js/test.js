@@ -11,4 +11,4 @@ function run(myVue){
 	});
 }
 
-module.exports = run;
+// module.exports = run;

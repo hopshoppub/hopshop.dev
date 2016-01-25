@@ -37,8 +37,11 @@
 
         @yield('bottom-script')
        
-{{--         @yield('stuff') --}}
-        <script src="/js/master_browserify.js"></script>
+
+        <script src="/js/vue.js"></script>
+        <script src="/js/vue-resource.js"></script>
+        <script src="/js/myVue.js"></script>
+        <script src="/js/facebook.js"></script>
     </body>
 
     <footer>

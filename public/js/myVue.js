@@ -1,6 +1,6 @@
-var Vue = require('vue');
+// var Vue = require('vue');
 
-Vue.use(require('vue-resource'));
+// Vue.use(require('vue-resource'));
 
 Vue.http.options.root = '/root';
 Vue.http.headers.common['csrftoken'] = document.querySelector('#token').getAttribute('value');
@@ -171,4 +171,4 @@ var myVue = new Vue ({
 });
 
 
-module.exports = myVue;
+// module.exports = myVue;

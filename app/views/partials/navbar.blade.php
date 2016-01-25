@@ -52,7 +52,11 @@
 
 
 <div id="status" class="right">
-	Login with Facebook!
+	@if( Auth::check() )
+		Welcome!!
+	@else
+		Login with Facebook!
+	@endif
 </div>
 
 

@@ -1,4 +1,4 @@
-function run(myVue){
+// function run(myVue){
 
     /*
      *  This is called with the results from from FB.getLoginStatus().
@@ -97,6 +97,6 @@ function run(myVue){
         'Thanks for logging in, ' + response.name + '!';
     });
     }
-}
+// }
 
-module.exports = run;
+// module.exports = run;

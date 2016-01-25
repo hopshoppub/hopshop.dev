@@ -81,7 +81,7 @@ class HomeController extends BaseController {
 	{
 		// return $fb_id;
 		try {
-			$user = User::where('facebook_id', $fb_id)->findOrFail();
+			$user = User::where('facebook_id','=', $fb_id)->findOrFail();
 
 		} catch (Exception $e) {
 
@@ -91,12 +91,10 @@ class HomeController extends BaseController {
 			$user->role = 1;
 
 			$user->save();
-			// dd($fb_id);
 			$user = User::where('facebook_id', $fb_id)->first();
 		}
 		Auth::login($user);
 		return Response::json( Auth::user() );
-			// return Response::json( $user );
 	}
 
 }
