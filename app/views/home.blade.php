@@ -2,8 +2,6 @@
 
 @section('top-script')
     <link rel="stylesheet" href="/css/home.css">
-    <script type='text/javascript' src='js/master.js'></script>
-
 @stop
 
 @section('content')
@@ -165,4 +163,8 @@
 </div>
 {{-- <-- End of page --> --}}
     
+@stop
+
+@section('bottom-script')
+    <script src="/js/homepage.js"></script>
 @stop

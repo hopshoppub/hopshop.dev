@@ -56,7 +56,6 @@
 
 @section('bottom-script')
 
-    <script type='text/javascript' src='/js/beer.js'></script>
 @stop
 
 

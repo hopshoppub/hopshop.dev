@@ -2,6 +2,16 @@
 
 class BeersController extends \BaseController {
 
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->beforeFilter( 'auth',['except' => ['show'] ] );
+	}
+
+
+
 	/**
 	 * Display a listing of beers
 	 *

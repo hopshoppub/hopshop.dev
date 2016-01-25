@@ -1,14 +1,13 @@
-$(document).ready(function() {
-	$('.description-toggle').hide();
-	$('.description-button').click(function(e) {
-		$idOfBeer = ($(this).data('grabId'));
-		$('[data-beer-id="' + $idOfBeer + '"]').slideToggle();
-		e.preventDefault();
-	});
+$('.description-toggle').hide();
+$('.description-button').click(function(e) {
+	$idOfBeer = ($(this).data('grabId'));
+	$('[data-beer-id="' + $idOfBeer + '"]').slideToggle();
+	e.preventDefault();
+});
 
 
 
-	function getBeerIdAndStarsNumber() {
+function getBeerIdAndStarsNumber() {
 		$('.stars').click(function(e) {
 			$idOfBeerStars = ($(this).data('starId'));
 			$ratingNumber = event.target.innerHTML;
@@ -26,12 +25,3 @@ $(document).ready(function() {
 			console.log(ratingNumber)
 		});
 	}
-
-	// function changeStar
-	// function getUrlData() {
-	// 	$.get( "/beers", function( data ) {
-	// 		console.log(data)
-	// 	});
-	// }
-	// getUrlData();
-});

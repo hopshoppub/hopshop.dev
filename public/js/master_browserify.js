@@ -1,0 +1,1 @@
+console.error("Error: Parsing file /Users/shawnpivonka/vagrant-lamp/sites/hopshop.dev/public/js/master.js: Unexpected token (44:0)");

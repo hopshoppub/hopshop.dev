@@ -14,6 +14,9 @@
 /*
  *		Home Routes
  */
+Route::get('/testing', 'HomeController@testing');
+Route::get('/test/{offset?}', 'HomeController@test');
+Route::get('/test2', 'HomeController@test2');
 Route::post('/facebookLogin/{fb_id}', 'HomeController@fbLogin');
 Route::post('/login', 'HomeController@postLogin');
 Route::get('/logout', 'HomeController@getLogout');
@@ -35,9 +38,12 @@ Route::resource('/pitches', 'PitchesController');
 /*
  *		User Routes
  */
-Route::post('/users/store', 'UsersController@make');
+Route::get('/users/info', 'UsersController@getInfo');
 Route::resource('/users', 'UsersController');
 
+/*
+ *		Brewery Routes
+ */
 Route::resource('/breweries', 'BreweriesController');
 
 Route::get('/beers/{id}/{rating}', 'RatingsController@storeRating');
