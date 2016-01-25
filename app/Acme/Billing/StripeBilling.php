@@ -1,5 +1,9 @@
 <?php namespace Acme\Billing;
 
+use Stripe;
+use Stripe_Charge;
+use Config;
+
 class StripeBilling implements BillingInterface {
 
     public function __construct()
@@ -22,9 +26,7 @@ class StripeBilling implements BillingInterface {
                 'card' => $data['token']
             ]);
 
-        } 
-
-        catch(Stripe_CardError $e)
+        } catch(Stripe_CardError $e)
 
         {
             dd('card was declined');

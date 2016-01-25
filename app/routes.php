@@ -32,12 +32,16 @@ Route::resource('/beers', 'BeersController');
  *		Pitch Routes
  */
 Route::get('/pitches/fund', 'PitchesController@fund');
-Route::post('pitches/fund', function()
+Route::post('/pitches/fund', function()
 {
+	// dd(Input::all());
 	$billing = App::make('Acme\Billing\BillingInterface');
 	$billing->charge([
 		'email' => Input::get('email'),
 		'token' => Input::get('stripe-token')]);
+	 //   'amount' => '1000',
+	 // 'currency' => 'usd'
+		
 
 	return 'Charge was succesful.';
 });

@@ -28,27 +28,27 @@
 
 		
 		stripeResponseHandler: function(status, response) {
-			this.submitButton.val(this.submitButtonValue);
+			// console.log(this.form[0]);
 			if (response.error) {
-				return this.form.find('.payment.errors').show().text(response.error.message);
-				 // this.submitButton.prop('disabled', false).val(this.submitButtonValue);
+				this.form.find('.payment-errors').show().text(response.error.message);
+				return this.submitButton.prop('disabled', false).val(this.submitButtonValue);
 			}
 
 			$('<input>', {
 				type: 'hidden',
-				name: 'stripe_token', 
-				value: response_id
+				name: 'stripe-token', 
+				value: response.id	
 			}).appendTo(this.form);
 
 
-			// this.form[0].submit();
-			this.form.submit();
+			this.form[0].submit();
+			
 
 			// console.log(status, response);
 
 
 		}
-	};
+	};	
 
 
 StripeBilling.init();

@@ -41,7 +41,7 @@
 		</label>
 	</div>
 	<div>
-		{{ Form::submit('Buy now')}}
+		{{ Form::submit('Buy now') }}
 	</div>
 	<div class="payment-errors"></div>
 
