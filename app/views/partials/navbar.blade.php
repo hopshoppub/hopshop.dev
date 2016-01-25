@@ -10,8 +10,8 @@
 			</button>
 
 
-
-			<a class="navbar-brand " href="{{{ action('HomeController@showHome')}}}">hopshop</a>
+			<a class="navbar-brand" href="{{{ action('HomeController@showHome')}}}">hop<span class ='hopshop-color-brand'>Shop</span></a>
+>>>>>>> 739dda89efd0a1178a94a6187df815b1b7ffed57
 
 
 		</div>

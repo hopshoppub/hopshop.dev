@@ -15,6 +15,7 @@ App::bind('Acme\Billing\BillingInteface', 'Acme\Billing\StripeBilling');
 /*
  *		Home Routes
  */
+Route::get('/test/ratings', 'HomeController@testRatings');
 Route::get('/testing', 'HomeController@testing');
 Route::get('/test/{offset?}', 'HomeController@test');
 Route::get('/test2', 'HomeController@test2');

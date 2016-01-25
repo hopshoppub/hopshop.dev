@@ -3,6 +3,7 @@
 	border: groove 4px;
 	border-color: black;
 	background-color:#FFF;
+	border-radius: 20px;
 }
 .row {
 	margin:2px;
@@ -11,12 +12,11 @@
 	font-size: 150%;
 }
 .beer-table-outline {
-	background-color: black;
-	background-image: url(/img/beer.back.jpg);
-	background-color: #969622;
-	 background-blend-mode: color-burn;
+	/*background-color: #151111;
+	background-image: url(/img/beer-posts.jpg);
+	background-blend-mode: color-burn;*/
 	background-size: 500px;
-	margin-top:20px;
+	padding:20px;
 }
 .hide-description {
 	display:none;
@@ -26,7 +26,6 @@
 	text-align: center;
 }
 .beer-font {
-	font-family: "Indie Flower", cursive;
 	font-size: 200%;
 }
 .beer-table-solid {

@@ -15,6 +15,28 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	public function testRatings()
+	{
+		// $info = Beer::find(9);
+		// $info = $info->getRating();
+		// $beers = Beer::all()->orderBy('aslfja','desc');
+
+		$beers = Beer::with('ratings')->get();
+		// dd($beers);
+		foreach($beers as $beer)
+		{
+			$beer->ratings = $beer->getRating();
+			// echo $beer->getRating() . "<br>";
+		}
+		$beer->orderBy('ratings', 'desc');
+
+		$beer->first();
+		echo $beer->ratings;
+
+
+		dd($beers);
+	}
+
 	public function testing()
 	{
 		return View::make('vueTemplates.test');
@@ -23,10 +45,10 @@ class HomeController extends BaseController {
 	public function test($offset)
 	{
 		// $beers = Beer::with('brewery')->orderBy('created_at','desc')->paginate(10);
-		$beers = Beer::with('brewery')->paginate(10);
 		// try {
 			
-		// $beers = Beer::with('brewery')->skip(10)->take(5)->get();
+		// $beers = Beer::with('brewery')->paginate(10);
+		$beers = Beer::with('brewery')->skip($offset)->take(5)->get();
 		// } catch (Exception $e) {
 		// 	return $e;
 		// }
@@ -79,10 +101,8 @@ class HomeController extends BaseController {
 
 	public function fbLogin( $fb_id ) 
 	{
-		// return $fb_id;
 		try {
-			$user = User::where('facebook_id','=', $fb_id)->findOrFail();
-
+			$user = User::where('facebook_id','=', $fb_id)->firstOrFail();
 		} catch (Exception $e) {
 
 			$user = new User();
