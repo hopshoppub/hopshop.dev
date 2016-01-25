@@ -16,17 +16,12 @@ body {
     text-align: right;
 }
 .logo {
-    background-image:url(/img/hopshop.png);
-    background-size: 205px;
-    background-repeat: repeat;
-    height:100px;
-}
-
-.logo_navbar {
     background-image:url(/img/hopshoplogo.png);
-    width: 205px;
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-color: black;
     height:100px;
-
+    padding: 50px;
 }
 .cover {
     height:30px;
@@ -61,8 +56,11 @@ body {
     
 }
 .navbar-inverse .navbar-brand {
-    color: #BBCC33;
+    color: #5F8B26;
     font-size: 200%;
+}
+.hopshop-color-brand {
+    color:#FF9600;
 }
 .navbar-inverse .navbar-nav > li > a {
     color: white;
