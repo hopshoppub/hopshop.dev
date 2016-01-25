@@ -35,11 +35,12 @@ class RatingsController extends \BaseController {
  	}
  	public function storeRating($id,$ratingNumber) 
  	{
+
  		$inputRating = new Rating();
  		$inputRating->user_id = 1;
  		$inputRating->beer_id = $id;
  		$inputRating->rating = $ratingNumber;
- 		$inputRating->comment = 'Awesome beer, i would reccomend to anyone!';
+ 		$inputRating->comment = 'Awesome beer, i would recommend to anyone!';
  		$inputRating->save();
  	}
 
