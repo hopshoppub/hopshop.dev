@@ -32,14 +32,12 @@ var myVue = new Vue ({
         test: function () {
 
             var offset = myVue.$data.beers.length;
-            console.log(offset);
-            Vue.http.get('/test' + '/' + offset, function (data, status, request) {
-
+            
+            Vue.http.get('/test/' + offset, function (data, status, request) {
                 if ( data['login_error'] == true ){
                     console.log('error');
                 } else{
-
-                    data.data.forEach(function(element) {
+                    data.forEach(function(element) {
                         myVue.$data.beers.push(element);
                     });
                     console.log( myVue.$data.beers[0]);

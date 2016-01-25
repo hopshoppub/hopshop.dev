@@ -57,7 +57,7 @@
 
 @section('bottom-script')
 
-
+    <script src="/js/test.js"></script>
 @stop
 
 
