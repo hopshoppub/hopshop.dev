@@ -12,11 +12,13 @@
 	font-size: 150%;
 }
 .beer-table-outline {
-	/*background-color: #151111;
+	background-color: #0C0B0B;
 	background-image: url(/img/beer-posts.jpg);
-	background-blend-mode: color-burn;*/
+	background-blend-mode: color-burn;
 	background-size: 500px;
 	padding:20px;
+	margin-left:5%;
+	margin-right: 5%;
 }
 .hide-description {
 	display:none;
