@@ -162,6 +162,7 @@ var myVue = new Vue ({
                 myVue.getFbFriends( data.facebook_id );
                 myVue.getProfilePic( data.facebook_id );
                 myVue.$data.user = data;
+                console.log( data.facebook_id);
             
             }).catch(function (data, status, request) {
                 alert("error");
