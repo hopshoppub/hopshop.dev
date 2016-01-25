@@ -13,6 +13,17 @@ class RatingsTableSeeder extends Seeder {
 		$rating->rating = '5';
 		$rating->comment = 'Great Beer!';
 		$rating->save();
+
+
+    	// $faker = Faker::create();
+    	// foreach (range(1,1000) as $index) {
+	    //     DB::table('users')->insert([
+	    //     	'user_id' => $faker->numberBetween(1,100),
+	    //         'beer_id' => $faker->numberBetween(10,200),
+	    //         'rating' => $faker->numberBetween(1,5),
+	    //         'comment' => $faker->paragraph,
+	    //     ]);
+     //    }
 	}
 
 }
