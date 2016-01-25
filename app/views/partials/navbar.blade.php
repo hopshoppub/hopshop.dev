@@ -10,7 +10,9 @@
 			</button>
 
 
-			<a class="navbar-brand" href="{{{ action('HomeController@showHome')}}}">hopshop</a>
+
+			<a class="navbar-brand " href="{{{ action('HomeController@showHome')}}}">hopshop</a>
+
 
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
@@ -25,7 +27,7 @@
             {{--
                     If Logged Out
             --}}
-            <div v-if="!loggedIn">
+            <div v-if="loggedIn == 'false'">
     			<ul class="nav navbar-nav navbar-right">
     				<li><a href="#" data-toggle="modal" data-target="#signup_modal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					
@@ -36,13 +38,14 @@
             {{--
                     If Logged In
             --}}
-            <div v-if="loggedIn">
+            <div v-if="loggedIn == 'true'">
                 <ul class="nav navbar-nav navbar-right">
-                	<li id="user_profile_picture"></li>
+                	<li><img id="user_profile_picture" src=""></li>
 
                     <li><a href="#" v-on:click="logoutClicked"><span class="glyphicon glyphicon-user"></span>Log Out</a></li>
                 </ul>
             </div>
+            <input type='text' value=@if( Auth::check() )'true'@else'false'@endif hidden v-model="loggedIn">
 		</div>
 	</div>
 	@include('modals.login')
@@ -50,7 +53,12 @@
 </nav>
 
 
-<div id="status">
+<div id="status" class="right">
+	@if( Auth::check() )
+		Welcome!!
+	@else
+		Login with Facebook!
+	@endif
 </div>
 
 

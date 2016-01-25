@@ -15,6 +15,32 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	public function testing()
+	{
+		return View::make('vueTemplates.test');
+	}
+
+	public function test($offset)
+	{
+		// $beers = Beer::with('brewery')->orderBy('created_at','desc')->paginate(10);
+		$beers = Beer::with('brewery')->paginate(10);
+		// try {
+			
+		// $beers = Beer::with('brewery')->skip(10)->take(5)->get();
+		// } catch (Exception $e) {
+		// 	return $e;
+		// }
+		return Response::json( $beers );
+		return View::make('home');
+	}
+
+	public function test2()
+	{
+		$data = Auth::user();
+		$data['template'] = View::make('vueTemplates.testInner');
+		return View::make( $data );
+	}
+
 	public function showHome()
 	{
 		return View::make('home');
@@ -55,7 +81,7 @@ class HomeController extends BaseController {
 	{
 		// return $fb_id;
 		try {
-			$user = User::where('facebook_id', $fb_id)->findOrFail();
+			$user = User::where('facebook_id','=', $fb_id)->findOrFail();
 
 		} catch (Exception $e) {
 
@@ -65,12 +91,10 @@ class HomeController extends BaseController {
 			$user->role = 1;
 
 			$user->save();
-			// dd($fb_id);
 			$user = User::where('facebook_id', $fb_id)->first();
 		}
 		Auth::login($user);
 		return Response::json( Auth::user() );
-			// return Response::json( $user );
 	}
 
 }
