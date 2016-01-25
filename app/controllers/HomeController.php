@@ -17,24 +17,19 @@ class HomeController extends BaseController {
 
 	public function testRatings()
 	{
-		// $info = Beer::find(9);
-		// $info = $info->getRating();
-		// $beers = Beer::all()->orderBy('aslfja','desc');
 
-		$beers = Beer::with('ratings')->get();
-		// dd($beers);
+		$beers = Beer::with('ratings')->where('beer_id', '<', 100)->get();
+
+		$beers->sortByDesc(function($beer) {
+			return $beer->rating;
+		});
+
 		foreach($beers as $beer)
 		{
-			$beer->ratings = $beer->getRating();
-			// echo $beer->getRating() . "<br>";
+			echo $beer->rating . "<br>";
 		}
-		$beer->orderBy('ratings', 'desc');
 
-		$beer->first();
-		echo $beer->ratings;
-
-
-		dd($beers);
+		die();
 	}
 
 	public function testing()
