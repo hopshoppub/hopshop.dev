@@ -1,107 +1,174 @@
-var Vue = require('vue');
+// var Vue = require('vue');
 
-Vue.use(require('vue-resource'));
+// Vue.use(require('vue-resource'));
 
 Vue.http.options.root = '/root';
 Vue.http.headers.common['csrftoken'] = document.querySelector('#token').getAttribute('value');
 
 /*
- *	Vue Instance
+ *  Vue Instance
  */
-var theVue = new Vue ({
+var myVue = new Vue ({
     el: '#everything_is_coved_by_vue_now',
 
     data: {
 
-    	loggedIn: false,
+        user: {
 
-    	user: {
+        },
 
-    	},
+        beers: [
 
-    	loginPassword: '',
-    	loginEmail: '',
+        ],
+
+        loginPassword: '',
+        loginEmail: '',
 
 
     },
 
     methods: {
 
+        test: function () {
+
+            var offset = myVue.$data.beers.length;
+            console.log(offset);
+            Vue.http.get('/test' + '/' + offset, function (data, status, request) {
+
+                if ( data['login_error'] == true ){
+                    console.log('error');
+                } else{
+
+                    data.data.forEach(function(element) {
+                        myVue.$data.beers.push(element);
+                    });
+                    console.log( myVue.$data.beers[0]);
+                    myVue.$data.infinateFlag = true;
+
+                }
+            }).catch(function (data, status, request) {
+                myVue.$data.infinateFlag = true;
+                alert(data);
+            });
+        },
+
+        test2: function () {
+
+            // var offset = myVue.$data.beers.length;
+            // console.log(offset);
+            Vue.http.get('/test2', function (data, status, request) {
+
+                if ( data['login_error'] == true ){
+                    console.log('error');
+                } else{
+
+                    // data.data.forEach(function(element) {
+                    //     myVue.$data.beers.push(element);
+                    // });
+                    console.log( data );
+                    $('#contents').replaceWith( data['template'] );
+
+
+                }
+            }).catch(function (data, status, request) {
+                alert(data);
+            });
+        },
+
         loginClicked: function() {
 
-		    Vue.http.post('/login', theVue.$data.user, function (data, status, request) {
+            Vue.http.post('/login', myVue.$data.user, function (data, status, request) {
 
-		        if ( data['login_error'] == true ){
-		        	console.log('error');
-		        } else{
+                if ( data['login_error'] == true ){
+                    console.log('error');
+                } else{
 
-		        	theVue.$data.user = data;
+                    myVue.$data.user = data;
 
-			        theVue.$data.loggedIn = true;
+                    myVue.$data.loggedIn = 'true';
 
-			        $('#login_modal').modal('toggle');
-		        }
-		    }).catch(function (data, status, request) {
-		        console.log("error");
-		    });
-    	},
+                    $('#login_modal').modal('toggle');
+                }
+            }).catch(function (data, status, request) {
+                alert('server side error sorry for the inconveniance');
+            });
+        },
 
-    	signupClicked: function() {
+        getUserInfo: function() {
 
-		    Vue.http.post('/users/store', theVue.$data.user, function (data, status, request) {
-				theVue.$data.user = data;
+            Vue.http.get('/users/info', function (data, status, request) {
 
-				$('#signup_modal').modal('toggle');	        
-		    }).catch(function (data, status, request) {
-		        alert("error");
-		    }); 
-    	},
+                myVue.$data.user = data;
+                console.log(data.facebook_id);
+                myVue.getProfilePic( data.facebook_id );
+    
+            }).catch(function (data, status, request) {
+                alert('server side error sorry for the inconveniance');
+            });
+        },
 
-    	logoutClicked: function() {
+        signupClicked: function() {
 
-		    Vue.http.get('/logout', function (data, status, request) {
+            Vue.http.post('/users', myVue.$data.user, function (data, status, request) {
+                myVue.$data.user = data;
+                myVue.$data.loggedIn = 'true';
+                $('#signup_modal').modal('toggle');         
+            }).catch(function (data, status, request) {
+                console.log(data);
+            }); 
+        },
 
-			    theVue.$data.loggedIn = false;
+        logoutClicked: function() {
 
-			    theVue.$data.user = data;
+            Vue.http.get('/logout', function (data, status, request) {
 
-		    }).catch(function (data, status, request) {
-		        alert('sorry an error accored and you were not logged out');
-		    }); 
-    	},
+                myVue.$data.loggedIn = 'false';
+                myVue.$data.user = data;
+                document.getElementById('status').innerHTML =
+                'Thanks for visiting or site!!';
 
-    	getProfilePic: function(id){
+            }).catch(function (data, status, request) {
+                alert('sorry an error accored and were not logged out');
+            }); 
+        },
 
-			FB.api(
-			    "/" + id + "/picture",
-			    function (response) {
-				// console.log('getting pic id');
-			      if (response && !response.error) {
-			        /* handle the result */
-			    	// console.log( 'pic_id: ' + response.id );
-			    	// console.log(response.data.url);
-					// document.getElementById('#user_profile_pic').innerHTML = '<img src=' + response.data.url + ' />';
-			      }
-			    }
-			);
-		},
+        getProfilePic: function(id){
 
-		facebookLogin: function(id) {
+            FB.api( "/" + id + "/picture", function (response) {
+                // console.log('getting pic id');
+                if (response && !response.error) {
+                   // handle the result 
+                    var pic = document.getElementById('user_profile_picture');
+                    pic.src = response.data.url;
+                }
+            });
+        },
 
-	            console.log( 'tsting it' + id );
-		    Vue.http.post('/facebookLogin/' + id , function (data, status, request) {
-				
-		    	theVue.$data.loggedIn = true;
+        getFbFriends: function(id){
 
-		    	theVue.$data.user = data;
+            FB.api("/" + id + "/friends", function(response) {
+                if (response && !response.error) {
 
-		    	// console.log(data);
-	        
-		    }).catch(function (data, status, request) {
-		        alert("error");
-		    });
-		},
+                    // console.log(response);
+                }
+            });
+        },
+
+        facebookLogin: function(id) {
+
+            Vue.http.post('/facebookLogin/' + id , function (data, status, request) {
+                
+                myVue.$data.loggedIn = 'true';
+                myVue.getFbFriends( data.facebook_id );
+                myVue.getProfilePic( data.facebook_id );
+                myVue.$data.user = data;
+            
+            }).catch(function (data, status, request) {
+                alert("error");
+            });
+        },
     }
 });
 
-module.exports = theVue;
+
+// module.exports = myVue;

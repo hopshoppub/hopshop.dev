@@ -164,3 +164,7 @@
 {{-- <-- End of page --> --}}
     
 @stop
+
+@section('bottom-script')
+    <script src="/js/homepage.js"></script>
+@stop

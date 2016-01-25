@@ -1,5 +1,4 @@
 function reSizeBeerTrivia() {
-	console.log('resizing');
 	var win = $(this);
 	$triviaHeight = $('#trivia-inner').height();
 	$beerHeight = $('#beer-trivia').height();

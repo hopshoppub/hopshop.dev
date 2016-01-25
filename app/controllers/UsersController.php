@@ -79,7 +79,9 @@ class UsersController extends \BaseController {
 
 		$user->save();
 
-		return Response::json( 'woot' );
+		Auth::login($user);
+
+		return Response::json( Auth::user() );
 	}
 
 	/**
@@ -141,6 +143,14 @@ class UsersController extends \BaseController {
 		User::destroy($id);
 
 		return Redirect::route('users.index');
+	}
+
+	/**
+	 *	@return the logged in user
+	 */
+	public function getInfo()
+	{
+		return Response::json( Auth::user() );
 	}
 
 }
