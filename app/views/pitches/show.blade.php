@@ -30,7 +30,9 @@
                         <h3>Current Level</h3>
                         <h3>${{{ $pitch->goal }}}</h3>
                         <h4>{{{ $pitch->deadline }}}</h4>
-                        <button class="btn btn-default">Fund the Brew!</button>
+                        {{ Form::button('Fund the brew!', array('class' => 'btn')) }}
+
+
                     </div>
                 </div>
             

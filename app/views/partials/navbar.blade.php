@@ -12,6 +12,8 @@
 
 			<a class="navbar-brand" href="{{{ action('HomeController@showHome')}}}">hop<span class ='hopshop-color-brand'>Shop</span></a>
 
+
+
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 
