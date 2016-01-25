@@ -18,7 +18,7 @@ body {
 .logo {
     background-image:url(/img/hopshop.png);
     background-size: 205px;
-    /*background-repeat: repeat;*/
+    background-repeat: repeat;
     height:100px;
 }
 
@@ -40,9 +40,7 @@ body {
 /*
  *      Navbar 
  */
- #status{
-    margin-right:15px;
- }
+
 .navbar-color {
     height:5px;
     background-color: #BBCC33;
