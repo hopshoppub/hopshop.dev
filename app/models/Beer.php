@@ -51,4 +51,14 @@ class Beer extends BaseModel {
 	{
 		return $this->hasManyThrough('User', 'Rating');
 	}
+
+	public function getRating()
+	{
+		$count = $this->ratings()->count();
+		$avg = $this->ratings()->avg('rating');
+
+		return ( (5 * 3.5 + $avg * $count) / (5 + $count) );
+		// loop through and calculate
+
+	}
 }
