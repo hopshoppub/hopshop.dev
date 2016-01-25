@@ -17,10 +17,19 @@ class HomeController extends BaseController {
 
 	public function testRatings()
 	{
-		
 
-		
-		
+		$beers = Beer::with('ratings')->where('beer_id', '<', 100)->get();
+
+		$beers->sortByDesc(function($beer) {
+			return $beer->rating;
+		});
+
+		foreach($beers as $beer)
+		{
+			echo $beer->rating . "<br>";
+		}
+
+		die();
 	}
 
 	public function testing()
