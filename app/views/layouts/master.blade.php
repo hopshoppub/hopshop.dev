@@ -37,7 +37,7 @@
 
         @yield('bottom-script')
        
-
+        <script type="/js/master.js"></script>
         <script src="/js/vue.js"></script>
         <script src="/js/vue-resource.js"></script>
         <script src="/js/myVue.js"></script>
