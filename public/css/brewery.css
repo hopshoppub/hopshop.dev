@@ -3,6 +3,7 @@
 	border: groove 4px;
 	border-color: black;
 	background-color:#FFF;
+	border-radius: 20px;
 }
 .row {
 	margin:2px;
@@ -16,7 +17,8 @@
 	background-color: #628A2D;
 	background-blend-mode: color-burn;
 	background-size: 500px;
-	margin-top:20px;
+	padding:20px;
+	margin-bottom: 20px;
 }
 .hide-description {
 	display:none;
@@ -33,5 +35,6 @@
 	background-image: url(/img/beer-posts.jpg);
 	background-blend-mode: color-burn;
 	background-size: 500px;
-	margin-top:20px;
+	padding:20px;
+	
 }
