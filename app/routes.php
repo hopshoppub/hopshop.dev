@@ -10,6 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+App::bind('Acme\Billing\BillingInteface', 'Acme\Billing\StripeBilling');
 
 /*
  *		Home Routes
@@ -28,6 +29,16 @@ Route::resource('/beers', 'BeersController');
  *		Pitch Routes
  */
 Route::get('/pitches/fund', 'PitchesController@fund');
+Route::post('pitches/fund', function()
+{
+	$billing = App::make('Acme\Billing\BillingInterface');
+	$billing->charge([
+		'email' => Input::get('email'),
+		'token' => Input::get('stripe-token')]);
+
+	return 'Charge was succesful.';
+});
+
 Route::resource('/pitches', 'PitchesController');
 
 

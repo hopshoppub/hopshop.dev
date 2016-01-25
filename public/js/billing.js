@@ -1,38 +1,57 @@
-var StripeBilling = {
-	init: function() {
-		this.form = $('#billing-form');
-		this.submitButton = this.form.find('input[type=submit]');
+(function(){
 
-			var stripeKey = $('meta[name="publishable-key"]').attr('content');
-			Stripe.setPublishableKey(stripeKey);
+	var StripeBilling = {
+		init: function() {
+			this.form = $('#billing-form');
+			this.submitButton = this.form.find('input[type=submit]');
+			this.submitButtonValue = this.submitButton.val();
 
-		this.bindEvents();
+				var stripeKey = $('meta[name="publishable-key"]').attr('content');
+				Stripe.setPublishableKey(stripeKey);
+
+			this.bindEvents();
+
+		},
+
+		bindEvents: function() {
+
+			this.form.on('submit', $.proxy(this.sendToken, this));
+
+		},
+
+		sendToken: function(event) {
+			this.submitButton.val('One moment').prop('disabled', true);
+			Stripe.createToken(this.form, $.proxy(this.stripeResponseHandler, this));
+			event.preventDefault();
+		},
+		
+
+		
+		stripeResponseHandler: function(status, response) {
+			this.submitButton.val(this.submitButtonValue);
+			if (response.error) {
+				return this.form.find('.payment.errors').show().text(response.error.message);
+				 // this.submitButton.prop('disabled', false).val(this.submitButtonValue);
+			}
+
+			$('<input>', {
+				type: 'hidden',
+				name: 'stripe_token', 
+				value: response_id
+			}).appendTo(this.form);
+
+
+			// this.form[0].submit();
+			this.form.submit();
+
+			// console.log(status, response);
+
 
 		}
-
-	bindEvents: function() {
-
-		this.form.on('submit', $.proxy(this.sendToken, this));
-
-	}
-
-	sendToken: function(event) {
-		this.submitButton.val('Foo');
-		Stripe.createToken(this.form, $.proxy(this.stripeResponseHandler, this))
-		event.preventDefault();
-	}
-	
-
-	
-};
-
-	stripeResponseHandler: function(status, response) {
-		console.log(status, response);
-	}
-
-	StripeBilling.init();
+	};
 
 
+StripeBilling.init();
 
 })();
 

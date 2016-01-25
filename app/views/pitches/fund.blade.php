@@ -34,9 +34,16 @@
 			{{ Form::selectYear(null, date('Y'), date('Y')+12, null, ['data-stripe' => 'exp-year']) }}
 		</label>
 	</div>
+	<div class="form-row"></div>
+		<label>
+			<span>Email Address:</span>
+			<input type="email" id="email" name='email'>
+		</label>
+	</div>
 	<div>
 		{{ Form::submit('Buy now')}}
 	</div>
+	<div class="payment-errors"></div>
 
 {{ Form::close() }}
 
@@ -44,6 +51,6 @@
 @stop
 
 @section('footer')
-	<script src="js/billing.js"></script>
+	<script src="/js/billing.js"></script>
 @stop
 

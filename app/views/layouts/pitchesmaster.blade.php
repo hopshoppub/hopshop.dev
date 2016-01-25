@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('top-script')
-<meta name="publishable-key" content="{{ Config::get('stripe.publishable_key') }}">
+
 
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'
 >
