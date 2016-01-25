@@ -15,6 +15,28 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	public function testRatings()
+	{
+		// $info = Beer::find(9);
+		// $info = $info->getRating();
+		// $beers = Beer::all()->orderBy('aslfja','desc');
+
+		$beers = Beer::with('ratings')->get();
+		// dd($beers);
+		foreach($beers as $beer)
+		{
+			$beer->ratings = $beer->getRating();
+			// echo $beer->getRating() . "<br>";
+		}
+		$beer->orderBy('ratings', 'desc');
+
+		$beer->first();
+		echo $beer->ratings;
+
+
+		dd($beers);
+	}
+
 	public function testing()
 	{
 		return View::make('vueTemplates.test');
