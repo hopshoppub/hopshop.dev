@@ -1,5 +1,5 @@
 
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <nav class="navbar navbar-inverse" id="navbar">
 	<div class="container">
 		<div class="navbar-header">
@@ -11,8 +11,6 @@
 
 
 			<a class="navbar-brand" href="{{{ action('HomeController@showHome')}}}">hop<span class ='hopshop-color-brand'>Shop</span></a>
-
-
 
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
@@ -60,6 +58,5 @@
 		Login with Facebook!
 	@endif
 </div>
-
 
 
