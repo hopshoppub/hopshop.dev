@@ -26,7 +26,7 @@ class HomeController extends BaseController {
 
 		foreach($beers as $beer)
 		{
-			echo $beer->rating . "<br>";
+			echo $beer->name . "<br>";
 		}
 
 		die();
