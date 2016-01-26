@@ -68,6 +68,7 @@ class HomeController extends BaseController {
 		$email = Input::get('email');
 		$password = Input::get('password');
 
+
 		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
 
 			$user = Auth::user();
