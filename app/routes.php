@@ -37,7 +37,7 @@ Route::post('/pitches/fund', function()
 {
 	// dd(Input::all());
 	$billing = App::make('Acme\Billing\BillingInterface');
-	$billing->charge([
+	$customerId = $billing->charge([
 		'email' => Input::get('email'),
 		'token' => Input::get('stripe-token')]);
 	 //   'amount' => '1000',

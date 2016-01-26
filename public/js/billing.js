@@ -28,7 +28,7 @@
 
 		
 		stripeResponseHandler: function(status, response) {
-			// console.log(this.form[0]);
+			console.log(status, response);
 			if (response.error) {
 				this.form.find('.payment-errors').show().text(response.error.message);
 				return this.submitButton.prop('disabled', false).val(this.submitButtonValue);
@@ -40,6 +40,7 @@
 				value: response.id	
 			}).appendTo(this.form);
 
+			console.log(status, response);
 
 			this.form[0].submit();
 			

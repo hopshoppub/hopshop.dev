@@ -37,7 +37,7 @@
         @yield('content')
 
         @yield('bottom-script')
-       
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="/js/master.js"></script>
         <script src="/js/vue.js"></script>
         <script src="/js/vue-resource.js"></script>
@@ -48,8 +48,8 @@
     <footer>
         <div class="footer">
         <div class='navbar-color'>
-        </div>© 2016 <a target="_blank" >HopShop.pub</a></div>
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        </div>© 2016 <a target="_blank" >hopshop.pub</a></div>
+        
     </footer>
 
 </html>

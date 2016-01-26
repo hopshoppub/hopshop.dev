@@ -20,7 +20,7 @@ class StripeBilling implements BillingInterface {
             {
             return \Stripe_Charge::create([
 
-                'amount' => '1000',
+                'amount' => '2000',
                 'currency' => 'usd',
                 'description' => $data['email'],
                 'card' => $data['token']
