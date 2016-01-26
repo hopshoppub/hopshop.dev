@@ -28,11 +28,19 @@ class BeersController extends \BaseController {
 				$query = Beer::with('brewery');
 				$search = Input::get('search');
 				$q->where('name','like',"%$search%");
-				$beers = $query->paginate(10);
+				$beers = $query->get();
 			});
-			$beers = $query->paginate(10);
+			$beers = $query->get();
 		} else {
-			$beers = Beer::with('brewery')->orderBy('created_at','desc')->paginate(10);
+				$query = Beer::with('ratings')->orWhereHas('ratings', function($q) {
+				$query = Beer::with('ratings');
+				$q->where('rating', '>', '3');
+				$beers = $query->get();
+			});
+				$beers = $query->get();
+			$beers->sortByDesc(function($beer) {
+				return $beer->rating;
+			});
 		}
 			return View::make('beers.index')->with(['beers' => $beers, 'i' => $i]);
 	}
