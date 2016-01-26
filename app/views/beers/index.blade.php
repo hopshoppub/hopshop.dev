@@ -14,8 +14,8 @@
                     <input type="submit"> 
                 </form> 
             </div>
-@foreach($beers as $beer)
 <div class='beer-table-outline'>
+@foreach($beers as $beer)
     <div class="container" id='beer-table'>
         <div class="row">
             <div class="col-xs-8 col-md-3"><img src="http://placehold.it/350x150" alt="Mountain View" style="width:250px;height:200px;"></div>
@@ -53,8 +53,8 @@
         </div>
         <button class='pull-right description-button btn' data-grab-id="{{{ $beer->beer_id }}}">Click Here For Description: </button>
     </div>
-</div>
 @endforeach
+</div>
 {{-- {{ $beers->links() }} --}}
         
 @stop
