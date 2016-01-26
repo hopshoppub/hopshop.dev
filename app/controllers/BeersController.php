@@ -38,8 +38,8 @@ class BeersController extends \BaseController {
 				$beers = $query->get();
 			});
 				$beers = $query->get();
-			$beers->sortByDesc(function($beer) {
-				return $beer->rating;
+				$beers->sortByDesc(function($beer) {
+					return $beer->rating;
 			});
 		}
 			return View::make('beers.index')->with(['beers' => $beers, 'i' => $i]);

@@ -20,7 +20,7 @@
 <div class='beer-table-outline'>
 	<div class='container' id='beer-table'>
         <div class="row">
-			<div class="col-xs-8 col-md-11"><h3>{{{ $brewery->name }}}</h3></div>
+			<div class="col-xs-8 col-md-11"><h1>{{{ $brewery->name }}}</h1></div>
 			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Website:  </strong>{{{ $brewery->website }}}</h3></div>
 			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Phone:   </strong>{{{ $brewery->phone }}}</h3></div>
 			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Address:   </strong>{{{ $brewery->address }}}</h3></div>
@@ -35,7 +35,7 @@
             <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3 class='beer-font'>{{{ $beers->name }}}</h3></div>
             <div class="col-xs-5 col-md-3"><h4>Rating:</h4>
                <form id="ratingsForm">
-					<div class="stars">
+					<div class="stars" data-rating-id="{{{ $beers->rating }}}">
 						<input type="radio" name="star" class="star-1" id="star-1" />
 						<label class="star-1" for="star-1">1</label>
 						<input type="radio" name="star" class="star-2" id="star-2" />
@@ -70,8 +70,7 @@
 @stop
 
 @section('bottom-script')
-
-    <script type='text/javascript' src='/js/beer.js'></script>
+    <script src="/js/beer.js"></script>
 @stop
 
 

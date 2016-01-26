@@ -132,6 +132,48 @@ class RatingsTableSeeder extends Seeder {
 		$rating->comment = 'Great Beer!';
 		$rating->save();
 
+		$rating = new Rating();
+		$rating->user_id = 2;
+		$rating->beer_id = 9;
+		$rating->rating = '5';
+		$rating->comment = 'Great Beer!';
+		$rating->save();
+
+		$rating = new Rating();
+		$rating->user_id = 18;
+		$rating->beer_id = 9;
+		$rating->rating = '5';
+		$rating->comment = 'Great Beer!';
+		$rating->save();
+
+		$rating = new Rating();
+		$rating->user_id = 17;
+		$rating->beer_id = 9;
+		$rating->rating = '5';
+		$rating->comment = 'Great Beer!';
+		$rating->save();
+
+		$rating = new Rating();
+		$rating->user_id = 15;
+		$rating->beer_id = 9;
+		$rating->rating = '5';
+		$rating->comment = 'Great Beer!';
+		$rating->save();
+
+		$rating = new Rating();
+		$rating->user_id = 14;
+		$rating->beer_id = 9;
+		$rating->rating = '5';
+		$rating->comment = 'Great Beer!';
+		$rating->save();
+
+		$rating = new Rating();
+		$rating->user_id = 10;
+		$rating->beer_id = 9;
+		$rating->rating = '5';
+		$rating->comment = 'Great Beer!';
+		$rating->save();
+
     	
 	}
 
