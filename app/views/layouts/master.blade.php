@@ -36,6 +36,8 @@
 
         @yield('content')
 
+
+
        
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -51,7 +53,9 @@
     <footer>
         <div class="footer">
         <div class='navbar-color'>
-        </div>© 2016 <a target="_blank" >HopShop.pub</a></div>
+        </div>© 2016 <a target="_blank" >hopshop.pub</a></div>
+        
+
     </footer>
 
 </html>

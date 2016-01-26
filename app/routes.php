@@ -40,10 +40,9 @@ Route::post('/pitches/fund', function()
 	$billing->charge([
 		'email' => Input::get('email'),
 		'token' => Input::get('stripe-token')]);
-	 //   'amount' => '1000',
-	 // 'currency' => 'usd'
+	 
 		
-
+	// $contribution =Auth::user()
 	return 'Charge was succesful.';
 });
 
