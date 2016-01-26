@@ -1,3 +1,5 @@
+
+
 $('.description-toggle').hide();
 $('.description-button').click(function(e) {
 	$idOfBeer = ($(this).data('grabId'));
@@ -6,7 +8,17 @@ $('.description-button').click(function(e) {
 });
 
 
-
+function showBeerCalculatedRating() {
+	$('.stars').each(function() {
+		$calculatedRating = ($(this).data('ratingId'));
+		$percent = $calculatedRating * 20;
+		($('.span').css('width', $percent + '%'));
+	})
+	$('.stars').click(function() {
+		($('.span').css('background-color', 'blue'))
+	})
+}
+showBeerCalculatedRating();
 function getBeerIdAndStarsNumber() {
 		$('.stars').click(function(e) {
 			$idOfBeerStars = ($(this).data('starId'));
@@ -16,6 +28,7 @@ function getBeerIdAndStarsNumber() {
 			sendRating($idOfBeerStars, $ratingNumber);
 			// changeStars();
 		});
+		 $(this).attr("checked");
 	}
 	getBeerIdAndStarsNumber();
 
