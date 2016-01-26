@@ -54,18 +54,16 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-		// $validator = Validator::make($data = Input::all(), User::$rules);
+		$data = Input::all();
+		$data['password'] = Hash::make( Input::get('password') );
 
-		// if ($validator->fails())
-		// {
-		// 	return Redirect::back()->withErrors($validator)->withInput();
-		// }
 
-		// User::create($data);
+		$validator = Validator::make( $data , User::$rules);
 
-		// return Redirect::route('users.index');
-
-		// $data = [];
+		if ($validator->fails())
+		{
+			return Response::json( ['error' => 'you messed up'] );
+		}
 
 		$user = new User();
 

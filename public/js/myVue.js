@@ -102,9 +102,50 @@ var myVue = new Vue ({
             });
         },
 
+        addBeerClicked: function() {
+
+            Vue.http.post('/beers', myVue.$data.beer, function (data, status, request) {
+                
+                $('#add_beer_modal').modal('toggle');         
+            }).catch(function (data, status, request) {
+                console.log(data);
+            }); 
+        },
+
+        editBeerClicked: function() {
+
+            Vue.http.put('/beers/' + myVue.$data.beer.beer_id , myVue.$data.beer, function (data, status, request) {     
+
+                $('#edit_beer_modal').modal('toggle');
+            }).catch(function (data, status, request) {
+                console.log(data);
+            }); 
+        },
+
+        addPitchClicked: function() {
+
+            Vue.http.post('/pitches', myVue.$data.pitch, function (data, status, request) {
+                console.log( data );
+                $('#add_pitch_modal').modal('toggle');         
+            }).catch(function (data, status, request) {
+                console.log(data);
+            }); 
+        },
+
+        editPitchClicked: function() {
+
+            Vue.http.put('/pitches/' + myVue.$data.pitch.pitch_id , myVue.$data.pitch, function (data, status, request) {     
+                console.log(data);
+                $('#edit_pitch_modal').modal('toggle');
+            }).catch(function (data, status, request) {
+                console.log(data);
+            }); 
+        },
+
         signupClicked: function() {
 
             Vue.http.post('/users', myVue.$data.user, function (data, status, request) {
+                console.log(data);
                 myVue.$data.user = data;
                 myVue.$data.loggedIn = 'true';
                 $('#signup_modal').modal('toggle');         
@@ -119,8 +160,6 @@ var myVue = new Vue ({
 
                 myVue.$data.loggedIn = 'false';
                 myVue.$data.user = data;
-                document.getElementById('status').innerHTML =
-                'Thanks for visiting or site!!';
 
             }).catch(function (data, status, request) {
                 alert('sorry an error accored and were not logged out');
@@ -130,8 +169,8 @@ var myVue = new Vue ({
         getProfilePic: function(id){
 
             FB.api( "/" + id + "/picture", function (response) {
-                // console.log('getting pic id');
                 if (response && !response.error) {
+
                    // handle the result 
                     var pic = document.getElementById('user_profile_picture');
                     pic.src = response.data.url;

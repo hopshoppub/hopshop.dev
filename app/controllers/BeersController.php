@@ -62,6 +62,8 @@ class BeersController extends \BaseController {
 	 */
 	public function store()
 	{
+
+		// return Response::json( Input::all() );
 		$validator = Validator::make($data = Input::all(), Beer::$rules);
 
 		if ($validator->fails())
@@ -71,7 +73,7 @@ class BeersController extends \BaseController {
 
 		Beer::create($data);
 
-		return Redirect::route('beers.index');
+		return Response::json( $data );
 	}
 
 	/**
@@ -109,17 +111,18 @@ class BeersController extends \BaseController {
 	public function update($id)
 	{
 		$beer = Beer::findOrFail($id);
+		$data = Input::all();
+		unset($data['beer_id']);
 
-		$validator = Validator::make($data = Input::all(), Beer::$rules);
+		$validator = Validator::make($data , Beer::$rules);
 
 		if ($validator->fails())
 		{
-			return Redirect::back()->withErrors($validator)->withInput();
+			return Response::json( ['error' => 'you messed up']);
 		}
 
 		$beer->update($data);
-
-		return Redirect::route('beers.index');
+		return Response::json( ['good job' => 'wooot']);
 	}
 
 	/**

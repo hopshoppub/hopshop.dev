@@ -46,7 +46,6 @@ Route::post('/pitches/fund', function()
 
 	return 'Charge was succesful.';
 });
-
 Route::resource('/pitches', 'PitchesController');
 
 
