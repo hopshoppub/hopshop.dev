@@ -36,20 +36,22 @@
 
         @yield('content')
 
-        @yield('bottom-script')
        
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script type="/js/master.js"></script>
         <script src="/js/vue.js"></script>
         <script src="/js/vue-resource.js"></script>
         <script src="/js/myVue.js"></script>
         <script src="/js/facebook.js"></script>
+        
+        @yield('bottom-script')
     </body>
 
     <footer>
         <div class="footer">
         <div class='navbar-color'>
         </div>© 2016 <a target="_blank" >HopShop.pub</a></div>
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     </footer>
 
 </html>
