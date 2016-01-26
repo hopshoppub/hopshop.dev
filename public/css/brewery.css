@@ -18,7 +18,10 @@
 	background-blend-mode: color-burn;
 	background-size: 500px;
 	padding:20px;
-	margin-bottom: 20px;
+	margin-left:5%;
+	margin-right: 5%;
+	margin-bottom: 1%;
+	border-radius: 10px;
 }
 .hide-description {
 	display:none;
@@ -31,10 +34,13 @@
 	font-size: 200%;
 }
 .beer-table-solid {
-	background-color: #151111;
+	background-color: #0C0B0B;
 	background-image: url(/img/beer-posts.jpg);
 	background-blend-mode: color-burn;
 	background-size: 500px;
 	padding:20px;
+	margin-left:5%;
+	margin-right:5%;
+	
 	
 }

@@ -40,12 +40,9 @@ var myVue = new Vue ({
                     data.forEach(function(element) {
                         myVue.$data.beers.push(element);
                     });
-                    console.log( myVue.$data.beers[0]);
-                    myVue.$data.infinateFlag = true;
 
                 }
             }).catch(function (data, status, request) {
-                myVue.$data.infinateFlag = true;
                 alert(data);
             });
         },
