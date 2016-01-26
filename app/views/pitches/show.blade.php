@@ -47,7 +47,7 @@
                 <ul id="myTabs" class="nav nav-tabs">
                   <li role="presentation" class="active"><a href="#campaign">Campaign</a></li>
                   <li role="presentation"><a href="#updates">Updates</a></li>
-                  <li role="presentation"><a href="#hopmakers">hopmakers</a></li>
+                  <li role="presentation"><a href="#hopmakers">AdoptABrew</a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -71,7 +71,19 @@
                         This is different. We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!
 
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="hopmakers">These are the hopmakers</div>
+                    <div role="tabpanel" class="tab-pane" id="hopmakers"><h2>These are the hopmakers</h2>
+                        <table style="width:100%">
+                            @foreach($pitch->contributions as $contribution)
+                              <tr>
+                                <td>{{{ $contribution->user->first_name }}} {{{ $contribution->user->last_name }}}</td>
+                                <td>${{{ $contribution->amount }}}</td>
+                              </tr>
+                            @endforeach
+                        </table>
+
+
+
+                    </div>
                 </div>
 
             
