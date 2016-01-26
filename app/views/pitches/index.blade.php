@@ -8,7 +8,7 @@
 
 <div class="beerpitches">
 	<div class="container">
-		<div class="row" style="background-color:papayawhip;">
+		<div class="row" {{-- style="background-color:papayawhip;" --}}>
 		@foreach($pitches as $pitch)
 		<div class="pitchesindex">
 			<a href="{{{ action('PitchesController@show', $pitch->pitch_id) }}}">
