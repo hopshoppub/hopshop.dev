@@ -54,7 +54,7 @@
 @stop
 
 @section('bottom-script')
-
+    <script src="/js/beer.js"></script>
 @stop
 
 

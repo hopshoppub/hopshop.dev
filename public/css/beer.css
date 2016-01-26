@@ -19,6 +19,7 @@
 	padding:20px;
 	margin-left:5%;
 	margin-right: 5%;
+	border-radius: 10px;
 }
 .hide-description {
 	display:none;
@@ -33,5 +34,19 @@
 .beer-table-solid {
 	background-color: #151111;
 	
-	margin-top:20px;
 }
+.width-1 {
+	width:20%;
+}
+.width-2 {
+	width:40%;
+}
+.width-3 {
+	width:60%;
+}
+.width-4 {
+	width:80%;
+}
+.width-5 {
+	width:100%;
+

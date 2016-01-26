@@ -26,4 +26,5 @@ class Contribution extends BaseModel {
 		return $this->belongsTo('Pitch');
 	}
 
+	
 }

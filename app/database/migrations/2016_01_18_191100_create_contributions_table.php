@@ -22,7 +22,7 @@ class CreateContributionsTable extends Migration {
 
 			$table->primary( ['user_id', 'pitch_id'] );
 
-			$table->decimal('contribution', 6, 2);
+			$table->decimal('amount', 6, 2);
 
 			$table->timestamps();
 		});
