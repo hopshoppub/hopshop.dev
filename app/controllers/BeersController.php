@@ -68,12 +68,12 @@ class BeersController extends \BaseController {
 
 		if ( $validator->fails() )
 		{
-			return Redirect::back()->withErrors($validator)->withInput();
+			return Response::json( $validator->messages() );
 		}
 
 		Beer::create($data);
 
-		return Response::json( $data );
+		return Response::json( ['good job' => 'wooot'] );
 	}
 
 	/**
@@ -120,11 +120,11 @@ class BeersController extends \BaseController {
 
 		if ($validator->fails())
 		{
-			return Response::json( ['error' => 'you messed up']);
+			return Response::json( $validator->messages() );
 		}
 
 		$beer->update($data);
-		return Response::json( ['good job' => 'wooot']);
+		return Response::json( ['good job' => 'wooot'] );
 	}
 
 	/**

@@ -38,13 +38,12 @@ class PitchesController extends \BaseController {
 
 		if ( $validator->fails() )
 		{
-			return Response::json( ['error' => 'you messed up'] );
-			return Redirect::back()->withErrors($validator)->withInput();
+			return Response::json( $validator->messages() );
 		}
 
 		Pitch::create($data);
 
-		return Response::json( $data );
+		return Response::json( ['good job' => 'wooot'] );
 	}
 
 	/**
@@ -92,11 +91,11 @@ class PitchesController extends \BaseController {
 		if ($validator->fails())
 		{
 			return Response::json( $validator->messages() );
-			// return $validator->messages();
 		}
 
 		$pitch->update($data);
-		return Response::json( ['good job' => 'wooot']);
+
+		return Response::json( ['good job' => 'wooot'] );
 	}
 
 	/**

@@ -71,8 +71,9 @@ var myVue = new Vue ({
             Vue.http.post('/login', myVue.$data.user, function (data, status, request) {
 
                 myVue.$data.errors = {};
+                console.log(data);
 
-                if ( data['good job'] === 'wooot') {
+                if ( data['error'] !== 'Incorect user name or password' ) {
 
                     myVue.$data.user = data;
                     myVue.$data.loggedIn = 'true';
@@ -81,6 +82,7 @@ var myVue = new Vue ({
                 } else {
                     
                     myVue.$data.errors = data;
+                    console.log( myVue.$data.error );
                 }
             }).catch(function (data, status, request) {
             }); 
@@ -104,7 +106,7 @@ var myVue = new Vue ({
 
                 if ( data['good job'] === 'wooot') {
 
-                    $('#edit_pitch_modal').modal('toggle');
+                    $('#add_beer_modal').modal('toggle');
                 } else {
                     
                     myVue.$data.errors = data;
@@ -120,9 +122,9 @@ var myVue = new Vue ({
 
                 if ( data['good job'] === 'wooot') {
 
-                    $('#edit_pitch_modal').modal('toggle');
+                    $('#edit_beer_modal').modal('toggle');
                 } else {
-                    
+
                     myVue.$data.errors = data;
                 }
             }).catch(function (data, status, request) {
@@ -154,7 +156,6 @@ var myVue = new Vue ({
 
                     $('#edit_pitch_modal').modal('toggle');
                 } else {
-                    
                     myVue.$data.errors = data;
                 }
             }).catch(function (data, status, request) {
