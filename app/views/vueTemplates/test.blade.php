@@ -36,7 +36,7 @@
             <hr>
             <div class="row">
                 <div class="col-xs-8 col-md-3"><h4>ABV: </h4> <h3 class='beer-font'>@{{ beer.abv }}</h3></div>
-                <div class="col-xs-5 col-md-3"><h4>Style: </h4> <h3 class='beer-font'>@{{ beer.style_id }}</h3></div>
+                <div class="col-xs-5 col-md-3"><h4>Style: </h4> <h3 class='beer-font'>@{{ beer.style.style_name }}</h3></div>
                 <a href="{{-- {{{ action("BreweriesController@show", beer.brewery_id) }}} --}}" class="col-xs-5 col-md-3"><h4>Brewery: </h4> <h3>@{{ beer.brewery.name }}</h3></a>
             </div>
             <div class='row'>

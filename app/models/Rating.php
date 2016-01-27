@@ -9,7 +9,7 @@ class Rating extends BaseModel {
 
 	protected $primaryKey = 'rating_id';
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = array('user_id', 'beer_id', 'rating', 'comment');
 
 	/*
 	 *	Rating belongsTo a user on User

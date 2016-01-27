@@ -43,12 +43,11 @@ class HomeController extends BaseController {
 		// try {
 			
 		// $beers = Beer::with('brewery')->paginate(10);
-		$beers = Beer::with('brewery')->skip($offset)->take(5)->get();
+		$beers = Beer::with('brewery', 'style')->skip($offset)->take(5)->get();
 		// } catch (Exception $e) {
 		// 	return $e;
 		// }
 		return Response::json( $beers );
-		return View::make('home');
 	}
 
 	public function test2()
