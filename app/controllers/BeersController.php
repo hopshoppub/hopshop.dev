@@ -40,7 +40,7 @@ class BeersController extends \BaseController {
 				$beers = $query->get();
 				$beers->sortByDesc(function($beer) {
 					return $beer->rating;
-			});
+				});
 		}
 			return View::make('beers.index')->with(['beers' => $beers, 'i' => $i]);
 	}
@@ -82,8 +82,10 @@ class BeersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$beer = Beer::findOrFail($id);
-
+		$beer = Beer::find($id);
+		if ($beer->rating == 3.5) {
+			$beer->rating = 0;
+		}
 		return View::make('beers.show')->with(['beer' => $beer]);
 	}
 
