@@ -8,8 +8,9 @@ class ContributionsController extends \BaseController {
 	 * @return Response
 	 */
 	public function index()
-	{
-		$contributions = Contribution::all();
+	{	
+		
+		$contributions = Contribution::where('user_id', '=', Auth::id())->get();
 
 		return View::make('contributions.index', compact('contributions'));
 	}

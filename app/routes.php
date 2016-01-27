@@ -16,8 +16,8 @@ App::bind('Acme\Billing\BillingInteface', 'Acme\Billing\StripeBilling');
  *		Home Routes
  */
 Route::get('/test/ratings', 'HomeController@testRatings');
-Route::get('/testing', 'HomeController@testing');
-Route::get('/test/{offset?}', 'HomeController@test');
+Route::get('/beerlist', 'HomeController@beerList');
+Route::get('/beerpage/{offset?}', 'HomeController@beerPage');
 Route::get('/test2', 'HomeController@test2');
 Route::post('/facebookLogin/{fb_id}', 'HomeController@fbLogin');
 Route::post('/login', 'HomeController@postLogin');
@@ -46,6 +46,7 @@ Route::post('/pitches/fund', function()
 	return 'Charge was succesful.';
 });
 Route::resource('/pitches', 'PitchesController');
+Route::resource('/contributions/mine', 'ContributionsController');
 
 
 	
