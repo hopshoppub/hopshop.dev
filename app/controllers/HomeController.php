@@ -32,21 +32,17 @@ class HomeController extends BaseController {
 		die();
 	}
 
-	public function testing()
+	public function beerList()
 	{
-		return View::make('vueTemplates.test');
+		return View::make('vueTemplates.beer-page');
 	}
 
-	public function test($offset)
+	public function beerPage($offset)
 	{
-		// $beers = Beer::with('brewery')->orderBy('created_at','desc')->paginate(10);
-		// try {
-			
-		// $beers = Beer::with('brewery')->paginate(10);
 		$beers = Beer::with('brewery', 'style')->skip($offset)->take(5)->get();
-		// } catch (Exception $e) {
-		// 	return $e;
-		// }
+		foreach ($beers as $beer) {
+			$beer->aveRating = $beer->rating;
+		}
 		return Response::json( $beers );
 	}
 
