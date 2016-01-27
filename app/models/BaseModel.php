@@ -31,5 +31,4 @@ class BaseModel extends Eloquent
 	// 	$this->attributes['slug'] = Str::slug($value);
 	// }
 
-
 }

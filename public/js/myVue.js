@@ -19,11 +19,7 @@ var myVue = new Vue ({
 
         beers: [
 
-        ],
-
-        loginPassword: '',
-        loginEmail: '',
-
+        ]
 
     },
 
@@ -74,19 +70,20 @@ var myVue = new Vue ({
 
             Vue.http.post('/login', myVue.$data.user, function (data, status, request) {
 
-                if ( data['login_error'] == true ){
-                    console.log('error');
-                } else{
+                myVue.$data.errors = {};
+
+                if ( data['good job'] === 'wooot') {
 
                     myVue.$data.user = data;
-
                     myVue.$data.loggedIn = 'true';
 
                     $('#login_modal').modal('toggle');
+                } else {
+                    
+                    myVue.$data.errors = data;
                 }
             }).catch(function (data, status, request) {
-                alert('server side error sorry for the inconveniance');
-            });
+            }); 
         },
 
         getUserInfo: function() {
@@ -94,63 +91,92 @@ var myVue = new Vue ({
             Vue.http.get('/users/info', function (data, status, request) {
 
                 myVue.$data.user = data;
-                console.log(data.facebook_id);
                 myVue.getProfilePic( data.facebook_id );
     
             }).catch(function (data, status, request) {
-                alert('server side error sorry for the inconveniance');
             });
         },
 
         addBeerClicked: function() {
 
             Vue.http.post('/beers', myVue.$data.beer, function (data, status, request) {
-                
-                $('#add_beer_modal').modal('toggle');         
+                myVue.$data.errors = {};
+
+                if ( data['good job'] === 'wooot') {
+
+                    $('#edit_pitch_modal').modal('toggle');
+                } else {
+                    
+                    myVue.$data.errors = data;
+                }
             }).catch(function (data, status, request) {
-                console.log(data);
             }); 
         },
 
         editBeerClicked: function() {
 
             Vue.http.put('/beers/' + myVue.$data.beer.beer_id , myVue.$data.beer, function (data, status, request) {     
+                myVue.$data.errors = {};
 
-                $('#edit_beer_modal').modal('toggle');
+                if ( data['good job'] === 'wooot') {
+
+                    $('#edit_pitch_modal').modal('toggle');
+                } else {
+                    
+                    myVue.$data.errors = data;
+                }
             }).catch(function (data, status, request) {
-                console.log(data);
             }); 
         },
 
         addPitchClicked: function() {
 
             Vue.http.post('/pitches', myVue.$data.pitch, function (data, status, request) {
-                console.log( data );
-                $('#add_pitch_modal').modal('toggle');         
+                myVue.$data.errors = {};
+
+                if ( data['good job'] === 'wooot') {
+
+                    $('#edit_pitch_modal').modal('toggle');
+                } else {
+                    
+                    myVue.$data.errors = data;
+                }
             }).catch(function (data, status, request) {
-                console.log(data);
-            }); 
+            });  
         },
 
         editPitchClicked: function() {
 
             Vue.http.put('/pitches/' + myVue.$data.pitch.pitch_id , myVue.$data.pitch, function (data, status, request) {     
-                console.log(data);
-                $('#edit_pitch_modal').modal('toggle');
+                myVue.$data.errors = {};
+
+                if ( data['good job'] === 'wooot') {
+
+                    $('#edit_pitch_modal').modal('toggle');
+                } else {
+                    
+                    myVue.$data.errors = data;
+                }
             }).catch(function (data, status, request) {
-                console.log(data);
             }); 
         },
 
         signupClicked: function() {
 
             Vue.http.post('/users', myVue.$data.user, function (data, status, request) {
-                console.log(data);
-                myVue.$data.user = data;
-                myVue.$data.loggedIn = 'true';
-                $('#signup_modal').modal('toggle');         
+
+                myVue.$data.errors = {};
+
+                if ( data['good job'] === 'wooot') {
+
+                    $('#signup_modal').modal('toggle');         
+                } else {
+                    
+                    myVue.$data.loggedIn = 'true';
+                    myVue.$data.user = data;
+                    myVue.$data.errors = data;
+                }
             }).catch(function (data, status, request) {
-                console.log(data);
             }); 
         },
 
@@ -204,6 +230,3 @@ var myVue = new Vue ({
         },
     }
 });
-
-
-// module.exports = myVue;

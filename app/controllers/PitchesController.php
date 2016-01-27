@@ -85,12 +85,14 @@ class PitchesController extends \BaseController {
 		$pitch = Pitch::findOrFail($id);
 		$data = Input::all();
 		unset($data['pitch_id']);
+		$data['user_id'] = Auth::user()->user_id;
 
 		$validator = Validator::make($data , Pitch::$rules);
 
 		if ($validator->fails())
 		{
-			return Response::json( ['error' => 'you messed up']);
+			return Response::json( $validator->messages() );
+			// return $validator->messages();
 		}
 
 		$pitch->update($data);

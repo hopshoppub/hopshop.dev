@@ -66,7 +66,7 @@ class BeersController extends \BaseController {
 		// return Response::json( Input::all() );
 		$validator = Validator::make($data = Input::all(), Beer::$rules);
 
-		if ($validator->fails())
+		if ( $validator->fails() )
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
