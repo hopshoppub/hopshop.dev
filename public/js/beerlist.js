@@ -1,19 +1,21 @@
-function slideDescriptionOfBeer() {
-	$('.description-toggle').hide();
-	$('.description-button').click(function(e) {
-		$idOfBeer = ($(this).data('grabId'));
-		$('[data-beer-id="' + $idOfBeer + '"]').slideToggle();
-		e.preventDefault();
-	});
-}
-slideDescriptionOfBeer();
+	function hideDescriptionOfBeer() {
+		$('.description-toggle').each(function() {
+			($(this).children().hide())
+			
+		});
+	}
+	function slideDescriptionOfBeer() {
+		$('.infinite-container').on('click', '.description-button', function() {
+			($(this.previousElementSibling.children[0].children)).slideToggle();
+		})
+	}
 
 
 function showBeerCalculatedRating() {
 	$('.stars').each(function() {
 		$calculatedRating = ($(this).data('ratingId'));
 		$percent = $calculatedRating * 20;
-		console.log($percent);
+		// console.log($percent);
 		($(this).children().last().css('width', $percent + '%'));
 	})
 }
@@ -69,16 +71,20 @@ function getBeerIdAndStarsNumber() {
 
                 });
                 setTimeout( function () {
-
                     showBeerCalculatedRating();
                     showUserRatingInput();
                     getBeerIdAndStarsNumber();
+                    hideDescriptionOfBeer();
                 },500);
+                
+                    
 
             });
 
 	}
 
+	slideDescriptionOfBeer();
+	
 
 	infiniteScroll();
 
