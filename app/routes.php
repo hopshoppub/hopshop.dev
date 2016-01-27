@@ -47,6 +47,7 @@ Route::post('/pitches/fund', function()
 });
 
 Route::resource('/pitches', 'PitchesController');
+Route::resource('/contributions/mine', 'ContributionsController');
 
 
 	

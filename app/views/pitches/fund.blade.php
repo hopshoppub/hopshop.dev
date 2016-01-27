@@ -12,6 +12,8 @@
 
 @section('content')
 
+
+
 <h1>Fund for $20</h1>
 
 {{ Form::open(['id'=>'billing-form']) }}

@@ -18,8 +18,11 @@
 			<ul class="nav navbar-nav">
 				<li><a href="{{{ action('HomeController@beerList') }}}">Beer List</a></li>
 				<li><a href="{{{ action('BeersController@show', 9) }}}">Beer Of The Day</a></li>
-				<li><a href="{{{ action('BeersController@index') }}}">Top-Rated Beers</a></li>
-				<li><a href="{{{ action('PitchesController@index') }}}">Brewery Pitches</a></li>
+
+				<li><a href="{{{ action('BeersController@index') }}}">Top-Rated</a></li>
+				<li><a href="{{{ action('PitchesController@index') }}}">Beer Pitches</a></li>
+				<li><a href="{{{ action('ContributionsController@index') }}}">View My Contributions</a></li>
+
 				<li class="divider"></li>
 			</ul>
 
