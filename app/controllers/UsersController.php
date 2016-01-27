@@ -151,4 +151,12 @@ class UsersController extends \BaseController {
 		return Response::json( Auth::user() );
 	}
 
+	/**
+	 *	@return the logged in users pitches
+	 */
+	public function getPitchIds()
+	{
+		return Response::json( Auth::user()->pitches );
+	}
+
 }

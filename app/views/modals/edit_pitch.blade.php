@@ -15,10 +15,16 @@
             --}}
             <div class="modal-body">
 
+
                 <label for="pitch_id">Pitch Id</label>
                 <input  v-model="errors.pitch_id" value='' hidden>
                 <div class="alert alert-danger" role="alert" v-for="error in errors.pitch_id">@{{ errors.pitch_id }}</div>
-                <input id="pitch_id" type="text" class="form-control" placeholder="Enter user id" v-model="pitch.pitch_id">
+                <select id="pitch_id" class="form-control">
+                    <option v-for='pitch in pitches'>@{{ pitch.pitch_id }}</option>
+                </select>
+
+
+                {{-- <input id="pitch_id" type="text" class="form-control" placeholder="Enter user id" v-model="pitch.pitch_id"> --}}
 
                 <label for="brewery_id">Brewery Id</label>
                 <input  v-model="errors.brewery_id" value='' hidden>

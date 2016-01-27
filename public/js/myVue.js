@@ -19,7 +19,15 @@ var myVue = new Vue ({
 
         beers: [
 
-        ]
+        ],
+
+        beer: {
+
+        },
+
+        pitches: [
+
+        ],
 
     },
 
@@ -66,14 +74,45 @@ var myVue = new Vue ({
             });
         },
 
+        clearErrors: function () {
+
+            myVue.$data.errors = {};
+        },
+
+        getEditPitch: function () {
+
+            myVue.$data.errors = {};
+
+            Vue.http.get('/user/pitches', function (data, status, request) {
+
+                    myVue.$data.pitches = data;
+                    console.log(data[0].pitch_id);
+                    console.log( myVue.$data.pitches);
+            }).catch(function (data, status, request) {
+            }); 
+        },  
+
+        getEditBeer: function (index) {
+
+            myVue.$data.errors = {};
+
+            var beerId = myVue.$data.beers[index].beer_id;
+
+            Vue.http.get('/beers/ajax/id/' + beerId , function (data, status, request) {
+
+                    myVue.$data.beer = data;
+            }).catch(function (data, status, request) {
+                console.log('woops');
+            }); 
+        },    
+
         loginClicked: function() {
 
             Vue.http.post('/login', myVue.$data.user, function (data, status, request) {
 
                 myVue.$data.errors = {};
-                console.log(data);
 
-                if ( data['error'] !== 'Incorect user name or password' ) {
+                if ( data['login'] !== 'Incorect email or password' ) {
 
                     myVue.$data.user = data;
                     myVue.$data.loggedIn = 'true';
@@ -82,7 +121,7 @@ var myVue = new Vue ({
                 } else {
                     
                     myVue.$data.errors = data;
-                    console.log( myVue.$data.error );
+                    console.log( myVue.$data.errors.login);
                 }
             }).catch(function (data, status, request) {
             }); 
@@ -138,7 +177,7 @@ var myVue = new Vue ({
 
                 if ( data['good job'] === 'wooot') {
 
-                    $('#edit_pitch_modal').modal('toggle');
+                    $('#add_pitch_modal').modal('toggle');
                 } else {
                     
                     myVue.$data.errors = data;
@@ -149,7 +188,7 @@ var myVue = new Vue ({
 
         editPitchClicked: function() {
 
-            Vue.http.put('/pitches/' + myVue.$data.pitch.pitch_id , myVue.$data.pitch, function (data, status, request) {     
+            Vue.http.put('/pitches/' + $('#pitch_id').val() , myVue.$data.pitch, function (data, status, request) {     
                 myVue.$data.errors = {};
 
                 if ( data['good job'] === 'wooot') {

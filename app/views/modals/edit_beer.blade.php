@@ -15,11 +15,6 @@
             --}}
             <div class="modal-body">
 
-                <label for="beer_id">Beer Id</label>
-                <input  v-model="errors.beer_id" value='' hidden>
-                <div class="alert alert-danger" role="alert" v-for="error in errors.beer_id">@{{ errors.beer_id }}</div>
-                <input id="beer_id" type="text" class="form-control" placeholder="Enter beer id" v-model="beer.beer_id">
-
                 <label for="brewery_id">Brewery Id</label>
                 <input  v-model="errors.brewery_id" value='' hidden>
                 <div class="alert alert-danger" role="alert" v-for="error in errors.brewery_id">@{{ errors.brewery_id }}</div>

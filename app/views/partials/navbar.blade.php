@@ -33,9 +33,9 @@
             --}}
             <div v-if="loggedIn == 'false'">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" data-toggle="modal" data-target="#signup_modal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#signup_modal" v-on:click="clearErrors"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     
-                    <li><a href="#" data-toggle="modal" data-target="#login_modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#login_modal" v-on:click="clearErrors"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
 
@@ -53,11 +53,10 @@
                     <li id="create_navbar"class="dropdown">
                         <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" data-toggle="modal" data-target="#add_beer_modal">Add Beer</a></li>
-                            <li><a href="#" data-toggle="modal" data-target="#edit_beer_modal">Edit Beer</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#add_beer_modal" v-on:click="clearErrors">Add Beer</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#" data-toggle="modal" data-target="#add_pitch_modal">Add Pitch</a></li>
-                            <li><a href="#" data-toggle="modal" data-target="#edit_pitch_modal">Edit Pitch</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#add_pitch_modal" v-on:click="clearErrors">Add Pitch</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#edit_pitch_modal" v-on:click="getEditPitch">Edit Pitch</a></li>
                         </ul>
                     </li>
 

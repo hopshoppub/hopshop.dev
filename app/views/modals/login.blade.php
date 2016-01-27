@@ -17,7 +17,7 @@
                 
                 <label for="login_email">Email address</label>
                 <input  v-model="errors.error" value='' hidden>
-                <div class="alert alert-danger" role="alert">@{{ error.error }}</div>
+                <div class="alert alert-danger" role="alert" v-for="error in errors">@{{ error }}</div>
                 <input id="login_email" type="text" class="form-control" placeholder="Enter email" v-model="user.email">
 
                 <label for="login_password">Password</label>

@@ -140,4 +140,9 @@ class BeersController extends \BaseController {
 		return Redirect::route('beers.index');
 	}
 
+	public function getBeerByIdAjax($id)
+	{
+		return Response::json( Beer::find($id) );
+	}
+
 }
