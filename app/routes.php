@@ -27,6 +27,7 @@ Route::get('/', 'HomeController@showHome');
 /*
  *		Beer Routes
  */
+Route::get('/beers/ajax/id/{id}', 'BeersController@getBeerByIdAjax');
 Route::resource('/beers', 'BeersController');
 
 /*
@@ -45,7 +46,6 @@ Route::post('/pitches/fund', function()
 	// $contribution =Auth::user()
 	return 'Charge was succesful.';
 });
-
 Route::resource('/pitches', 'PitchesController');
 Route::resource('/contributions/mine', 'ContributionsController');
 
@@ -54,6 +54,7 @@ Route::resource('/contributions/mine', 'ContributionsController');
 /*
  *		User Routes
  */
+Route::get('/user/pitches', 'UsersController@getPitchIds');
 Route::get('/users/info', 'UsersController@getInfo');
 Route::resource('/users', 'UsersController');
 

@@ -4,11 +4,28 @@ class Pitch extends BaseModel {
 
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+		'user_id'		=> 'required|numeric',
+		'brewery_id'	=> 'required|numeric',
+		'title'			=> 'required|min:3|max:255',
+		'campaign'		=> 'required',		
+		'goal'			=> 'required|numeric',	
+		'deadline'		=> 'required',
+		'video'			=> 'required|min:0|max:200',
+		'recipe'		=> 'required',			
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = [
+		'pitch_id', 
+		'user_id',
+		'brewery_id', 
+		'title', 
+		'campaign', 
+		'goal', 
+		'deadline', 
+		'video', 
+		'recipe'
+	];
 
 	protected $primaryKey = 'pitch_id';
 

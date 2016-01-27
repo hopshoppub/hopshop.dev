@@ -31,16 +31,19 @@ class PitchesController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Pitch::$rules);
+		$data = Input::all();
+		$data['user_id'] = Auth::id();
 
-		if ($validator->fails())
+		$validator = Validator::make($data , Pitch::$rules);
+
+		if ( $validator->fails() )
 		{
-			return Redirect::back()->withErrors($validator)->withInput();
+			return Response::json( $validator->messages() );
 		}
 
 		Pitch::create($data);
 
-		return Redirect::route('pitches.index');
+		return Response::json( ['good job' => 'wooot'] );
 	}
 
 	/**
@@ -71,7 +74,7 @@ class PitchesController extends \BaseController {
 	}
 
 	/**
-	 * Update the specified pitch in storage.
+	 * Update the specified beer in storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -79,17 +82,20 @@ class PitchesController extends \BaseController {
 	public function update($id)
 	{
 		$pitch = Pitch::findOrFail($id);
+		$data = Input::all();
+		unset($data['pitch_id']);
+		$data['user_id'] = Auth::user()->user_id;
 
-		$validator = Validator::make($data = Input::all(), Pitch::$rules);
+		$validator = Validator::make($data , Pitch::$rules);
 
 		if ($validator->fails())
 		{
-			return Redirect::back()->withErrors($validator)->withInput();
+			return Response::json( $validator->messages() );
 		}
 
 		$pitch->update($data);
 
-		return Redirect::route('pitches.index');
+		return Response::json( ['good job' => 'wooot'] );
 	}
 
 	/**

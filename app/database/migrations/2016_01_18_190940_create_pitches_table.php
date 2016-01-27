@@ -17,6 +17,8 @@ class CreatePitchesTable extends Migration {
 			$table->increments('pitch_id');
 
 			$table->integer('user_id')->unsigned();
+			$table->foreign('user_id')->references('user_id')->on('users');
+
 			$table->integer('brewery_id')->unsigned();
 			$table->string('title');
 			$table->text('campaign')->nullable();
