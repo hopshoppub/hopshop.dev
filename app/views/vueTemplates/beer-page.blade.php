@@ -43,7 +43,7 @@
                 <div class='row'>
                     <div class="description-toggle" data-beer-id="@{{ beer.beer_id }}">
                         <h2>Description: </h2>
-                        <div class="col-xs-8 col-md-12"><h4> </h4> <h3 class='beer-font'>@{{ beer.description }}</h3></div>
+                        <span class="col-xs-8 col-md-12"><h4> </h4> <h3 class='beer-font'>@{{ beer.description }}</h3></span>
                     </div>
                 </div>
                 <button class='pull-right description-button btn' data-grab-id="@{{ beer.beer_id }}">Click Here For Description: </button>
