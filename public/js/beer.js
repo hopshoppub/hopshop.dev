@@ -14,17 +14,19 @@ function showBeerCalculatedRating() {
 		$percent = $calculatedRating * 20;
 		($('.span').css('width', $percent + '%'));
 	})
-	$('.stars').click(function() {
-		($('.span').css('background-color', 'blue'))
-	})
 }
 showBeerCalculatedRating();
+function showUserRatingInput() {
+	$('.stars').click(function() {
+		$target = event.target.innerHTML * 20;
+		($(this).children().last().css('width', $target + '%'))
+	})
+}
+showUserRatingInput();
 function getBeerIdAndStarsNumber() {
 		$('.stars').click(function(e) {
 			$idOfBeerStars = ($(this).data('starId'));
 			$ratingNumber = event.target.innerHTML;
-			console.log($idOfBeerStars);
-			console.log($ratingNumber);
 			sendRating($idOfBeerStars, $ratingNumber);
 			// changeStars();
 		});
@@ -36,5 +38,7 @@ function getBeerIdAndStarsNumber() {
 
 		$.get("/beers/" + id + "/" + ratingNumber , function(data){
 			console.log(ratingNumber)
+		}).done(function(data) {
+			console.log(data);
 		});
 	}
