@@ -39,7 +39,7 @@ class HomeController extends BaseController {
 
 	public function beerPage($offset)
 	{
-		$beers = Beer::with('brewery', 'style')->skip($offset)->take(5)->get();
+		$beers = Beer::with('brewery', 'style')->skip($offset)->take(2)->get();
 		foreach ($beers as $beer) {
 			$beer->aveRating = $beer->rating;
 		}
