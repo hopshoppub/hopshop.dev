@@ -28,6 +28,7 @@ class CreateBeersTable extends Migration {
 			$table->decimal('upc',3,1);
 			$table->string('image',100);
 			$table->text('description');
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

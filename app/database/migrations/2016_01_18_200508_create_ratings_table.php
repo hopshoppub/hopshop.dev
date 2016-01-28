@@ -27,6 +27,7 @@ class CreateRatingsTable extends Migration {
 			$table->string('rating', 1);
 			$table->string('comment',300);
 
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

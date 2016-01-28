@@ -20,6 +20,7 @@ class CreateUpdatesTable extends Migration {
 
 			$table->text('update');
 			
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}
