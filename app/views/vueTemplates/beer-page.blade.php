@@ -45,7 +45,9 @@
                 <div class="row">
                     <div class="col-xs-8 col-md-3"><h4>ABV: </h4> <h3 class='beer-font'>@{{ beer.abv }}</h3></div>
                     <div class="col-xs-5 col-md-3"><h4>Style: </h4> <h3 class='beer-font'>@{{ beer.style.style_name }}</h3></div>
-                    <a href="{{-- {{{ action("BreweriesController@show", beer.brewery_id) }}} --}}" class="col-xs-5 col-md-3"><h4>Brewery: </h4> <h3>@{{ beer.brewery.name }}</h3></a>
+                    <h4>Brewery: </h4>
+                    {{-- <a href="{{{ action("BreweriesController@show", @{{ beer.brewery_id }} ) }}}" class="col-xs-5 col-md-3"><h3>@{{ beer.brewery.name }}</h3></a> --}}
+                    <a href="/breweries/@{{ beer.brewery_id}}" class="col-xs-5 col-md-3"><h3>@{{ beer.brewery.name }}</h3></a>
                     {{-- <span v-if="@{{ myVue.$data.user.role === '3' }}"> --}}
                         <button data-toggle="modal" data-target="#edit_beer_modal" v-on:click="getEditBeer($index)">Edit</button>
                         <button v-on:click="deleteBeer($index)">Delete</button>
