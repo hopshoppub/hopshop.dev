@@ -15,8 +15,8 @@
 
 
 <h1>Fund for $20</h1>
-
-{{ Form::open(['id'=>'billing-form']) }}
+	
+{{ Form::open(['id'=>'billing-form', 'action'=> ['PitchesController@postfund', $fund->pitch_id]]) }}
 	<div class="form-row"></div>
 		<label>
 			<span>Card number:</span>

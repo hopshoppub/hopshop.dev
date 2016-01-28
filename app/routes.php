@@ -35,22 +35,14 @@ Route::resource('/beers', 'BeersController');
  *		Pitch Routes
  */
 Route::get('/pitches/ajax/id/{id}', 'PitchesController@getPitchByIdAjax');
-Route::get('/pitches/fund', 'PitchesController@fund');
+
+Route::get('/pitches/fund/{id}', 'PitchesController@fund');
+Route::post('/pitches/fund/{id}', 'PitchesController@postfund');
+
 
 Route::get('/seasonal', 'BeersController@seasonal');
 
-Route::post('/pitches/fund', function()
-{
-	// dd(Input::all());
-	$billing = App::make('Acme\Billing\BillingInterface');
-	$billing->charge([
-		'email' => Input::get('email'),
-		'token' => Input::get('stripe-token')]);
-	 
-		
-	// $contribution =Auth::user()
-	return 'Charge was succesful.';
-});
+
 Route::resource('/pitches', 'PitchesController');
 Route::resource('/contributions/mine', 'ContributionsController');
 

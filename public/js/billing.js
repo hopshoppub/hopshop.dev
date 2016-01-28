@@ -44,6 +44,8 @@
 				value: response.id	
 			}).appendTo(this.form);
 
+			
+			alert('Thanks for funding this brew!');
 			console.log( myVue.$data.user.user_id );
 			console.log(status, response);
 
