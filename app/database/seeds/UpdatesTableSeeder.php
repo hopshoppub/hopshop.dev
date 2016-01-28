@@ -15,6 +15,16 @@ class UpdatesTableSeeder extends Seeder {
 
 		// 	]);
 		// }
+
+		$updates = new Update();
+		$updates->pitch_id = 1;
+		$updates->update = "We are half way to our sales goal!  We are so proud of everyone's involvement.  Tell your friends.  More is on the way." ;
+		$updates->save();
+
+		$updates = new Update();
+		$updates->pitch_id = 1;
+		$updates->update = "We will be showing a new video this week showing our brewery facility.  Get excited." ;
+		$updates->save();
 	}
 
 }

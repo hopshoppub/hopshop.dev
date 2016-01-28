@@ -30,7 +30,8 @@
                         <h3>Current Level</h3>
                         <h3>${{{ $pitch->goal }}}</h3>
                         <h4>{{{ $pitch->deadline }}}</h4>
-                        <a href="/pitches/fund" class="btn btn-info" role="button" >Fund the Brew!</a>
+
+                        <a href="{{{ action('PitchesController@fund', $pitch->pitch_id) }}}" class="btn btn-info" role="button" >Fund the Brew!</a>
                         <button data-toggle="modal" data-target="#edit_pitch_modal" v-on:click="getEditPitch({{{ $pitch->pitch_id }}})">Edit</button>
                         <button v-on:click="deletePitch({{{ $pitch->pitch_id }}})">Delete</button>
                        
@@ -68,6 +69,14 @@
                             </fieldset>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
+                    <div>
+                        @foreach($pitch->updates as $update)
+                        <div class='row'>
+                            {{{ $update->update }}} <br> Posted:{{{ $update->timestamp}}}
+                        </div>
+
+                        @endforeach
+                    </div>
 
                         This is different. We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!
 

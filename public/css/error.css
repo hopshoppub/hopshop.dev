@@ -1,0 +1,28 @@
+.error-picture {
+	background-image: url(/img/404.jpg);
+	height:500px;
+	width:1300px;
+	margin-left:25% ;
+	background-repeat: no-repeat;
+}
+.page-not-found {
+	text-align: center;
+	font-size: 500%;
+	color:white;
+	background-color: black;
+}
+.background {
+	background-color: black;
+	height:500px;
+}
+.home-page {
+	height:100px;
+	background-image: url(/img/spacer.jpg);
+	color:white;
+}
+.outer-background {
+	background-color: black;
+}
+.container {
+	margin:0px;
+}

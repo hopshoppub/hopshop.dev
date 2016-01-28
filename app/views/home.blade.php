@@ -60,10 +60,10 @@
 {{--
     This is going to be the end of the carrousel/ ----------> Now begininng the seasonal heading page, css is in master.css
 --}}
-<div class='col-12'>
+<div class='col-12' id='link-to-seasonal'>
     <div class='contain' id='reSizeBeerSeason'>
         <div class='seasonal-heading' id='reSizeHeading'>
-            <h1 class='seasonal-heading-left' id='reSizeHeadingLeft'>What's in Season?</h1>
+            <a class='seasonal-heading-left' id='reSizeHeadingLeft' href="{{{ action('BeersController@seasonal')}}}">Click Here To See Whats In Season</a></h1>
         </div>
     </div>
 </div>

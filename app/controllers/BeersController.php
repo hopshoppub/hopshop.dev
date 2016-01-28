@@ -1,5 +1,5 @@
 <?php
-
+use Carbon\Carbon;
 class BeersController extends \BaseController {
 
 
@@ -17,9 +17,15 @@ class BeersController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	public function seasonal() {
+		$query = Beer::with('brewery');
+		$query->where('name', 'like', "%spring%");
+		$beers = $query->get();
+
+		return View::make('beers.seasonal')->with(['beers' => $beers]);
+	}
 	public function index()
 	{
-		$i = 0;
 		if (Input::has('search')) {
 			$query = Beer::with('brewery')->orderBy('created_at', 'desc');
 			$search = Input::get('search');
@@ -42,7 +48,7 @@ class BeersController extends \BaseController {
 					return $beer->rating;
 				});
 		}
-			return View::make('beers.index')->with(['beers' => $beers, 'i' => $i]);
+			return View::make('beers.index')->with(['beers' => $beers]);
 	}
 
 	/**
@@ -84,10 +90,38 @@ class BeersController extends \BaseController {
 	public function show($id)
 	{
 		$beer = Beer::find($id);
-		if ($beer->rating == 3.5) {
-			$beer->rating = 0;
+		if(!$beer) {
+			App::abort(404);
 		}
 		return View::make('beers.show')->with(['beer' => $beer]);
+	}
+	public function beerOfTheDay() {
+
+		$date = Configuration::where('name', '=' , 'beer_of_the_day_modification_date')->first();
+		$compareDate = 	Carbon::now();
+		$difference = ($date->diffInDays($compareDate)->days);
+		return $difference;
+		// if ($compareDate->diffInDates(new Carbon($date->value)) >= 1) 
+		// {
+		// 	// new beer 
+  //           $date->value = $compareDate->format();
+  //           $date->save();
+		// }
+
+		// $beers = Beer::with('brewery', 'configuration')->get();
+		// $beerArray = [];
+		// foreach ($beers as $beer) {
+		// 	$beer->aveRating = $beer->rating;
+		// 	if ($beer->aveRating > 3.5) {
+		// 	 	array_push($beerArray, $beer);
+		// 	}
+		// }
+		// 	$maxNumber = sizeof($beerArray) - 1;
+		// 	$randomBeer = range(1,$maxNumber);
+		// 	shuffle($randomBeer);
+		// 	$beer = ($beerArray[$randomBeer[0]]);
+
+		return View::make('beers.beer-of-the-day')->with(['date' => $date]);
 	}
 
 	/**
