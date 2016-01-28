@@ -111,9 +111,11 @@ class PitchesController extends \BaseController {
 		// return Redirect::route('pitches.index');
 	}
 
-	public function fund()
+	public function fund($id)
 	{
-		return View::make('pitches.fund');
+		$fund = Pitch::find($id);
+		return View::make('pitches.fund')->with('fund', $fund);
+
 	}
 
 	public function getPitchByIdAjax($id)
@@ -121,4 +123,20 @@ class PitchesController extends \BaseController {
 		return Response::json( Pitch::find($id) );
 	}
 
+	public function postfund($id)
+	{
+		$billing = App::make('Acme\Billing\BillingInterface');
+		$billing->charge([
+		'email' => Input::get('email'),
+		'token' => Input::get('stripe-token')]);
+
+		$contribution = new Contribution();
+		$contribution->user_id = Auth::user()->user_id;
+		$contribution->pitch_id = $id;
+		$contribution->amount = '20';
+		$contribution->save();
+		
+	
+	return Redirect::action('PitchesController@show', [$id]);
+	}
 }
