@@ -10,7 +10,8 @@
 <div class='container'>
   
         <h2>Search Beer/Brewery</h2>
-        <input type="text" name="search" id="search" size="30" value=""> 
+        <input type="text" name="search" id="search" size="30" value="" onkeypress="searchEntered()"> 
+        <input type="text" hidden id="hidden-search">
         <button onclick="searchClicked()">Search</button>
 
 </div>
