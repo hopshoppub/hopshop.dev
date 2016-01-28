@@ -63,7 +63,6 @@ class BeersController extends \BaseController {
 	public function store()
 	{
 
-		// return Response::json( Input::all() );
 		$validator = Validator::make($data = Input::all(), Beer::$rules);
 
 		if ( $validator->fails() )
@@ -124,7 +123,7 @@ class BeersController extends \BaseController {
 		}
 
 		$beer->update($data);
-		return Response::json( ['good job' => 'wooot'] );
+		return Response::json( $beer );
 	}
 
 	/**
@@ -135,9 +134,15 @@ class BeersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
+		$ratings = Rating::where('beer_id', '=', $id)->get();
+
+		foreach($ratings as $rating)
+		{
+			Rating::destroy($rating->rating_id);
+		}
 		Beer::destroy($id);
 
-		return Redirect::route('beers.index');
+		return Response::json( ['all good' => $id] );
 	}
 
 	public function getBeerByIdAjax($id)

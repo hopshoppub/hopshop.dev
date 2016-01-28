@@ -62,7 +62,7 @@ class UsersController extends \BaseController {
 
 		if ($validator->fails())
 		{
-			return Response::json( ['error' => 'you messed up'] );
+			return Response::json( $validator->message() );
 		}
 
 		$user = new User();
@@ -78,7 +78,6 @@ class UsersController extends \BaseController {
 		$user->save();
 
 		Auth::login($user);
-
 		return Response::json( Auth::user() );
 	}
 

@@ -11,7 +11,7 @@ class Beer extends BaseModel {
 		'abv'			=> 'required|min:0|max:99|numeric',		
 		'ibu'			=> 'required|min:0|max:99|numeric',	
 		'upc'			=> 'required|min:0|max:99|numeric',
-		'image'			=> 'required|min:0|max:100',
+		'image'			=> 'min:0|max:100',
 		'description'	=> 'min:0',			
 	];
 
