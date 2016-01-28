@@ -4,6 +4,10 @@ use Carbon\Carbon;
 class BaseModel extends Eloquent
 {
 
+	use SoftDeletingTrait;
+
+    protected $dates = ['deleted_at'];
+	
 	public function getCreatedAtAttribute($value)
 	{
 	    $utc = Carbon::createFromFormat($this->getDateFormat(), $value);
@@ -19,6 +23,7 @@ class BaseModel extends Eloquent
 	{
 	    $this->attributes['password'] = Hash::make($value);
 	}
+
 
 	// public function getFullNameAttribute()
 	// {
