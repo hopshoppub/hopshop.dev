@@ -54,15 +54,14 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-		$data = Input::all();
-		$data['password'] = Hash::make( Input::get('password') );
 
+		$data = Input::all();
 
 		$validator = Validator::make( $data , User::$rules);
 
 		if ($validator->fails())
 		{
-			return Response::json( $validator->message() );
+			return Response::json( $validator->messages() );
 		}
 
 		$user = new User();
@@ -78,6 +77,7 @@ class UsersController extends \BaseController {
 		$user->save();
 
 		Auth::login($user);
+		
 		return Response::json( Auth::user() );
 	}
 
