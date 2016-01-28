@@ -1,6 +1,6 @@
 function hideDescriptionOfBeer() {
 	$('.description-toggle').each(function() {
-		($(this).children().hide())
+			($(this).children().hide())
 		
 	});
 }
@@ -94,7 +94,7 @@ function infiniteScroll() {
                 getBeerIdAndStarsNumber();
                 hideDescriptionOfBeer();
             },500);
-            	cloak();
+            	
                 
 
         });
