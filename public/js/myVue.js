@@ -165,20 +165,18 @@ var myVue = new Vue ({
 
             Vue.http.put('/beers/' + beer.beer_id , myVue.$data.beer, function (data, status, request) {     
 
-                if ( data.beer_id === beer.beer_id) {
-                    console.log(data);
+                if ( data.beer_id === beer.beer_id ) {
+
                     beer = data;
 
                     myVue.$data.beers.forEach(function(each, index, array) {
-                        console.log(each.beer_id);
-                        console.log(beer.beer_id);
+
                         if(each.beer_id === beer.beer_id){
-                            console.log('got in');
                             
-                            myVue.$data.beers[index] = data;
-                            console.log( myVue.$data.beers[index].name );
+                            myVue.$set( 'beers[' + index + ']', data);
                         }
                     });
+
                     $('#edit_beer_modal').modal('toggle');
                 } else {
 
@@ -201,7 +199,7 @@ var myVue = new Vue ({
                     setTimeout( function () {
 
                         myVue.$data.beers.splice(index,1);
-                    },400);
+                    },600);
                 }).catch(function (data, status, request) {
                 }); 
             } else {

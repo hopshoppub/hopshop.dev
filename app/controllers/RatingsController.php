@@ -38,7 +38,7 @@ class RatingsController extends \BaseController {
 
  		$inputRating = Rating::firstOrCreate(
 	 		[
-		 		'user_id' => 1,
+		 		'user_id' => Auth::user()->user_id,
 		 		'beer_id' => $id,
 	 		]
  		);
@@ -57,6 +57,9 @@ class RatingsController extends \BaseController {
 	public function show($id)
 	{
 		$rating = Rating::findOrFail($id);
+		if(!$rating) {
+			App::abort(404);
+		}
 
 		return View::make('ratings.show', compact('rating'));
 	}
