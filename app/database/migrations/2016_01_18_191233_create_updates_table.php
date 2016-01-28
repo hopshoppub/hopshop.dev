@@ -18,6 +18,8 @@ class CreateUpdatesTable extends Migration {
 
 			$table->integer('pitch_id')->unsigned()->foreign('pitch_id')->references('pitch_id')->on('pitches');
 
+			$table->integer('user_id')->unsigned()->foreign('user_id')->references('user_id')->on('users');
+
 			$table->text('update');
 			
 			$table->softDeletes();

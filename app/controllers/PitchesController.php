@@ -142,4 +142,15 @@ class PitchesController extends \BaseController {
 	
 	return Redirect::action('PitchesController@show', [$id]);
 	}
+
+	public function postupdate($id)
+	{
+		$update = new Update();
+		$update->user_id = Auth::user()->user_id;
+		$update->pitch_id = $id;
+		$update->update = Input::get('updateText');
+		$update->save();
+	return Redirect::action('PitchesController@show', [$id]);
+		
+	}
 }
