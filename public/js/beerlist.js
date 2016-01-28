@@ -1,6 +1,6 @@
 function hideDescriptionOfBeer() {
 	$('.description-toggle').each(function() {
-		($(this).children().hide())
+			($(this).children().hide())
 		
 	});
 }
