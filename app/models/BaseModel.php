@@ -3,10 +3,6 @@ use Carbon\Carbon;
 
 class BaseModel extends Eloquent
 {
-
-	use SoftDeletingTrait;
-
-    protected $dates = ['deleted_at'];
 	
 	public function getCreatedAtAttribute($value)
 	{
