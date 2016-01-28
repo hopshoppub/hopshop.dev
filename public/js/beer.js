@@ -11,8 +11,8 @@ $('.description-button').click(function(e) {
 function showBeerCalculatedRating() {
 	$('.stars').each(function() {
 		$calculatedRating = ($(this).data('ratingId'));
-		$percent = $calculatedRating * 20;
-		($('.span').css('width', $percent + '%'));
+		$percent = $calculatedRating * 20.5;
+		($(this).children().last().css('width', $percent + '%'));
 	})
 }
 showBeerCalculatedRating();

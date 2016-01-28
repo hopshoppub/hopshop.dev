@@ -11,6 +11,9 @@ $(document).ready(function() {
 	$('#brewery-pitches').click(function() {
 		window.location.href='/pitches';
 	})
+	$('#link-to-seasonal').click(function() {
+		window.location.href='/seasonal';
+	})
 	function reSizeBeerTrivia() {
 		var win = $(this);
 		$triviaHeight = $('#trivia-inner').height();

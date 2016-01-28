@@ -96,8 +96,16 @@ class BeersController extends \BaseController {
 	}
 	public function beerOfTheDay() {
 
-		$date = Configuration::where('name', '=' , 'beer_of_the_day_modification_date')->get();
-		var_dump($date);
+		$date = Configuration::where('name', '=' , 'beer_of_the_day_modification_date')->first();
+		$compareDate = 	Carbon::now();
+		$compareDate->diffInDates(new Carbon($date->value));
+		// if ($compareDate->diffInDates(new Carbon($date->value)) >= 1) 
+		// {
+		// 	// new beer 
+  //           $date->value = $compareDate->format();
+  //           $date->save();
+		// }
+
 		// $beers = Beer::with('brewery', 'configuration')->get();
 		// $beerArray = [];
 		// foreach ($beers as $beer) {
