@@ -94,7 +94,6 @@ function infiniteScroll() {
                 getBeerIdAndStarsNumber();
                 hideDescriptionOfBeer();
             },500);
-
         });
 
 }

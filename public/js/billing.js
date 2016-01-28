@@ -29,10 +29,7 @@
 		
 		stripeResponseHandler: function(status, response) {
 			console.log(status, response);
-			// console.log(Auth::User);
-			// if(status=200){
-			// 	save(Input::get('email'))
-			// }
+		
 			if (response.error) {
 				this.form.find('.payment-errors').show().text(response.error.message);
 				return this.submitButton.prop('disabled', false).val(this.submitButtonValue);
@@ -44,7 +41,7 @@
 				value: response.id	
 			}).appendTo(this.form);
 
-			
+
 			alert('Thanks for funding this brew!');
 			console.log( myVue.$data.user.user_id );
 			console.log(status, response);

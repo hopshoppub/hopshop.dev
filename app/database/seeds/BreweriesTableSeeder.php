@@ -18,6 +18,8 @@ class BreweriesTableSeeder extends Seeder {
 
 		    	try {
 
+// echo Location::where('postalCode',$zip)->toSql();
+
 			    	$loc = Location::where('postalCode',$zip)->firstOrFail();
 		    		
 			    	$locId = $loc->locId;
@@ -35,11 +37,12 @@ class BreweriesTableSeeder extends Seeder {
 			        $brewery->save();
 
 		    	} catch (Exception $e) {
-		    		
+		    		// echo $e->getMessage();
+		    		// throw $e;
 		    	}
 		    }
 		    fclose($handle);
-		}
+		} else {echo 'false?';}
 
 	}
 

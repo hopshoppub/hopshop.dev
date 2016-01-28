@@ -62,17 +62,19 @@
 
                     </div>
                     <div role="tabpanel" class="tab-pane" id="updates">
-                        <form>
+                        @if (Auth::check() && Auth::user()->user_id == $pitch->user_id)
+                        {{ Form::open(['method'=>'POST', 'action'=> ['PitchesController@postupdate', $pitch->pitch_id]]) }}
                             <fieldset class="form-group">
                                 <label for="exampleTextarea">This is only for the hopstarter/creator to post.</label>
-                                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                                <textarea class="form-control" id="updateTextarea" name="updateText"rows="3"></textarea>
                             </fieldset>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+                            <button  type="submit" class="btn btn-primary">Submit</button>
+                        {{ Form::close() }}
+                        @endif
                     <div>
                         @foreach($pitch->updates as $update)
                         <div class='row'>
-                            {{{ $update->update }}} <br> Posted:{{{ $update->timestamp}}}
+                            {{{ $update->update }}} <br> Posted: {{{ $update->updated_at->diffForHumans() }}}
                         </div>
 
                         @endforeach

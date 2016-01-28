@@ -38,6 +38,7 @@ Route::get('/pitches/ajax/id/{id}', 'PitchesController@getPitchByIdAjax');
 
 Route::get('/pitches/fund/{id}', 'PitchesController@fund');
 Route::post('/pitches/fund/{id}', 'PitchesController@postfund');
+Route::post('/pitches/updates/{id}', 'PitchesController@postupdate');
 
 
 Route::get('/seasonal', 'BeersController@seasonal');
