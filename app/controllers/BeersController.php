@@ -99,7 +99,8 @@ class BeersController extends \BaseController {
 
 		$date = Configuration::where('name', '=' , 'beer_of_the_day_modification_date')->first();
 		$compareDate = 	Carbon::now();
-		$compareDate->diffInDates(new Carbon($date->value));
+		$difference = ($date->diffInDays($compareDate)->days);
+		return $difference;
 		// if ($compareDate->diffInDates(new Carbon($date->value)) >= 1) 
 		// {
 		// 	// new beer 
