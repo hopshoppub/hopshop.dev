@@ -1,5 +1,5 @@
 <?php
-
+use Carbon\Carbon;
 class Beer extends BaseModel {
 
 	// Add your validation rules here

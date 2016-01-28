@@ -6,7 +6,7 @@
 @stop
 
 @section('content')
-    <h1>{{{ "$date->id" }}}</h1>
+    <h1>{{{ "$date->value" }}}</h1>
 
 {{-- <div class='beer-table-outline'>
     <div class="container" id='beer-table'>
