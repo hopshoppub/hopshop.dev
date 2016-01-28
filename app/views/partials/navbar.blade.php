@@ -10,12 +10,12 @@
             </button>
 
 
-            <a class="navbar-brand" href="{{{ action('HomeController@showHome')}}}">hop<span class ='hopshop-color-brand'>Shop</span></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
 
-		</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <a class="navbar-brand" href="{{{ action('HomeController@showHome')}}}">ho<span class ='hopshop-color-brand'>me</span></a>
 
 			<ul class="nav navbar-nav">
 				<li><a href="{{{ action('HomeController@beerList') }}}">Beer List</a></li>
