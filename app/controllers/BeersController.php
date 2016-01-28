@@ -95,33 +95,47 @@ class BeersController extends \BaseController {
 		}
 		return View::make('beers.show')->with(['beer' => $beer]);
 	}
-	public function beerOfTheDay() {
+	public function beerOfTheDay()
+	{
 
-		$date = Configuration::where('name', '=' , 'beer_of_the_day_modification_date')->first();
-		$compareDate = 	Carbon::now();
-		$difference = ($date->diffInDays($compareDate)->days);
-		return $difference;
-		// if ($compareDate->diffInDates(new Carbon($date->value)) >= 1) 
-		// {
-		// 	// new beer 
-  //           $date->value = $compareDate->format();
-  //           $date->save();
-		// }
+		$dateInDatabase = Configuration::where('name', '=' , 'beer_of_the_day_modification_date')->first();
+		$date = Carbon::createFromFormat("Y-m-d", "$dateInDatabase->value");
+		$now = Carbon::now();
+		$difference = $now->diffInDays($date);
+		if ($difference >= 1) 
+		{
+            $dateInDatabase->value = $now->format('Y-m-d');
+            $dateInDatabase->save();
+			$beer = $this->generateRandomBeer();
+			$selectedBeer = New Configuration;
+			$selectedBeer->name = "beer_id";
+			$selectedBeer->value = $beer->beer_id;
+			$selectedBeer->save();
+		} else {
+			$beer = Beer::find(Configuration::where('name', '=', 'beer_id')->first()->value);
+		}
 
-		// $beers = Beer::with('brewery', 'configuration')->get();
-		// $beerArray = [];
-		// foreach ($beers as $beer) {
-		// 	$beer->aveRating = $beer->rating;
-		// 	if ($beer->aveRating > 3.5) {
-		// 	 	array_push($beerArray, $beer);
-		// 	}
-		// }
-		// 	$maxNumber = sizeof($beerArray) - 1;
-		// 	$randomBeer = range(1,$maxNumber);
-		// 	shuffle($randomBeer);
-		// 	$beer = ($beerArray[$randomBeer[0]]);
+		return View::make('beers.beer-of-the-day')->with(['beer' => $beer]);
+	}
+	public function generateRandomBeer() {
+			$query = Beer::with('ratings')->orWhereHas('ratings', function($q) {
+			$query = Beer::with('ratings');
+			$q->where('rating', '>', '3');
+		});
+			$beers = $query->get();
+		$beerArray = [];
+		foreach ($beers as $beer) {
+			$beer->aveRating = $beer->rating;
+			if ($beer->aveRating > 3.5) {
+			 	array_push($beerArray, $beer);
+			}
+		}
+			$maxNumber = sizeof($beerArray) - 1;
+			$randomBeer = mt_rand(1,$maxNumber);
+			//shuffle($randomBeer);
+			$beer = $beerArray[$randomBeer];
 
-		return View::make('beers.beer-of-the-day')->with(['date' => $date]);
+			return $beer;
 	}
 
 	/**

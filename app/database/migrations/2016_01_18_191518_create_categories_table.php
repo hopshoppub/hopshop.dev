@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration {
 			$table->increments('category_id');
 			$table->string('category_name',30);
 			$table->string('image',100);
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

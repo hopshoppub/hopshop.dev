@@ -21,6 +21,7 @@ class CreateWatchesTable extends Migration {
 
 			$table->primary( [ 'user_id' , 'pitch_id'] );
 
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

@@ -24,6 +24,7 @@ class CreateContributionsTable extends Migration {
 
 			$table->decimal('amount', 6, 2);
 
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

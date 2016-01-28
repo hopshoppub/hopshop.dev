@@ -22,6 +22,7 @@ class CreateBreweriesTable extends Migration {
 			$table->text('description');
 			$table->integer('locId')->unsigned();
 			$table->foreign('locId')->references('locId')->on('locations');
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

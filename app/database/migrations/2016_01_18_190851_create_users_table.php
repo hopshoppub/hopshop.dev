@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration {
 			$table->integer('role')->unsigned()->index();
 			$table->bigInteger('facebook_id')->unsigned()->index()->nullable();
 			$table->rememberToken();
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

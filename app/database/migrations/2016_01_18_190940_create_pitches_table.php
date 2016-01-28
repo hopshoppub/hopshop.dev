@@ -25,6 +25,7 @@ class CreatePitchesTable extends Migration {
 			$table->integer('goal');
 			$table->date('deadline');
 			$table->string('video',200);
+			$table->softDeletes();
 			$table->text('recipe');
 
 			
