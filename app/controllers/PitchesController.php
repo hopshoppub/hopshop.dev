@@ -116,4 +116,9 @@ class PitchesController extends \BaseController {
 		return View::make('pitches.fund');
 	}
 
+	public function getPitchByIdAjax($id)
+	{
+		return Response::json( Pitch::find($id) );
+	}
+
 }
