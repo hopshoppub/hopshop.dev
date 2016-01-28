@@ -2,6 +2,10 @@
 use Carbon\Carbon;
 class Beer extends BaseModel {
 
+	use SoftDeletingTrait;
+
+    protected $dates = ['deleted_at'];
+
 	// Add your validation rules here
 	public static $rules = [
 		'brewery_id' 	=> 'required|min:0|numeric',

@@ -2,6 +2,9 @@
 
 class Contribution extends BaseModel {
 
+	use SoftDeletingTrait;
+
+    protected $dates = ['deleted_at'];
 	// Add your validation rules here
 	public static $rules = [
 		// 'title' => 'required'
