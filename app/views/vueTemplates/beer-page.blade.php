@@ -7,6 +7,13 @@
 @stop
 
 @section('content')
+<div class='container'>
+  
+        <h2>Search Beer/Brewery</h2>
+        <input type="text" name="search" id="search" size="30" value=""> 
+        <button onclick="searchClicked()">Search</button>
+
+</div>
 <div class ='beer-table-outline'>
     <div class="infinite-container" id="contents">
         <div v-for="beer in beers" class= 'infinite-item' id="beer_@{{ beer.beer_id}}">

@@ -56,6 +56,9 @@ class PitchesController extends \BaseController {
 	{
 		// 	
 		$pitch=Pitch::find($id);
+		if(!$pitch) {
+			App::abort(404);
+		}
 
 		return View::make('pitches.show', compact('pitch'));
 	}

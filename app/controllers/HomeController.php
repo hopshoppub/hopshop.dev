@@ -37,13 +37,19 @@ class HomeController extends BaseController {
 		return View::make('vueTemplates.beer-page');
 	}
 
-	public function beerPage($offset)
+	public function beerPage($offset, $search = null)
 	{
-		$beers = Beer::with('brewery', 'style')->skip($offset)->take(2)->get();
-		foreach ($beers as $beer) {
-			$beer->aveRating = $beer->rating;
+		if ($search != null) {
+			$query = Beer::with('brewery', 'style')->skip($offset)->take(2);
+			$query->where('name', 'like', "%$search%");
+			$beers = $query->get();
+		} else {
+			$beers = Beer::with('brewery', 'style')->skip($offset)->take(2)->get();
 		}
-		return Response::json( $beers );
+			foreach ($beers as $beer) {
+				$beer->aveRating = $beer->rating;
+			}
+			return Response::json( $beers );
 	}
 
 	public function test2()

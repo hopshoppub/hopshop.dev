@@ -17,12 +17,13 @@ App::bind('Acme\Billing\BillingInteface', 'Acme\Billing\StripeBilling');
  */
 Route::get('/test/ratings', 'HomeController@testRatings');
 Route::get('/beerlist', 'HomeController@beerList');
-Route::get('/beerpage/{offset?}', 'HomeController@beerPage');
+Route::get('/beerpage/{offset}/{search?}', 'HomeController@beerPage');
 Route::get('/test2', 'HomeController@test2');
 Route::post('/facebookLogin/{fb_id}', 'HomeController@fbLogin');
 Route::post('/login', 'HomeController@postLogin');
 Route::get('/logout', 'HomeController@getLogout');
 Route::get('/', 'HomeController@showHome');
+Route::get('/beeroftheday', 'BeersController@beerOfTheDay');
 
 /*
  *		Beer Routes
@@ -35,6 +36,9 @@ Route::resource('/beers', 'BeersController');
  */
 Route::get('/pitches/ajax/id/{id}', 'PitchesController@getPitchByIdAjax');
 Route::get('/pitches/fund', 'PitchesController@fund');
+
+Route::get('/seasonal', 'BeersController@seasonal');
+
 Route::post('/pitches/fund', function()
 {
 	// dd(Input::all());
