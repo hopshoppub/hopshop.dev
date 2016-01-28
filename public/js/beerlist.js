@@ -63,13 +63,22 @@ $(window).scroll(function() {
 
 function searchClicked(){
 	myVue.$data.beers = [];
+	$('#hidden-search').val( $('#search').val() );
 	infiniteScroll();
+}
+function searchEntered() {
+	if (window.event.keyCode == 13)
+    {
+        myVue.$data.beers = [];
+		$('#hidden-search').val( $('#search').val() );
+		infiniteScroll();
+    }
 }
 
 function infiniteScroll() {
 
 	var offset = myVue.$data.beers.length;
-	var search = $('#search').val();
+	var search = $('#hidden-search').val();
 	console.log(search);
 
         $.get("/beerpage/" + offset + "/" + search, function(data) {
