@@ -4,14 +4,14 @@ class Beer extends BaseModel {
 
 	// Add your validation rules here
 	public static $rules = [
-		'brewery_id' 	=> 'required|min:0',
+		'brewery_id' 	=> 'required|min:0|numeric',
 		'name'			=> 'required|min:2|max:50',
-		'category_id'	=> 'required|min:0',
-		'style_id'		=> 'min:0',
-		'abv'			=> 'required|min:0|max:99',		
-		'ibu'			=> 'required|min:0|max:99',	
-		'upc'			=> 'required|min:0|max:99',
-		'image'			=> 'required|min:0|max:100',
+		'category_id'	=> 'required|min:0|numeric',
+		'style_id'		=> 'min:0|numeric',
+		'abv'			=> 'required|min:0|max:99|numeric',		
+		'ibu'			=> 'required|min:0|max:99|numeric',	
+		'upc'			=> 'required|min:0|max:99|numeric',
+		'image'			=> 'min:0|max:100',
 		'description'	=> 'min:0',			
 	];
 

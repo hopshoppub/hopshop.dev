@@ -29,6 +29,10 @@ var myVue = new Vue ({
 
         ],
 
+        pitch: {
+
+        },
+
     },
 
     methods: {
@@ -79,15 +83,15 @@ var myVue = new Vue ({
             myVue.$data.errors = {};
         },
 
-        getEditPitch: function () {
+        getEditPitch: function (id) {
 
             myVue.$data.errors = {};
 
-            Vue.http.get('/user/pitches', function (data, status, request) {
+            Vue.http.get('/pitches/ajax/id/' + id, function (data, status, request) {
 
-                    myVue.$data.pitches = data;
-                    console.log(data[0].pitch_id);
-                    console.log( myVue.$data.pitches);
+                    myVue.$data.pitch = data;
+                    console.log(data);
+                    // console.log( myVue.$data.pitches);
             }).catch(function (data, status, request) {
             }); 
         },  
@@ -118,6 +122,7 @@ var myVue = new Vue ({
                     myVue.$data.loggedIn = 'true';
 
                     $('#login_modal').modal('toggle');
+                    console.log( myVue.$data.user );
                 } else {
                     
                     myVue.$data.errors = data;
@@ -156,11 +161,24 @@ var myVue = new Vue ({
 
         editBeerClicked: function() {
 
-            Vue.http.put('/beers/' + myVue.$data.beer.beer_id , myVue.$data.beer, function (data, status, request) {     
-                myVue.$data.errors = {};
+            var beer = myVue.$data.beer;
 
-                if ( data['good job'] === 'wooot') {
+            Vue.http.put('/beers/' + beer.beer_id , myVue.$data.beer, function (data, status, request) {     
 
+                if ( data.beer_id === beer.beer_id) {
+                    console.log(data);
+                    beer = data;
+
+                    myVue.$data.beers.forEach(function(each, index, array) {
+                        console.log(each.beer_id);
+                        console.log(beer.beer_id);
+                        if(each.beer_id === beer.beer_id){
+                            console.log('got in');
+                            
+                            myVue.$data.beers[index] = data;
+                            console.log( myVue.$data.beers[index].name );
+                        }
+                    });
                     $('#edit_beer_modal').modal('toggle');
                 } else {
 
@@ -168,6 +186,26 @@ var myVue = new Vue ({
                 }
             }).catch(function (data, status, request) {
             }); 
+        },
+
+        deleteBeer: function(index) {
+
+
+            var id = myVue.$data.beers[index].beer_id;
+            console.log(id);
+            if ( confirm('Are you sure you want to delete this post') ) {
+
+                Vue.http.delete('/beers/' + id , function (data, status, request) {
+
+                    $('#beer_' + id).slideToggle();
+                    setTimeout( function () {
+
+                        myVue.$data.beers.splice(index,1);
+                    },400);
+                }).catch(function (data, status, request) {
+                }); 
+            } else {
+            }
         },
 
         addPitchClicked: function() {
@@ -188,7 +226,7 @@ var myVue = new Vue ({
 
         editPitchClicked: function() {
 
-            Vue.http.put('/pitches/' + $('#pitch_id').val() , myVue.$data.pitch, function (data, status, request) {     
+            Vue.http.put('/pitches/' + myVue.$data.pitch.pitch_id , myVue.$data.pitch, function (data, status, request) {     
                 myVue.$data.errors = {};
 
                 if ( data['good job'] === 'wooot') {
@@ -201,22 +239,47 @@ var myVue = new Vue ({
             }); 
         },
 
+        deletePitch: function(id) {
+
+            console.log('clicked');
+            if ( confirm('Are you sure you want to delete this post') ) {
+
+                Vue.http.delete('/pitches/' + id , function (data, status, request) {     
+                    // myVue.$data.errors = {};
+                    console.log(data);
+
+                    // if ( data['good job'] === 'wooot') {
+
+                    //     $('#edit_pitch_modal').modal('toggle');
+                    // } else {
+                    //     myVue.$data.errors = data;
+                    // }
+                }).catch(function (data, status, request) {
+                    console.log(data);
+                }); 
+            } else {
+                console.log('cancled');
+            }
+        },
+
         signupClicked: function() {
 
             Vue.http.post('/users', myVue.$data.user, function (data, status, request) {
-
                 myVue.$data.errors = {};
 
-                if ( data['good job'] === 'wooot') {
+                console.log(data.user);
+                if ( data.user !== undefined ) {
+                // if ( data.user.user_id == true ) {
 
+                    myVue.$data.user = data;
+                    myVue.$data.loggedIn = 'true';
                     $('#signup_modal').modal('toggle');         
                 } else {
-                    
-                    myVue.$data.loggedIn = 'true';
-                    myVue.$data.user = data;
+                    console.log(data);
                     myVue.$data.errors = data;
                 }
             }).catch(function (data, status, request) {
+                console.log('woops')
             }); 
         },
 

@@ -107,13 +107,18 @@ class PitchesController extends \BaseController {
 	public function destroy($id)
 	{
 		Pitch::destroy($id);
-
-		return Redirect::route('pitches.index');
+		return Response::json( ['all good' => 'deleted']);
+		// return Redirect::route('pitches.index');
 	}
 
 	public function fund()
 	{
 		return View::make('pitches.fund');
+	}
+
+	public function getPitchByIdAjax($id)
+	{
+		return Response::json( Pitch::find($id) );
 	}
 
 }
