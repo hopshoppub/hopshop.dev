@@ -75,6 +75,7 @@ function searchEntered() {
     }
 }
 
+
 function infiniteScroll() {
 
 	var offset = myVue.$data.beers.length;
@@ -93,6 +94,7 @@ function infiniteScroll() {
                 getBeerIdAndStarsNumber();
                 hideDescriptionOfBeer();
             },500);
+            	cloak();
                 
 
         });

@@ -6,9 +6,8 @@
 @stop
 
 @section('content')
-    <h1>{{{ "$date->value" }}}</h1>
 
-{{-- <div class='beer-table-outline'>
+<div class='beer-table-outline'>
     <div class="container" id='beer-table'>
         <div class="row">
             <div class="col-xs-8 col-md-3"><img src="http://placehold.it/350x150" alt="Mountain View" style="width:250px;height:200px;"></div>
@@ -45,7 +44,7 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
   
 {{-- {{  (Input::has('search')) ? null: $beers->links() }} --}}
         
