@@ -21,9 +21,17 @@ var myVue = new Vue ({
 
         ],
 
-        loginPassword: '',
-        loginEmail: '',
+        beer: {
 
+        },
+
+        pitches: [
+
+        ],
+
+        pitch: {
+
+        },
 
     },
 
@@ -70,23 +78,58 @@ var myVue = new Vue ({
             });
         },
 
+        clearErrors: function () {
+
+            myVue.$data.errors = {};
+        },
+
+        getEditPitch: function (id) {
+
+            myVue.$data.errors = {};
+
+            Vue.http.get('/pitches/ajax/id/' + id, function (data, status, request) {
+
+                    myVue.$data.pitch = data;
+                    console.log(data);
+                    // console.log( myVue.$data.pitches);
+            }).catch(function (data, status, request) {
+            }); 
+        },  
+
+        getEditBeer: function (index) {
+
+            myVue.$data.errors = {};
+
+            var beerId = myVue.$data.beers[index].beer_id;
+
+            Vue.http.get('/beers/ajax/id/' + beerId , function (data, status, request) {
+
+                    myVue.$data.beer = data;
+            }).catch(function (data, status, request) {
+                console.log('woops');
+            }); 
+        },    
+
         loginClicked: function() {
 
             Vue.http.post('/login', myVue.$data.user, function (data, status, request) {
 
-                if ( data['login_error'] == true ){
-                    console.log('error');
-                } else{
+                myVue.$data.errors = {};
+
+                if ( data['login'] !== 'Incorect email or password' ) {
 
                     myVue.$data.user = data;
-
                     myVue.$data.loggedIn = 'true';
 
                     $('#login_modal').modal('toggle');
+                    console.log( myVue.$data.user );
+                } else {
+                    
+                    myVue.$data.errors = data;
+                    console.log( myVue.$data.errors.login);
                 }
             }).catch(function (data, status, request) {
-                alert('server side error sorry for the inconveniance');
-            });
+            }); 
         },
 
         getUserInfo: function() {
@@ -94,22 +137,147 @@ var myVue = new Vue ({
             Vue.http.get('/users/info', function (data, status, request) {
 
                 myVue.$data.user = data;
-                console.log(data.facebook_id);
                 myVue.getProfilePic( data.facebook_id );
     
             }).catch(function (data, status, request) {
-                alert('server side error sorry for the inconveniance');
             });
+        },
+
+        addBeerClicked: function() {
+
+            Vue.http.post('/beers', myVue.$data.beer, function (data, status, request) {
+                myVue.$data.errors = {};
+
+                if ( data['good job'] === 'wooot') {
+
+                    $('#add_beer_modal').modal('toggle');
+                } else {
+                    
+                    myVue.$data.errors = data;
+                }
+            }).catch(function (data, status, request) {
+            }); 
+        },
+
+        editBeerClicked: function() {
+
+            var beer = myVue.$data.beer;
+
+            Vue.http.put('/beers/' + beer.beer_id , myVue.$data.beer, function (data, status, request) {     
+
+                if ( data.beer_id === beer.beer_id ) {
+
+                    beer = data;
+
+                    myVue.$data.beers.forEach(function(each, index, array) {
+
+                        if(each.beer_id === beer.beer_id){
+                            
+                            myVue.$set( 'beers[' + index + ']', data);
+                        }
+                    });
+
+                    $('#edit_beer_modal').modal('toggle');
+                } else {
+
+                    myVue.$data.errors = data;
+                }
+            }).catch(function (data, status, request) {
+            }); 
+        },
+
+        deleteBeer: function(index) {
+
+
+            var id = myVue.$data.beers[index].beer_id;
+            console.log(id);
+            if ( confirm('Are you sure you want to delete this post') ) {
+
+                Vue.http.delete('/beers/' + id , function (data, status, request) {
+
+                    $('#beer_' + id).slideToggle();
+                    setTimeout( function () {
+
+                        myVue.$data.beers.splice(index,1);
+                    },600);
+                }).catch(function (data, status, request) {
+                }); 
+            } else {
+            }
+        },
+
+        addPitchClicked: function() {
+
+            Vue.http.post('/pitches', myVue.$data.pitch, function (data, status, request) {
+                myVue.$data.errors = {};
+
+                if ( data['good job'] === 'wooot') {
+
+                    $('#add_pitch_modal').modal('toggle');
+                } else {
+                    
+                    myVue.$data.errors = data;
+                }
+            }).catch(function (data, status, request) {
+            });  
+        },
+
+        editPitchClicked: function() {
+
+            Vue.http.put('/pitches/' + myVue.$data.pitch.pitch_id , myVue.$data.pitch, function (data, status, request) {     
+                myVue.$data.errors = {};
+
+                if ( data['good job'] === 'wooot') {
+
+                    $('#edit_pitch_modal').modal('toggle');
+                } else {
+                    myVue.$data.errors = data;
+                }
+            }).catch(function (data, status, request) {
+            }); 
+        },
+
+        deletePitch: function(id) {
+
+            console.log('clicked');
+            if ( confirm('Are you sure you want to delete this post') ) {
+
+                Vue.http.delete('/pitches/' + id , function (data, status, request) {     
+                    // myVue.$data.errors = {};
+                    console.log(data);
+
+                    // if ( data['good job'] === 'wooot') {
+
+                    //     $('#edit_pitch_modal').modal('toggle');
+                    // } else {
+                    //     myVue.$data.errors = data;
+                    // }
+                }).catch(function (data, status, request) {
+                    console.log(data);
+                }); 
+            } else {
+                console.log('cancled');
+            }
         },
 
         signupClicked: function() {
 
             Vue.http.post('/users', myVue.$data.user, function (data, status, request) {
-                myVue.$data.user = data;
-                myVue.$data.loggedIn = 'true';
-                $('#signup_modal').modal('toggle');         
+                myVue.$data.errors = {};
+
+                console.log(data.user);
+                if ( data.user !== undefined ) {
+                // if ( data.user.user_id == true ) {
+
+                    myVue.$data.user = data;
+                    myVue.$data.loggedIn = 'true';
+                    $('#signup_modal').modal('toggle');         
+                } else {
+                    console.log(data);
+                    myVue.$data.errors = data;
+                }
             }).catch(function (data, status, request) {
-                console.log(data);
+                console.log('woops')
             }); 
         },
 
@@ -119,8 +287,6 @@ var myVue = new Vue ({
 
                 myVue.$data.loggedIn = 'false';
                 myVue.$data.user = data;
-                document.getElementById('status').innerHTML =
-                'Thanks for visiting or site!!';
 
             }).catch(function (data, status, request) {
                 alert('sorry an error accored and were not logged out');
@@ -130,8 +296,8 @@ var myVue = new Vue ({
         getProfilePic: function(id){
 
             FB.api( "/" + id + "/picture", function (response) {
-                // console.log('getting pic id');
                 if (response && !response.error) {
+
                    // handle the result 
                     var pic = document.getElementById('user_profile_picture');
                     pic.src = response.data.url;
@@ -165,6 +331,3 @@ var myVue = new Vue ({
         },
     }
 });
-
-
-// module.exports = myVue;

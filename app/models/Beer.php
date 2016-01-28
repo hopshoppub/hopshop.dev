@@ -4,12 +4,31 @@ class Beer extends BaseModel {
 
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+		'brewery_id' 	=> 'required|min:0|numeric',
+		'name'			=> 'required|min:2|max:50',
+		'category_id'	=> 'required|min:0|numeric',
+		'style_id'		=> 'min:0|numeric',
+		'abv'			=> 'required|min:0|max:99|numeric',		
+		'ibu'			=> 'required|min:0|max:99|numeric',	
+		'upc'			=> 'required|min:0|max:99|numeric',
+		'image'			=> 'min:0|max:100',
+		'description'	=> 'min:0',			
 	];
+
 	protected $primaryKey = 'beer_id';
 
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = [
+		'brewery_id', 
+		'name',
+		'category_id', 
+		'style_id', 
+		'abv', 
+		'ibu', 
+		'upc', 
+		'image', 
+		'description'
+	];
 
 
 	/*

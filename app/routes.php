@@ -28,11 +28,13 @@ Route::get('/beeroftheday', 'BeersController@beerOfTheDay');
 /*
  *		Beer Routes
  */
+Route::get('/beers/ajax/id/{id}', 'BeersController@getBeerByIdAjax');
 Route::resource('/beers', 'BeersController');
 
 /*
  *		Pitch Routes
  */
+Route::get('/pitches/ajax/id/{id}', 'PitchesController@getPitchByIdAjax');
 Route::get('/pitches/fund', 'PitchesController@fund');
 
 Route::get('/seasonal', 'BeersController@seasonal');
@@ -49,7 +51,6 @@ Route::post('/pitches/fund', function()
 	// $contribution =Auth::user()
 	return 'Charge was succesful.';
 });
-
 Route::resource('/pitches', 'PitchesController');
 Route::resource('/contributions/mine', 'ContributionsController');
 
@@ -58,6 +59,7 @@ Route::resource('/contributions/mine', 'ContributionsController');
 /*
  *		User Routes
  */
+Route::get('/user/pitches', 'UsersController@getPitchIds');
 Route::get('/users/info', 'UsersController@getInfo');
 Route::resource('/users', 'UsersController');
 

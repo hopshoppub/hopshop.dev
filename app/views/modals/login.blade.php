@@ -15,11 +15,15 @@
             --}}
             <div class="modal-body">
                 
-                    <label for="login_email">Email address</label>
-                    <input id="login_email" type="text" class="form-control" placeholder="Enter email" v-model="user.email">
+                <label for="login_email">Email address</label>
+                <input  v-model="errors.error" value='' hidden>
+                <div class="alert alert-danger" role="alert" v-for="error in errors">@{{ error }}</div>
+                <input @keyup.enter="loginClicked" id="login_email" type="text" class="form-control" placeholder="Enter email" v-model="user.email">
 
-                    <label for="login_password">Password</label>
-                    <input id="login_password" type="password" class="form-control" placeholder="Enter password" v-model="user.password">
+                <label for="login_password">Password</label>
+                <input  v-model="errors.login_password" value='' hidden>
+                {{-- <div class="alert alert-danger" role="alert" v-for="error in errors.login_password">@{{ errors.login_password }}</div> --}}
+                <input @keyup.enter="loginClicked" id="login_password" type="password" class="form-control" placeholder="Enter password" v-model="user.password">
                 
             </div>
 

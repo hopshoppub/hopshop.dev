@@ -78,7 +78,7 @@ class HomeController extends BaseController {
 		} else {
 			
 
-		    return Response::json( ['login_error' => true] );
+		    return Response::json( ['login' => 'Incorect email or password'] );
 		}
 	}
 
