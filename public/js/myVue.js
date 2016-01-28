@@ -261,18 +261,17 @@ var myVue = new Vue ({
         },
 
         signupClicked: function() {
-
+            console.log('signup clikcked');
             Vue.http.post('/users', myVue.$data.user, function (data, status, request) {
-                myVue.$data.errors = {};
-
-                console.log(data.user);
-                if ( data.user !== undefined ) {
-                // if ( data.user.user_id == true ) {
+                // myVue.$data.errors = {};
+                // console.log( data.user_id);
+                if ( data.user_id ) {
 
                     myVue.$data.user = data;
                     myVue.$data.loggedIn = 'true';
                     $('#signup_modal').modal('toggle');         
                 } else {
+                    console.log('errors' + data);
                     console.log(data);
                     myVue.$data.errors = data;
                 }
