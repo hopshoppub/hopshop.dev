@@ -51,8 +51,10 @@ class BreweriesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-
-		$brewery = Brewery::findOrFail($id);
+		$brewery = Brewery::find($id);
+		if(!$brewery) {
+			App::abort(404);
+		}
 	
 		return View::make('breweries.show')->with(['brewery' => $brewery]);
 
