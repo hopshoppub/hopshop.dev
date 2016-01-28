@@ -17,6 +17,7 @@ class CreateConfigurationTable extends Migration {
 			$table->increments('id');
 			$table->string('name', 50);
 			$table->string('value', 50);
+			$table->softDeletes();
 
 			$table->timestamps();
 		});
