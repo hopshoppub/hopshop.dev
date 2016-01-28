@@ -33,6 +33,7 @@ Route::resource('/beers', 'BeersController');
 /*
  *		Pitch Routes
  */
+Route::get('/pitches/ajax/id/{id}', 'PitchesController@getPitchByIdAjax');
 Route::get('/pitches/fund', 'PitchesController@fund');
 Route::post('/pitches/fund', function()
 {

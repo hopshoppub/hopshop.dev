@@ -25,7 +25,7 @@
                 <div class="alert alert-danger" role="alert" v-for="error in errors.signup_last_name">@{{ errors.signup_last_name }}</div>
                 <input id="signup_last_name" type="text" class="form-control" placeholder="Enter last name" v-model="user.last_name">
 
-                <label for="signup_user_name">Last Name</label>
+                <label for="signup_user_name">User Name</label>
                 <input  v-model="errors.signup_user_name" value='' hidden>
                 <div class="alert alert-danger" role="alert" v-for="error in errors.signup_user_name">@{{ errors.signup_user_name }}</div>
                 <input id="signup_user_name" type="text" class="form-control" placeholder="Enter user name" v-model="user.user_name">

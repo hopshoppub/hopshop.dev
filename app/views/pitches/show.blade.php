@@ -31,6 +31,7 @@
                         <h3>${{{ $pitch->goal }}}</h3>
                         <h4>{{{ $pitch->deadline }}}</h4>
                         <a href="/pitches/fund" class="btn btn-info" role="button" >Fund the Brew!</a>
+                        <button data-toggle="modal" data-target="#edit_pitch_modal" v-on:click="getEditPitch({{{ $pitch->pitch_id }}})">Edit</button>
 
                        
 

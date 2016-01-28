@@ -29,6 +29,10 @@ var myVue = new Vue ({
 
         ],
 
+        pitch: {
+
+        },
+
     },
 
     methods: {
@@ -79,15 +83,15 @@ var myVue = new Vue ({
             myVue.$data.errors = {};
         },
 
-        getEditPitch: function () {
+        getEditPitch: function (id) {
 
             myVue.$data.errors = {};
 
-            Vue.http.get('/user/pitches', function (data, status, request) {
+            Vue.http.get('/pitches/ajax/id/' + id, function (data, status, request) {
 
-                    myVue.$data.pitches = data;
-                    console.log(data[0].pitch_id);
-                    console.log( myVue.$data.pitches);
+                    myVue.$data.pitch = data;
+                    console.log(data);
+                    // console.log( myVue.$data.pitches);
             }).catch(function (data, status, request) {
             }); 
         },  
@@ -188,7 +192,7 @@ var myVue = new Vue ({
 
         editPitchClicked: function() {
 
-            Vue.http.put('/pitches/' + $('#pitch_id').val() , myVue.$data.pitch, function (data, status, request) {     
+            Vue.http.put('/pitches/' + myVue.$data.pitch.pitch_id , myVue.$data.pitch, function (data, status, request) {     
                 myVue.$data.errors = {};
 
                 if ( data['good job'] === 'wooot') {
