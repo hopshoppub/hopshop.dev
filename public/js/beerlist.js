@@ -80,10 +80,8 @@ function infiniteScroll() {
 
 	var offset = myVue.$data.beers.length;
 	var search = $('#hidden-search').val();
-	console.log(search);
 
         $.get("/beerpage/" + offset + "/" + search, function(data) {
-            console.log(data);
             data.forEach(function(element) {
                 myVue.$data.beers.push(element);
 
