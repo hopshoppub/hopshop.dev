@@ -1,9 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 #beer-table {
-	border: groove 4px;
-	border-color: black;
-	background-color:#FFF;
-	border-radius: 20px;
+	border: groove 2px;
+	border-color: #4E3304;
+	background-color:#F9F0E0;
+	border-radius: 10px;
 	margin-top:20px;
 }
 .row {
@@ -33,7 +33,7 @@
 	font-size: 200%;
 }
 .beer-table-solid {
-	background-color: #151111;
+	background-color: #F9F0E0;
 	
 }
 .width-1 {
@@ -50,4 +50,9 @@
 }
 .width-5 {
 	width:100%;
+}
+.description-button {
+	background-color:#4E3304;
+	color:white;
+}
 
