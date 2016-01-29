@@ -9,10 +9,19 @@
 @section('content')
 <div class='container'>
   
-        <h2>Search Beer/Brewery</h2>
-        <input type="text" name="search" id="search" size="30" value="" onkeypress="searchEntered()"> 
+        <h2>Search Beer</h2>
+        <input type="text" name="search" class='form-control' id="search" size="30" value="" placeholder='Enter Beer Name...'onkeypress="searchEntered()"> 
         <input type="text" hidden id="hidden-search">
-        <button onclick="searchClicked()">Search</button>
+        <br>
+        <button class='btn btn-default' style="width:200px;" onclick="searchClicked()">Search</button>
+        
+        {{-- <div class="webdesigntuts-workshop">
+            <div class='form'>          
+                <input type="text" name="search"  id="search" size="30" value="" placeholder='Enter Beer Name...'onkeypress="searchEntered()"> 
+                <input type="text" hidden id="hidden-search">       
+                <button onclick="searchClicked()">Search</button>
+            </div>
+        </div> --}}
 
 </div>
 <div class ='beer-table-outline'>
