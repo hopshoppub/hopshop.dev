@@ -1,9 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 #beer-table {
-	border: groove 4px;
-	border-color: black;
-	background-color:#FFF;
-	border-radius: 20px;
+	border: groove 2px;
+	border-color: #4E3304;
+	background-color:#F9F0E0;
+	border-radius: 10px;
 	margin-top:20px;
 }
 .row {
@@ -13,11 +13,6 @@
 	font-size: 150%;
 }
 .beer-table-outline {
-	/*background-color: black;
-	background-image: url(/img/beer.back.jpg);
-	background-color: #628A2D;
-	background-blend-mode: color-burn;
-	background-size: 500px;*/
 	margin-left:5%;
 	margin-right: 5%;
 	margin-top: 20px;
@@ -34,13 +29,12 @@
 	font-size: 200%;
 }
 .beer-table-solid {
-	/*background-color: #0C0B0B;
-	background-image: url(/img/beer-posts.jpg);
-	background-blend-mode: color-burn;
-	background-size: 500px;*/
 	margin-left:5%;
 	margin-right:5%;
-	border-radius: 10px;
-	
-	
+	border-radius: 10px;	
 }
+.description-button {
+	background-color:#4E3304;
+	color:white;
+}
+

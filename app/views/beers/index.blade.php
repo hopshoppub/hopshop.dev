@@ -8,6 +8,11 @@
 
 @section('content')
 {{-- <div class='beer-table-outline'> --}}
+<div class = 'container' id='beer-table'>
+        <div class="row">
+            <div class="col-xs-8 col-md-11 center"><h1>Top Rated </h1></div>
+        </div>
+    </div>
 @foreach($beers as $beer)
     <div class="container" id='beer-table'>
         <div class="row">
