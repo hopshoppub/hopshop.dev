@@ -16,6 +16,9 @@
 
 </div>
 <div class ='beer-table-outline'>
+    <div class="infinite-container" id="contents">
+        <div v-for="beer in beers" class= 'infinite-item' id="beer_@{{ beer.beer_id}}">
+            <div class="container test_beers" id='beer-table'>
                 <div class="row">
                     <div class="col-xs-8 col-md-3"><img src="/img/@{{beer.image}}" alt="Mountain View" style="width:250px;height:200px;"></div>
                     <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3 class='beer-font'>@{{ beer.name }}</h3></div>
@@ -58,6 +61,8 @@
                 </div>
                 <button class='pull-right description-button btn' data-grab-id="@{{ beer.beer_id }}">Click Here For Description: </button>
             </div>
+        </div>
+    </div>
 </div>
 
         
