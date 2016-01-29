@@ -6,8 +6,8 @@
 
 body {
     background-image: url(/img/hot-wood.png);
-    background-color: saddlebrown;
-    background-blend-mode: hard-light;
+/*    background-color: saddlebrown;
+    background-blend-mode: hard-light;*/
 }
 .center{
     text-align: center;
@@ -52,6 +52,7 @@ body {
 }
 .navbar-inverse {
     background-color: #4E3304;
+    border-radius: 0px;
 }
 .navbar-inverse .navbar-brand {
     color:white;
@@ -65,6 +66,9 @@ body {
 }
 #facebook_login_button_navbar{
     margin-top:10px;
+}
+#admin-dropdown{
+    margin-top:40px;
 }
 
 /*******************************    Media Queries For Nav Bar   *******************************/
