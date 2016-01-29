@@ -16,10 +16,9 @@ body {
     text-align: right;
 }
 .logo {
-    background-image:url(/img/hopshoplogo.png);
+    background-image:url(/img/hopshop.png);
     background-size: 300px;
     background-repeat: no-repeat;
-    background-color: black;
     height:100px;
     padding: 50px;
 }
