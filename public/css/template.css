@@ -7,18 +7,23 @@
     /*xs small screen size*/
 }
 
+
 /*
  *  SM media queries
  */
  @media(min-width: 768px) {
    /* small screen size*/
  }
+
+
 /*
  *  MD media queries
  */
  @media(min-width: 992px) {
     /*medium media queries*/
  }
+
+ 
  /*
   *  LG media queries
   */
