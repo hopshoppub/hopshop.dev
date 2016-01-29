@@ -4,9 +4,9 @@
 }
 
 .pitches-table {
-	border: groove 2px;
+	/*border: groove 2px;*/
 	border-color: black;
-	background-color:white;
+	background-color: #ffd8b3;
 	border-radius: 10px;
 	text-align:center;
 }

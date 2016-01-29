@@ -1,4 +1,5 @@
 @extends('layouts.pitchesmaster')
+<link rel="canonical" href="http://hopshop.pub" />
 
 @section('top-script')
 
@@ -27,11 +28,15 @@
                 <div style="text-align:center" class='col-xs-12 col-sm-12 col-md-4 col-lg-4' style="padding-left: 30px">
                     <div class="pitches-table">
                         <h3>{{{ $pitch->brewery->name  }}}</h3>
-                        <h3>Current Level</h3>
-                        <h3>${{{ $pitch->goal }}}</h3>
-                        <h4>{{{ $pitch->deadline }}}</h4>
+                       {{--  @foreach($pitch->contributions as $contribution)
+                            
+                        <h3>{{{ $total[]=$contribution->amount }}}</h3>
+                            {{{ var_dump($total) }}}
+                        @endforeach --}}
+                        <h3>Funding Goal: ${{{ $pitch->goal }}}</h3>
+                        <h4>Funding Deadline: {{{ $pitch->deadline }}}</h4>
 
-                        <a href="{{{ action('PitchesController@fund', $pitch->pitch_id) }}}" class="btn btn-info" role="button" >Fund the Brew!</a>
+                        <a href="{{{ action('PitchesController@fund', $pitch->pitch_id) }}}" class="btn btn-info" role="button" >Fund the Brew for $20!</a>
                         <button data-toggle="modal" data-target="#edit_pitch_modal" v-on:click="getEditPitch({{{ $pitch->pitch_id }}})">Edit</button>
                         <button v-on:click="deletePitch({{{ $pitch->pitch_id }}})">Delete</button>
                        
@@ -56,7 +61,7 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="campaign">
         
-                        Come be a part of the Plan & Tentative Recipe.  We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!
+                        Come be a part of the Plan & Tentative Recipe.  We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!  For only $20, we'll send you a six pack!  
 
 
 
@@ -65,7 +70,7 @@
                         @if (Auth::check() && Auth::user()->user_id == $pitch->user_id)
                         {{ Form::open(['method'=>'POST', 'action'=> ['PitchesController@postupdate', $pitch->pitch_id]]) }}
                             <fieldset class="form-group">
-                                <label for="exampleTextarea">This is only for the hopstarter/creator to post.</label>
+                                <label for="exampleTextarea">The Brew Creator posts updates below:</label>
                                 <textarea class="form-control" id="updateTextarea" name="updateText"rows="3"></textarea>
                             </fieldset>
                             <button  type="submit" class="btn btn-primary">Submit</button>
@@ -83,7 +88,7 @@
                         This is different. We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!
 
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="hopmakers"><h2>These are the hopmakers</h2>
+                    <div role="tabpanel" class="tab-pane" id="hopmakers"><h2>Thanks for contributing!</h2>
                         <table style="width:100%">
                             @foreach($pitch->contributions as $contribution)
                               <tr>
@@ -108,18 +113,37 @@
 
         {{-- /vagrant/sites/hopshop.dev/app/views/pitches/show.blade.php --}}
 
-
+    
     </div>
+    <script id="dsq-count-scr" src="//hopshop.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
 @stop
-
 @section('bottom-script')
 <script>
 $('#myTabs a').click(function (e) {
   e.preventDefault()
   $(this).tab('show');
 });
-</script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
 
+var disqus_config = function () {
+this.page.url = 'http://hopshop.pub'; // Replace PAGE_URL with your page's canonical URL variable
+// this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//hopshop.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 @stop
 
