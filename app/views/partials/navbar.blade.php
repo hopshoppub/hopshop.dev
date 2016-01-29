@@ -15,7 +15,7 @@
 
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <a class="navbar-brand" href="{{{ action('HomeController@showHome')}}}">ho<span class ='hopshop-color-brand'>me</span></a>
+            <a class="navbar-brand" href="{{{ action('HomeController@showHome')}}}">Home</span></a>
 
 			<ul class="nav navbar-nav">
 				<li><a href="{{{ action('HomeController@beerList') }}}">Beer List</a></li>

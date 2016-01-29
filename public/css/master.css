@@ -43,7 +43,7 @@ body {
 
 .navbar-color {
     height:5px;
-    background-color: #BBCC33;
+    background-color: black;
 }
 #myNavbar {
     font-family: "Indie Flower", cursive;
@@ -60,12 +60,15 @@ body {
     font-family: "Indie Flower", cursive;
     
 }
+.navbar-inverse {
+    background-color: #4E3304;
+}
 .navbar-inverse .navbar-brand {
-    color: #5F8B26;
+    color:white;
     font-size: 200%;
 }
 .hopshop-color-brand {
-    color:#FF9600;
+    color:white;
 }
 .navbar-inverse .navbar-nav > li > a {
     color: white;
