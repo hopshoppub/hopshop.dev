@@ -8,11 +8,15 @@ class BeersTableSeeder extends Seeder {
 	public function run()
 	{
 		$row = 1;
+
 		if (($handle = fopen(storage_path() . "/csvs/beers.csv", "r")) !== FALSE) {
 		   
 		    while (($data = fgetcsv($handle)) !== FALSE) {
 
 		    	try {
+		    		$row++;
+		    		$image = $row % 10;
+		    		$image++;
 		    		
 		    		$beer = new Beer();
 
@@ -24,7 +28,7 @@ class BeersTableSeeder extends Seeder {
 			        $beer->abv = $data[5];
 			        $beer->ibu = $data[6];
 			        $beer->upc = $data[8];
-			        $beer->image = $data[9];
+			        $beer->image = "category$image.jpeg";
 			        $beer->description = $data[10];
 
 			        $beer->save();
