@@ -37,7 +37,7 @@ body {
 
 .navbar-color {
     height:5px;
-    background-color: black;
+    background-color: #333;
 }
 #my-nav-bar {
     font-family: "Indie Flower", cursive;
@@ -46,9 +46,6 @@ body {
 .navbar-brand {
     font-family: "Indie Flower", cursive;
     font-size: 140%;
-}
-.beerpitches {
-    font-family: "Indie Flower", cursive;  
 }
 .navbar-inverse {
     background-color: #4E3304;
