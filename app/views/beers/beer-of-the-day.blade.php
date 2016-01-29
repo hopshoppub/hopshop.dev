@@ -6,17 +6,27 @@
 @stop
 
 @section('content')
-<div class = 'container' id='beer-table'>
+
+
+<div class='beer-table-outline'>
+    <div class = 'container' id='beer-table'>
         <div class="row">
             <div class="col-xs-8 col-md-11 center"><h1>Beer Of The Day </h1></div>
         </div>
     </div>
-<div class='beer-table-outline'>
     <div class="container" id='beer-table'>
         <div class="row">
-            <div class="col-xs-8 col-md-3"><img src="http://placehold.it/350x150" alt="Mountain View" style="width:250px;height:200px;"></div>
-            <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3 class='beer-font'>{{{ $beer->name }}}</h3></div>
-            <div class="col-xs-5 col-md-3"><h4>Rating:</h4>
+            <div class="col-xs-8 col-md-3">
+                <img src="/img/{{{$beer->image}}}" alt="Mountain View" style="width:250px;height:200px;">
+                @include('facebook.button')
+            </div>
+            <div class="col-xs-5 col-md-3">
+                <h4>Beer Name: </h4> <h3 class='beer-font'>{{{ $beer->name }}}</h3>
+            </div>
+            <div class="col-xs-5 col-md-3">
+
+                <h4>Rating:</h4>
+                
                 <div>
                     <div class="stars" data-rating-id="{{{ $beer->rating }}}" data-star-id="{{{ $beer->beer_id }}}">
                         <input type="radio" name="star" class="star-1" value='1'/>
@@ -34,7 +44,6 @@
                </div>
             </div>
         </div>
-        @include('facebook.button')
         <hr>
         <div class="row">
             <div class="col-xs-8 col-md-3"><h4>ABV: </h4> <h3 class='beer-font'>{{{ $beer->abv }}}</h3></div>
