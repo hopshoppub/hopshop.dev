@@ -4,6 +4,7 @@
 	border-color: black;
 	background-color:#FFF;
 	border-radius: 20px;
+	margin-top:20px;
 }
 .row {
 	margin:2px;
@@ -12,14 +13,14 @@
 	font-size: 150%;
 }
 .beer-table-outline {
-	background-color: #0C0B0B;
+	/*background-color: #0C0B0B;
 	background-image: url(/img/beer-posts.jpg);
 	background-blend-mode: color-burn;
 	background-size: 500px;
 	padding:20px;
 	margin-left:5%;
 	margin-right: 5%;
-	border-radius: 10px;
+	border-radius: 10px;*/
 }
 .hide-description {
 	display:none;
