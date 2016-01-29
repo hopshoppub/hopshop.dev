@@ -17,7 +17,7 @@
     <div class="container" id='beer-table'>
         <div class="row">
             <div class="col-xs-8 col-md-3">
-                <img src="/img/{{{$beer->image}}}" alt="Mountain View" style="width:250px;height:200px;">
+                <img class="beer-image" src="/img/{{{$beer->image}}}" alt="Mountain View" style="width:250px;height:200px;">
                 @include('facebook.button')
             </div>
             <div class="col-xs-5 col-md-3">
@@ -26,7 +26,7 @@
             <div class="col-xs-5 col-md-3">
 
                 <h4>Rating:</h4>
-                
+
                 <div>
                     <div class="stars" data-rating-id="{{{ $beer->rating }}}" data-star-id="{{{ $beer->beer_id }}}">
                         <input type="radio" name="star" class="star-1" value='1'/>
