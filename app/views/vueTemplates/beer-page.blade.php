@@ -49,8 +49,8 @@
                     {{-- <a href="{{{ action("BreweriesController@show", @{{ beer.brewery_id }} ) }}}" class="col-xs-5 col-md-3"><h3>@{{ beer.brewery.name }}</h3></a> --}}
                     <a href="/breweries/@{{ beer.brewery_id}}" class="col-xs-5 col-md-3"><h3>@{{ beer.brewery.name }}</h3></a>
                     {{-- <span v-if="@{{ myVue.$data.user.role === '3' }}"> --}}
-                        <button data-toggle="modal" data-target="#edit_beer_modal" v-on:click="getEditBeer($index)">Edit</button>
-                        <button v-on:click="deleteBeer($index)">Delete</button>
+                        <button data-toggle="modal" data-target="#edit_beer_modal" v-on:click="getEditBeer($index)" v-if="user.role == 3">Edit</button>
+                        <button v-on:click="deleteBeer($index)" v-if="user.role == 3">Delete</button>
                     {{-- </span> --}}
                 </div>
                 <div class='row'>
