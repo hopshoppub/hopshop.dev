@@ -103,7 +103,7 @@ class BeersController extends \BaseController {
 	}
 	public function generateRandomBeer() {
 			$query = Beer::with('ratings')->whereHas('ratings', function($q) {
-			$q->where('rating', '>', '3');
+			$q->where('rating', '>', '5');
 		});
 			$beers = $query->get();
 			$beerArray = [];
