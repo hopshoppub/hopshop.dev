@@ -7,13 +7,28 @@
 @stop
 
 @section('content')
-<div class='beer-table-outline'>
+{{-- <div class='beer-table-outline'> --}}
+<div class = 'container' id='beer-table'>
+        <div class="row">
+            <div class="col-xs-8 col-md-11 center"><h1>Top Rated </h1></div>
+        </div>
+    </div>
 @foreach($beers as $beer)
     <div class="container" id='beer-table'>
         <div class="row">
-            <div class="col-xs-8 col-md-3"><img src="http://placehold.it/350x150" alt="Mountain View" style="width:250px;height:200px;"></div>
-            <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h2 class='beer-font'>{{{ $beer->name }}}</h2></div>
-            <div class="col-xs-5 col-md-3"><h4>Rating:</h4>
+
+            <div class="col-xs-8 col-md-3">
+                <img src="http://placehold.it/350x150" alt="Mountain View" style="width:250px;height:200px;">
+            </div>
+
+            <div class="col-xs-5 col-md-3">
+                <h4>Beer Name: </h4> <h2 class='beer-font'>{{{ $beer->name }}}</h2>
+            </div>
+
+            <div class="col-xs-5 col-md-3">
+                
+                <h4>Rating:</h4>
+
                 <div>
                     <div class="stars" data-rating-id="{{{ $beer->rating }}}" data-star-id="{{{ $beer->beer_id }}}">
                         <input type="radio" name="star" class="star-1" value='1'/>
@@ -47,7 +62,7 @@
         <button class='pull-right description-button btn' data-grab-id="{{{ $beer->beer_id }}}">Click Here For Description: </button>
     </div>
 @endforeach
-</div>
+{{-- </div> --}}
 {{-- {{ $beers->links() }} --}}
         
 @stop

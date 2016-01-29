@@ -29,12 +29,15 @@ function showUserRatingInput() {
 showUserRatingInput();
 function getBeerIdAndStarsNumber() {
 	$('.stars').click(function(e) {
-		$idOfBeerStars = ($(this).data('starId'));
-		$ratingNumber = event.target.innerHTML;
-		sendRating($idOfBeerStars, $ratingNumber);
-		// changeStars();
+		if (myVue.$data.loggedIn == 'true') {
+			$idOfBeerStars = ($(this).data('starId'));
+			$ratingNumber = event.target.innerHTML;
+			sendRating($idOfBeerStars, $ratingNumber);
+		} else {
+			myVue.clearErrors();
+			$('#login_modal').modal('show');
+		}
 	});
-		 $(this).attr("checked");
 }
 	getBeerIdAndStarsNumber();
 

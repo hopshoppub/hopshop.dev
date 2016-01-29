@@ -34,7 +34,9 @@ body {
 /*
  *      Navbar 
  */
-
+#admin-label {
+    margin-top:6px;
+}
 .navbar-color {
     height:5px;
     background-color: #333;

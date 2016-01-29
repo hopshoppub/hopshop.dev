@@ -6,7 +6,11 @@
 @stop
 
 @section('content')
-
+<div class = 'container' id='beer-table'>
+        <div class="row">
+            <div class="col-xs-8 col-md-11 center"><h1>Beer Of The Day </h1></div>
+        </div>
+    </div>
 <div class='beer-table-outline'>
     <div class="container" id='beer-table'>
         <div class="row">

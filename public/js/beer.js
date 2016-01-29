@@ -24,21 +24,22 @@ function showUserRatingInput() {
 }
 showUserRatingInput();
 function getBeerIdAndStarsNumber() {
-		$('.stars').click(function(e) {
+	$('.stars').click(function(e) {
+		if (myVue.$data.loggedIn == 'true') {
 			$idOfBeerStars = ($(this).data('starId'));
 			$ratingNumber = event.target.innerHTML;
 			sendRating($idOfBeerStars, $ratingNumber);
-			// changeStars();
-		});
-		 $(this).attr("checked");
-	}
-	getBeerIdAndStarsNumber();
+		} else {
+			myVue.clearErrors();
+			$('#login_modal').modal('show');
+		}
+	});
+}
+getBeerIdAndStarsNumber();
 
 	function sendRating(id, ratingNumber) {
 
 		$.get("/beers/" + id + "/" + ratingNumber , function(data){
-			console.log(ratingNumber)
-		}).done(function(data) {
-			console.log(data);
+			
 		});
 	}

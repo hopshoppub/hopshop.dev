@@ -18,7 +18,6 @@ return array(
 	'providers' => append_config([
 		'Way\Generators\GeneratorsServiceProvider',
 		'Acme\Providers\BillingServiceProvider',
-		'Barryvdh\Debugbar\ServiceProvider',
 		])
 
 );
