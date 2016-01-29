@@ -32,7 +32,9 @@
 
 	<div class='container' id='beer-table'>
 		<div class="row">
-            <div class="col-xs-8 col-md-3"><img src="http://placehold.it/350x150" alt="Mountain View" style="width:250px;height:200px;"></div>
+            <div class="col-xs-8 col-md-3">
+            	<img src="/img/{{{$beer->image}}}" alt="Mountain View" style="width:250px;height:200px;">
+            </div>
             <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3 class='beer-font'>{{{ $beers->name }}}</h3></div>
             <div class="col-xs-5 col-md-3"><h4>Rating:</h4>
                <form id="ratingsForm">
