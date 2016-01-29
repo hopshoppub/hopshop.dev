@@ -420,7 +420,7 @@
   margin-top: -28px;
   margin-left: -28px;
 
-  background-color: #B1AC11;
+  background-color: #4E3304;
 
   border-radius: 50%;
 }
@@ -552,7 +552,7 @@ _:-ms-input-placeholder, :root .csslider1 > .cs_arrownext > label span:after {
   margin-top: -28px;
   margin-left: -28px;
 
-  background-color: #B1AC11;
+  background-color: #4E3304;
 
   border-radius: 50%;
 }
@@ -612,7 +612,7 @@ _:-ms-input-placeholder, :root .csslider1 > .cs_play_pause > label span:after {
   border-radius: 50%;
   margin: 0 5px;
   padding: 9px;
-  background: #B1AC11;
+  background: #4E3304;
 }
 
 
@@ -767,7 +767,7 @@ _:-ms-input-placeholder, :root .csslider1 > .cs_play_pause > label span:after {
   transform: translateY(0);
 }
 .csslider1 > .cs_description > label > .cs_title {
-  background-color: #B1AC11;
+  background-color: #4E3304;
   margin: -5px 10px;
   opacity: 0;
   visibility: hidden;

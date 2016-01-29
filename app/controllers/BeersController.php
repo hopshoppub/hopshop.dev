@@ -7,7 +7,7 @@ class BeersController extends \BaseController {
 	{
 		parent::__construct();
 
-		$this->beforeFilter( 'auth',['except' => ['show'] ] );
+		
 	}
 
 
@@ -96,7 +96,7 @@ class BeersController extends \BaseController {
 			$selectedBeer->value = $beer->beer_id;
 			$selectedBeer->save();
 		} else {
-			$beer = Beer::find(Configuration::where('name', '=', 'beer_id')->first()->value);
+			$beer = Beer::find(Configuration::where('name', '=', 'beer_id')->orderBy('id', 'desc')->first()->value);
 		}
 
 		return View::make('beers.beer-of-the-day')->with(['beer' => $beer]);
@@ -114,9 +114,9 @@ class BeersController extends \BaseController {
 				}
 			}
 			$maxNumber = sizeof($beerArray) - 1;
-			$randomBeer = mt_rand(1,$maxNumber);
-			//shuffle($randomBeer);
-			$beer = $beerArray[$randomBeer];
+			$randomBeer = range(1,$maxNumber);
+			shuffle($randomBeer);
+			$beer = $beerArray[$randomBeer[0]];
 
 			return $beer;
 	}
