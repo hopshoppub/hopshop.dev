@@ -7,13 +7,6 @@
 @stop
 
 @section('content')
-<div class='container'>
-<form action="{{{ action('BeersController@index') }}}" > 
-                    <h2>Search Beer/Brewery</h2>
-                    <input type="text" name="search" id="query" size="30" value=""> 
-                    <input type="submit"> 
-                </form> 
-            </div>
 <div class='beer-table-outline'>
 @foreach($beers as $beer)
     <div class="container" id='beer-table'>

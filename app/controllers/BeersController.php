@@ -24,31 +24,15 @@ class BeersController extends \BaseController {
 
 		return View::make('beers.seasonal')->with(['beers' => $beers]);
 	}
+
 	public function index()
 	{
-		if (Input::has('search')) {
-			$query = Beer::with('brewery')->orderBy('created_at', 'desc');
-			$search = Input::get('search');
-			$query->where('name', 'like', "%$search%");
-			$query->orWhereHas('brewery', function($q){
-				$query = Beer::with('brewery');
-				$search = Input::get('search');
-				$q->where('name','like',"%$search%");
-				$beers = $query->get();
-			});
-			$beers = $query->get();
-		} else {
-				$query = Beer::with('ratings')->orWhereHas('ratings', function($q) {
-				$query = Beer::with('ratings');
-				$q->where('rating', '>', '3');
-				$beers = $query->get();
-			});
-				$beers = $query->get();
-				$beers->sortByDesc(function($beer) {
-					return $beer->rating;
-				});
-		}
-			return View::make('beers.index')->with(['beers' => $beers]);
+		// return 'hello';
+		$query = Beer::with('ratings')->whereHas('ratings', function($q) {
+			$q->where('rating', '>', '3');
+		});
+		$beers = $query->get();
+		return View::make('beers.index')->with(['beers' => $beers]);
 	}
 
 	/**
@@ -118,18 +102,17 @@ class BeersController extends \BaseController {
 		return View::make('beers.beer-of-the-day')->with(['beer' => $beer]);
 	}
 	public function generateRandomBeer() {
-			$query = Beer::with('ratings')->orWhereHas('ratings', function($q) {
-			$query = Beer::with('ratings');
+			$query = Beer::with('ratings')->whereHas('ratings', function($q) {
 			$q->where('rating', '>', '3');
 		});
 			$beers = $query->get();
-		$beerArray = [];
-		foreach ($beers as $beer) {
-			$beer->aveRating = $beer->rating;
-			if ($beer->aveRating > 3.5) {
-			 	array_push($beerArray, $beer);
+			$beerArray = [];
+			foreach ($beers as $beer) {
+				$beer->aveRating = $beer->rating;
+				if ($beer->aveRating > 3.5) {
+				 	array_push($beerArray, $beer);
+				}
 			}
-		}
 			$maxNumber = sizeof($beerArray) - 1;
 			$randomBeer = mt_rand(1,$maxNumber);
 			//shuffle($randomBeer);

@@ -16,10 +16,9 @@ body {
     text-align: right;
 }
 .logo {
-    background-image:url(/img/hopshoplogo.png);
+    background-image:url(/img/hopshop.png);
     background-size: 300px;
     background-repeat: no-repeat;
-    background-color: black;
     height:100px;
     padding: 50px;
 }
@@ -38,7 +37,7 @@ body {
 
 .navbar-color {
     height:5px;
-    background-color: #BBCC33;
+    background-color: black;
 }
 #my-nav-bar {
     font-family: "Indie Flower", cursive;
@@ -51,12 +50,15 @@ body {
 .beerpitches {
     font-family: "Indie Flower", cursive;  
 }
+.navbar-inverse {
+    background-color: #4E3304;
+}
 .navbar-inverse .navbar-brand {
-    color: #5F8B26;
+    color:white;
     font-size: 200%;
 }
 .hopshop-color-brand {
-    color:#FF9600;
+    color:white;
 }
 .navbar-inverse .navbar-nav > li > a {
     color: white;
