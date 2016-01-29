@@ -6,8 +6,8 @@
 
 body {
     background-image: url(/img/hot-wood.png);
-    background-color: saddlebrown;
-    background-blend-mode: hard-light;
+/*    background-color: saddlebrown;
+    background-blend-mode: hard-light;*/
 }
 .center{
     text-align: center;
@@ -26,15 +26,9 @@ body {
     height:30px;
 }
 .footer {
-    background-color: #101010;
+    background-color: #4E3304;
     height:55px;
     margin-top: 17px;
-}
-.error {
-    border-radius: 5px;
-    background:green;
-    color: red;
-    padding-left:5px;
 }
 
 /*
@@ -43,9 +37,9 @@ body {
 
 .navbar-color {
     height:5px;
-    background-color: black;
+    background-color: #333;
 }
-#myNavbar {
+#my-nav-bar {
     font-family: "Indie Flower", cursive;
     font-size: 140%;
 }
@@ -53,15 +47,9 @@ body {
     font-family: "Indie Flower", cursive;
     font-size: 140%;
 }
-#facebook_login_button_navbar{
-    margin-top:10px;
-}
-.beerpitches {
-   /* font-family: "Indie Flower", cursive;*/
-    
-}
 .navbar-inverse {
     background-color: #4E3304;
+    border-radius: 0px;
 }
 .navbar-inverse .navbar-brand {
     color:white;
@@ -73,7 +61,76 @@ body {
 .navbar-inverse .navbar-nav > li > a {
     color: white;
 }
+#facebook_login_button_navbar{
+    margin-top:10px;
+}
+#admin-dropdown{
+    margin-top:40px;
+}
+
+/*******************************    Media Queries For Nav Bar   *******************************/
+
 /*
-.pitchesindex {
-    border: black solid 2px;
-}*/
+ *  XS media queryies
+ */
+@media(max-width: 767px) {
+    /*xs small screen size*/
+}
+
+
+/*
+ *  SM media queries
+ */
+ @media(min-width: 768px) {
+   /* small screen size*/
+    .navbar .li{
+        margin:;
+    }
+    .navbar {
+        font-size:.7em;
+        word-spacing: -4px;
+    }
+    #my-nav-bar{
+        margin: 0px -15px 0px -15px;
+    }
+    .navbar-inverse .navbar-nav > li > a {
+        margin: 0 -5px;
+    }
+ }
+
+
+/*
+ *  MD media queries
+ */
+ @media(min-width: 992px) {
+    /*medium media queries*/
+    .navbar {
+        font-size:.95em;
+        word-spacing: -4px;
+    }
+    #my-nav-bar{
+        margin: 0px -10px 0px -10px;
+    }
+    .navbar-inverse .navbar-nav > li > a {
+        margin: 0 -5px;
+    }
+ }
+
+
+ /*
+  *  LG media queries
+  */
+  @media(min-width: 1200px) {
+    /*large media queries*/
+    .navbar {
+        font-size: 1.1em;
+        word-spacing: -3px;
+    }
+    #my-nav-bar{
+        margin: 0px -20px 0px -20px;
+    }
+    .navbar-inverse .navbar-nav > li > a {
+        margin: 0 -5px;
+    }
+  }
+

@@ -7,8 +7,6 @@
         FB.api('/me', function(user){
             if (user.id) {
 
-                document.getElementById('status').innerHTML =
-                'Thanks for logging in, ' + user.name + '!';
                 myVue.$data.user.facebook_id = user.id;
 
                 if (response.status === 'connected') {
@@ -19,14 +17,10 @@
                 } else if (response.status === 'not_authorized') {
                   // The person is logged into Facebook, but not your app.
 
-                  document.getElementById('status').innerHTML = 'Please log ' +
-                    'into this app.';
                 } else {
                   // The person is not logged into Facebook, so we're not sure if
                   // they are logged into this app or not.
 
-                  document.getElementById('status').innerHTML = 'Please log ' +
-                    'into Facebook.';
                 }
             }
         });
@@ -93,8 +87,6 @@
     // successful.  See statusChangeCallback() for when this call is made.
     function testAPI() {
     FB.api('/me', function(response) {
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
     });
     }
 // }

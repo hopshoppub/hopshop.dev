@@ -16,6 +16,16 @@
 
     <body id="everything_is_coved_by_vue_now">
 
+        {{-- 
+            Modals
+         --}}
+        @include('modals.login')
+        @include('modals.signup')
+        @include('modals.add_beer')
+        @include('modals.edit_beer')
+        @include('modals.add_pitch')
+        @include('modals.edit_pitch')
+
         <div class='logo'>
             <div class='logo-image'>
             </div>
