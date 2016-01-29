@@ -72,6 +72,10 @@ body {
 #admin-dropdown{
     margin-top:40px;
 }
+#user_profile_picture{
+    margin-top:2px;
+    border-radius:3px;
+}
 
 /*******************************    Media Queries For Nav Bar   *******************************/
 
