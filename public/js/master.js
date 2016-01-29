@@ -16,13 +16,13 @@ $(document).ready(function() {
 	})
 	function reSizeBeerTrivia() {
 		var win = $(this);
-		$triviaHeight = $('#trivia-inner').height();
-		$beerHeight = $('#beer-trivia').height();
-		if (win.height() < 767) {
-			$('#beer-trivia').height($triviaHeight + 250);
-		} else if (win.width() >= 1200) {
-	    	$('#beer-trivia').height(600);
+		if (win.height() < 1380 && win.height() > 767) {
+			$('#trivia-resize').css("padding", "0px");
 		}
+		if (win.height() < 767) {
+			$('#trivia-inner').css("font-size", "5px");
+			$('#beer-trivia').css("font-size", "5px");
+		} 
 	}
 	function reSizeSeasonalBeerPost() {
 		var win = $(this)
@@ -31,19 +31,19 @@ $(document).ready(function() {
 			text_input.css("font-size", "3.7px");
 			$('#reSizeHeadingLeft').height(300);
 			$('#reSizeHeading').height(300);
-			$('#beer-trivia').css({'margin-top':'50px'}); 
-			$('#beer-trivia').css({'margin-bottom':'50px'}); 
 		} else if (win.width() >= 1200) {
 			var text_input = $('#reSizeBeerSeason');
-	    	text_input.css("font-size", "15px");
+	    	text_input.css("font-size", "20px");
 			$('#reSizeHeadingLeft').height(600);
 			$('#reSizeHeading').height(600);
+		} else if (win.width() >= 700) {
+			var text_input = $('#reSizeBeerSeason');
+	    	text_input.css("font-size", "10px");
 		}
-	}
 	$(window).on('resize', function(){
 		var win = $(this); //this = window
-		reSizeBeerTrivia();
-		reSizeSeasonalBeerPost();
+		//reSizeBeerTrivia();
+		//reSizeSeasonalBeerPost();
 	});
 
 

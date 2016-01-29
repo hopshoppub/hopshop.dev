@@ -61,7 +61,8 @@ class HomeController extends BaseController {
 
 	public function showHome()
 	{
-		return View::make('home');
+		$beer = Beer::find(Configuration::where('name', '=', 'beer_id')->orderBy('id', 'desc')->first()->value);
+		return View::make('home')->with(['beer' => $beer]);
 	}
 
 	public function postLogin()

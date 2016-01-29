@@ -1,5 +1,5 @@
 .carousel-color{
-    height:5px;
+    height:1px;
     background-color:black;
 }
 .beer-posts {
@@ -11,12 +11,14 @@
     background-blend-mode: hard-light;
     background-image: url(/img/drink-beer.jpg);
 }
-.trivia {
-    margin-top:40px;
-    padding:20px;
-    font-family: "Indie Flower", cursive;
-    background-color: #C1C0AC;
-    border-radius: 15px;
+#trivia-resize {
+    position: relative;
+    top: 140px;
+    /*margin-top:160px;*/
+    height:100px;
+    background-color: #F9F0E0;
+    border-radius: 10px;
+    text-align: center;
 }
 .seasonal-heading {
     background-image: url(/img/seasonal.jpg);
@@ -33,7 +35,7 @@
     font-size: 600%;
 }
 .trivia-title {
-    font-size: 300%;
+    font-size: 50px;
    text-align: center;
-   color:silver;
+   color:#F9F0E0;
 }
