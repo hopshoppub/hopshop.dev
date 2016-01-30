@@ -46,7 +46,6 @@
                </div>
             </div>
         </div>
-    @include('facebook.button')
     <hr>
     <div class="row">
         <div class="col-xs-8 col-md-3"><h4>ABV: </h4> <h3 class='beer-font'>{{{ $beer->abv }}}</h3></div>
