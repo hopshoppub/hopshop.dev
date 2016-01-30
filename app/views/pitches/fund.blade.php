@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="row">
-	<div id="background-for-fund-form" class="col-xm-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6 center">
+	<div id="background-for-fund-form" class="col-xm-12 center">
 		<h1>Fund for $20</h1>
 		
 		{{ Form::open(['id'=>'billing-form', 'action'=> ['PitchesController@postfund', $fund->pitch_id]]) }}

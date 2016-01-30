@@ -33,9 +33,9 @@
             --}}
             <div v-if="loggedIn == 'false'" class="user-controlls">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" data-toggle="modal" data-target="#signup_modal" v-on:click="clearErrors"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#signup_modal" v-on:click="clearErrors">Sign Up</a></li>
                     
-                    <li><a href="#" data-toggle="modal" data-target="#login_modal" v-on:click="clearErrors"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#login_modal" v-on:click="clearErrors">Login</a></li>
                 </ul>
             </div>
 
@@ -46,7 +46,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><img id="user_profile_picture" src=""></li>
 
-                    <li><a href="#" v-on:click="logoutClicked"><span class="glyphicon glyphicon-user"></span>Log Out</a></li>
+                    <li><a href="#" v-on:click="logoutClicked">Log Out</a></li>
 
                     <li id="create_navbar"class="dropdown" v-if="user.role == 3" id="admin-dropdown">
                         <a href="/" id='admin-label' class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
