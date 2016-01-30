@@ -32,8 +32,8 @@
                         <h4>{{{ $pitch->deadline }}}</h4>
 
                         <a href="{{{ action('PitchesController@fund', $pitch->pitch_id) }}}" class="btn btn-info" role="button" >Fund the Brew!</a>
-                        <button class="btn btn-defalut" data-toggle="modal" data-target="#edit_pitch_modal" v-on:click="getEditPitch({{{ $pitch->pitch_id }}})">Edit</button>
-                        <button class="btn btn-danger" v-on:click="deletePitch({{{ $pitch->pitch_id }}})">Delete</button>
+                        <button v-if="user.role == 3" class="btn btn-defalut" data-toggle="modal" data-target="#edit_pitch_modal" v-on:click="getEditPitch({{{ $pitch->pitch_id }}})">Edit</button>
+                        <button v-if="user.role == 3" class="btn btn-danger" v-on:click="deletePitch({{{ $pitch->pitch_id }}})">Delete</button>
                        
 
 
