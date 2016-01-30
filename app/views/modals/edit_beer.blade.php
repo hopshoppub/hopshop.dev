@@ -50,7 +50,7 @@
                 <div class="alert alert-danger" role="alert" v-for="error in errors.upc">@{{ errors.upc }}</div>
                 <input @keyup.enter="editBeerClicked" id="upc" type="text" class="form-control" placeholder="Enter upc" v-model="beer.upc">
 
-                <label for="image">Image path</label>
+                <label for="image">Image filename</label>
                 <input  v-model="errors.image" value='' hidden>
                 <div class="alert alert-danger" role="alert" v-for="error in errors.image">@{{ errors.image }}</div>
                 <input @keyup.enter="editBeerClicked" id="image" type="text" class="form-control" placeholder="Enter image path" v-model="beer.image">
