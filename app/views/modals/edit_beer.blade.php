@@ -25,15 +25,15 @@
                 <div class="alert alert-danger" role="alert" v-for="error in errors.name">@{{ errors.name }}</div>
                 <input @keyup.enter="editBeerClicked" id="name" type="text" class="form-control" placeholder="Enter beer name" v-model="beer.name">
 
-                <label for="category_id">Category Id</label>
+                {{-- <label for="category_id">Category Id</label> --}}
                 <input  v-model="errors.category_id" value='' hidden>
-                <div class="alert alert-danger" role="alert" v-for="error in errors.category_id">@{{ errors.category_id }}</div>
-                <input @keyup.enter="editBeerClicked" id="category_id" type="text" class="form-control" placeholder="Enter category id" v-model="beer.category_id">
+                {{-- <div class="alert alert-danger" role="alert" v-for="error in errors.category_id">@{{ errors.category_id }}</div>
+                <input @keyup.enter="editBeerClicked" id="category_id" type="text" class="form-control" placeholder="Enter category id" v-model="beer.category_id"> --}}
 
-                <label for="style_id">Style Id</label>
+                {{-- <label for="style_id">Style Id</label> --}}
                 <input  v-model="errors.style_id" value='' hidden>
-                <div class="alert alert-danger" role="alert" v-for="error in errors.style_id">@{{ errors.style_id }}</div>
-                <input @keyup.enter="editBeerClicked" id="style_id" type="text" class="form-control" placeholder="Enter style id" v-model="beer.style_id">
+                {{-- <div class="alert alert-danger" role="alert" v-for="error in errors.style_id">@{{ errors.style_id }}</div>
+                <input @keyup.enter="editBeerClicked" id="style_id" type="text" class="form-control" placeholder="Enter style id" v-model="beer.style_id"> --}}
                 
                 <label for="abv">Abv</label>
                 <input  v-model="errors.abv" value='' hidden>

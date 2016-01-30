@@ -15,10 +15,10 @@
             --}}
             <div class="modal-body">
 
-                <label for="brewery_id">Brewery Id</label>
+                {{-- <label for="brewery_id">Brewery Id</label> --}}
                 <input  v-model="errors.brewery_id" value='' hidden>
-                <div class="alert alert-danger" role="alert" v-for="error in errors.brewery_id">@{{ errors.brewery_id }}</div>
-                <input @keyup.enter="editPitchClicked" id="brewery_id" type="text" class="form-control" placeholder="Enter brewery id" v-model="pitch.brewery_id">
+                {{-- <div class="alert alert-danger" role="alert" v-for="error in errors.brewery_id">@{{ errors.brewery_id }}</div>
+                <input @keyup.enter="editPitchClicked" id="brewery_id" type="text" class="form-control" placeholder="Enter brewery id" v-model="pitch.brewery_id"> --}}
 
                 <label for="title">Pitch Title</label>
                 <input  v-model="errors.title" value='' hidden>
