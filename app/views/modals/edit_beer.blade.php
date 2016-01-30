@@ -15,10 +15,10 @@
             --}}
             <div class="modal-body">
 
-                <label for="brewery_id">Brewery Id</label>
+                {{-- <label for="brewery_id">Brewery Id</label> --}}
                 <input  v-model="errors.brewery_id" value='' hidden>
-                <div class="alert alert-danger" role="alert" v-for="error in errors.brewery_id">@{{ errors.brewery_id }}</div>
-                <input @keyup.enter="editBeerClicked" id="brewery_id" type="text" class="form-control" placeholder="Enter brewery id" v-model="beer.brewery_id">
+                {{-- <div class="alert alert-danger" role="alert" v-for="error in errors.brewery_id">@{{ errors.brewery_id }}</div> --}}
+                {{-- <input @keyup.enter="editBeerClicked" id="brewery_id" type="text" class="form-control" placeholder="Enter brewery id" v-model="beer.brewery_id"> --}}
 
                 <label for="name">Beer Name</label>
                 <input  v-model="errors.name" value='' hidden>
@@ -50,7 +50,7 @@
                 <div class="alert alert-danger" role="alert" v-for="error in errors.upc">@{{ errors.upc }}</div>
                 <input @keyup.enter="editBeerClicked" id="upc" type="text" class="form-control" placeholder="Enter upc" v-model="beer.upc">
 
-                <label for="image">Image path</label>
+                <label for="image">Image filename</label>
                 <input  v-model="errors.image" value='' hidden>
                 <div class="alert alert-danger" role="alert" v-for="error in errors.image">@{{ errors.image }}</div>
                 <input @keyup.enter="editBeerClicked" id="image" type="text" class="form-control" placeholder="Enter image path" v-model="beer.image">

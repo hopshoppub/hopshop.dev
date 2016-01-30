@@ -17,19 +17,6 @@
             <br>
             <button class='btn btn-default' style="width:200px;" onclick="searchClicked()">Search</button>
         </div>
-        
-        {{-- <div class="webdesigntuts-workshop">
-            <div class='form'>          
-                <input type="text" name="search"  id="search" size="30" value="" placeholder='Enter Beer Name...'onkeypress="searchEntered()"> 
-                <input type="text" hidden id="hidden-search">       
-                <button onclick="searchClicked()">Search</button>
-            </div>
-        </div> --}}
-        {{-- <div id="wrap">
-          <form action="" autocomplete="on">
-          <input id="search" name="search" type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit">
-          </form>
-        </div> --}}
 
 </div>
 <div class ='beer-table-outline'>
@@ -37,7 +24,7 @@
         <div v-for="beer in beers" class= 'infinite-item' id="beer_@{{ beer.beer_id}}">
             <div class="container test_beers" id='beer-table'>
                 <div class="row">
-                    <div class="col-xs-8 col-md-3"><img src="/img/@{{beer.image}}" alt="Mountain View" style="width:250px;height:200px;"></div>
+                    <div class="col-xs-8 col-md-3"><img class="beer-image" src="/img/@{{beer.image}}" alt="Mountain View" style="width:250px;height:200px;"></div>
                     <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3 class='beer-font'>@{{ beer.name }}</h3></div>
                     <div class="col-xs-5 col-md-3"><h4>Rating:</h4>
                         <div>
@@ -65,10 +52,8 @@
                     <h4>Brewery: </h4>
                     {{-- <a href="{{{ action("BreweriesController@show", @{{ beer.brewery_id }} ) }}}" class="col-xs-5 col-md-3"><h3>@{{ beer.brewery.name }}</h3></a> --}}
                     <a href="/breweries/@{{ beer.brewery_id}}" class="col-xs-5 col-md-3"><h3>@{{ beer.brewery.name }}</h3></a>
-                    {{-- <span v-if="@{{ myVue.$data.user.role === '3' }}"> --}}
-                        <button data-toggle="modal" data-target="#edit_beer_modal" v-on:click="getEditBeer($index)" v-if="user.role == 3">Edit</button>
-                        <button v-on:click="deleteBeer($index)" v-if="user.role == 3">Delete</button>
-                    {{-- </span> --}}
+                        <button class="btn btn-default"data-toggle="modal" data-target="#edit_beer_modal" v-on:click="getEditBeer($index)" v-if="user.role == 3">Edit</button>
+                        <button class="btn btn-danger"v-on:click="deleteBeer($index)" v-if="user.role == 3">Delete</button>
                 </div>
                 <div class='row'>
                     <div class="description-toggle" data-beer-id="@{{ beer.beer_id }}">
