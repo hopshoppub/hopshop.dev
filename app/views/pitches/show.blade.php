@@ -14,18 +14,18 @@
 
 @section('content')
 
-    <div class='container pitches-table' style={{-- "background-color:fuchsia;" --}}>
+    <div class='container pitches-table'>
 
         <div class='row'>
-            <h2 style="color:black;text-align: center;">{{{ $pitch->title }}}</h2>
+            <h2 class='pitch-title'>{{{ $pitch->title }}}</h2>
         </div>
 
         <div class='row'>
-            <div class='col-xs-12 col-sm-12 col-md-8 col-lg-8' {{-- style="background-color:papayawhip; border:solid black 2px;"> --}}>
+            <div class='col-xs-12 col-sm-12 col-md-8 col-lg-8'>
                 <iframe width="650" height="366" src="https://www.youtube.com/embed/aV36ytSgC3o" frameborder="0" allowfullscreen></iframe>  
             </div>
      
-                <div style="text-align:center" class='col-xs-12 col-sm-12 col-md-4 col-lg-4' style="padding-left: 30px">
+                <div style="text-align:center" class='col-xs-12 col-sm-12 col-md-4 col-lg-4'>
                     <div class="pitches-table">
                         <h3>{{{ $pitch->brewery->name  }}}</h3>
                        {{--  @foreach($pitch->contributions as $contribution)
@@ -47,25 +47,52 @@
             
         </div>
 
-        <div class='row'>
-            
-            <div class='col-lg-12' show>
 
-                <ul id="myTabs" class="nav nav-tabs">
-                  <li role="presentation" class="active"><a href="#campaign">Campaign</a></li>
-                  <li role="presentation"><a href="#updates">Updates</a></li>
-                  <li role="presentation"><a href="#hopmakers">AdoptABrew</a></li>
+        <div class='row' style="padding-top: 20px;">
+            
+            <div class='col-lg-12' {{-- show --}} style="text-align:center">
+
+                <ul id="myTabs" class="nav nav-tabs"  role="tablist">
+                    
+                        <li class="col-lg-3" id='tab-one'role="presentation" ><a href="#comments" role="tab" data-toggle="tab">Comments</a></li>
+                     
+                    
+                        <li class="col-lg-3" id='tab-two'role="presentation"><a href="#objective"  role="tab" data-toggle="tab">Objective</a></li>
+                    
+                        <li class="col-lg-3" id='tab-two'role="presentation"><a href="#updates"  role="tab" data-toggle="tab">Updates</a></li>
+                    
+                        <li class="col-lg-3" id='tab-three'role="presentation"><a href="#hopmakers" role="tab" data-toggle="tab">AdoptABrew</a></li>
+                    
                 </ul>
 
-                <!-- Tab panes -->
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="campaign">
+
+                    <div role="tabpanel" class="tab-pane active" id="comments">
+                       
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="objective">
+                        <p>this is an objective</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="updates">
+                        <p>this is a update</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="hopmakers">
+                        <p>this is a brew</p>
+                    </div>
+
+                </div>  
+
+                <!-- Tab panes -->
+               {{--  <div class="tab-content">
+                     <div role="tabpanel" class="tab-pane active" id="campaign">
         
-                        Come be a part of the Plan & Tentative Recipe.  We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!  For only $20, we'll send you a six pack!  
+                        <p>Come be a part of the Plan & Tentative Recipe.  We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!  For only $20, we'll send you a six pack!</p> 
 
 
 
                     </div>
+
                     <div role="tabpanel" class="tab-pane" id="updates">
                         @if (Auth::check() && Auth::user()->user_id == $pitch->user_id)
                         {{ Form::open(['method'=>'POST', 'action'=> ['PitchesController@postupdate', $pitch->pitch_id]]) }}
@@ -109,40 +136,22 @@
             </div>
       
         </div>
-       
+        --}}
 
         {{-- /vagrant/sites/hopshop.dev/app/views/pitches/show.blade.php --}}
 
-    
     </div>
-    <script id="dsq-count-scr" src="//hopshop.disqus.com/count.js" async></script>
-<div id="disqus_thread"></div>
+<script id="dsq-count-scr" src="//hopshop.disqus.com/count.js" async></script>
+<div class="row" style="padding: 30px">
+    <div id="disqus_thread"></div>
+</div>
+   
+</div>
 @stop
 @section('bottom-script')
-<script>
-$('#myTabs a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show');
-});
-/**
-* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-*/
+<script src="/js/pitchesTabs.js"></script>
+<script src="/js/disqusPitches.js"></script>
 
-var disqus_config = function () {
-this.page.url = 'http://hopshop.pub'; // Replace PAGE_URL with your page's canonical URL variable
-// this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-
-s.src = '//hopshop.disqus.com/embed.js';
-
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 @stop
