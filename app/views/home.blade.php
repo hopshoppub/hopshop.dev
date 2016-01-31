@@ -71,92 +71,11 @@
     This is the begininng of the beer trivia column
 --}}
 <div class='col-12'>
-    <div class='beer-posts' id='beer-trivia'>
-    <h1 class='trivia-title'>How Much Do You Know About Beer?</h1>
+    <div class='beer-posts'>
+    <h1 class='trivia-title' >Todays Chosen Beer Is: </h1>
         <div class='container'>
-            <form method="POST" action="/MyFirstForm.php">
-            <div class='trivia' id='trivia-inner'>
-                    <p>
-                    <h3>What is Cenosillicaphobia the fear of?</h3>
-                        <label>
-                            <input type="radio" name="q1" value="Fear-of-an-empty glass">
-                            Fear of an empty glass
-                        </label>
-                        <label>
-                            <input type="radio" name="q1" value="Fear-of-a-full glass">
-                            Fear of a full glass
-                        </label>
-                        <label>
-                            <input type="radio" name="q1" value="Fear-of-beer">
-                            Fear of beer
-                        </label>
-                        <label>
-                            <input type="radio" name="q1" value="Fear-of-pictures-with-beer-in-them">
-                            Fear of pictures with beer in them
-                        </label>
-                    </p>
-                    
-                    <h3>What happens when you toss salted peanuts into a glass of beer?</h3>
-                    <p>
-                        <label>
-                            <input type="radio" name="q2" value="The-peanuts-dance">
-                            The peanuts dance
-                        </label>
-                        <label>
-                            <input type="radio" name="q2" value="They-sink-to-the-bottom">
-                            They sink to the bottom
-                        </label>
-                        <label>
-                            <input type="radio" name="q2" value="They float on the top">
-                            They float on the top
-                        </label>
-                        <label>
-                            <input type="radio" name="q2" value="They dissinegrate in the beer">
-                            They dissinegrate in the beer
-                        </label>
-                    </p>
-                    <h3>What is the national drink of Belgium?</h3>
-                    <p>
-                        <label>
-                            <input type="radio" id="answer" name="q3" value="Beer">
-                            Beer
-                        </label>
-                        <label>
-                            <input type="radio" id="answer" name="q3" value="Wine">
-                            Wine
-                        </label>
-                        <label>
-                            <input type="radio" id="answer" name="q3" value="Champagne">
-                            Champagne
-                        </label>
-                        <label>
-                            <input type="radio" id="answer" name="q3" value="Sparkling Water">
-                            Sparkling Water
-                        </label>
-                    </p>
-                    <h3>What beer was the first beer to win a blue ribbon at the Chicago World's Fair in 1893?</h3>
-                    <p>
-                        <label>
-                            <input type="radio" id="answer" name="q3" value="Pabst-Blue-Ribbon">
-                            Pabst Blue Ribbon
-                        </label>
-                        <label>
-                            <input type="radio" id="answer" name="q3" value="Bourbon-County">
-                            Bourbon County
-                        </label>
-                        <label>
-                            <input type="radio" id="answer" name="q3" value="Two-Hearted-ale">
-                            Two Hearted Ale
-                        </label>
-                        <label>
-                            <input type="radio" id="answer" name="q3" value="Old-Style-Lager">
-                            Old Style Lager
-                        </label>
-                    </p>
-                    <p>
-                        <button class='btn btn-primary' type="Submit">Submit</button>
-                    </p>
-                </form>
+            <div id='trivia-resize'>
+                   <h1 id='trivia-inner'><a href="{{{ action('BeersController@beerOfTheDay')}}}">{{{ $beer->name}}}</h1>
             </div>
         </div>
     </div>

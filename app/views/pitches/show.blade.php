@@ -146,7 +146,7 @@
     <div id="disqus_thread"></div>
 </div>
    
-</div>
+
 @stop
 @section('bottom-script')
 <script src="/js/pitchesTabs.js"></script>
