@@ -36,9 +36,9 @@
                         <h3>Funding Goal: ${{{ $pitch->goal }}}</h3>
                         <h4>Funding Deadline: {{{ $pitch->deadline }}}</h4>
 
-                        <a href="{{{ action('PitchesController@fund', $pitch->pitch_id) }}}" class="btn btn-info" role="button" >Fund the Brew for $20!</a>
-                        <button data-toggle="modal" data-target="#edit_pitch_modal" v-on:click="getEditPitch({{{ $pitch->pitch_id }}})">Edit</button>
-                        <button v-on:click="deletePitch({{{ $pitch->pitch_id }}})">Delete</button>
+                        <a href="{{{ action('PitchesController@fund', $pitch->pitch_id) }}}" class="btn btn-info btn-lg" role="button" >Fund the Brew for $20!</a>
+                        <button data-toggle="modal" class='btn btn-default' data-target="#edit_pitch_modal" v-on:click="getEditPitch({{{ $pitch->pitch_id }}})">Edit</button>
+                        <button class='btn btn-danger' v-on:click="deletePitch({{{ $pitch->pitch_id }}})">Delete</button>
                        
 
 
@@ -72,8 +72,8 @@
                        
                     </div>
 
-                    <div role="tabpanel" class="tab-pane" id="objective">
-                        <p>Come be a part of the Plan & Tentative Recipe.  We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!  For only $20, we'll send you a six pack!</p> 
+                    <div role="tabpanel" class="tab-pane active" id="objective">
+                        <h4 class='pitchBoxes'>Come be a part of the Plan & Tentative Recipe.  We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!  For only $20, we'll send you a six pack!</h4> 
                     </div>
                     <div role="tabpanel" class="tab-pane" id="updates">
                        @if (Auth::check() && Auth::user()->user_id == $pitch->user_id)
@@ -87,22 +87,22 @@
                         @endif
                         <div>
                             @foreach($pitch->updates as $update)
-                            <div class='row'>
+                            <div class='row pitchBoxes'>
                                 {{{ $update->update }}} <br> Posted: {{{ $update->updated_at->diffForHumans() }}}
                             </div>
 
                             @endforeach
                         </div>
 
-                        This is different. We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!
+                        
 
                 
                     </div>
                     <div role="tabpanel" class="tab-pane" id="hopmakers">
-                        <p>this is a brew</p>
-                        <table style="width:100%">
+                        <p></p>
+                        <table style="width:100%" class='table table-striped'>
                             @foreach($pitch->contributions as $contribution)
-                              <tr>
+                              <tr class='pitchBoxes'>
                                 <td>{{{ $contribution->user->first_name }}} {{{ $contribution->user->last_name }}}</td>
                                 <td>${{{ $contribution->amount }}}</td>
                               </tr>
