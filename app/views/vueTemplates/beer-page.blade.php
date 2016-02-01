@@ -13,10 +13,10 @@
         <h2>Search Beer</h2>
 
         <div class="inline-form">
-            <input type="text" name="search" class='form-control' id="search" size="30" value="" placeholder='Enter Beer Name...'onkeypress="searchEntered()"> 
+            {{-- <input type="text" name="search" class='form-control' id="search" size="30" value="" placeholder='Enter Beer Name...'onkeypress="searchEntered()">  --}}
             <input type="text" hidden id="hidden-search">
             <br>
-            <button class='btn btn-default' style="width:200px;" onclick="searchClicked()">Search</button>
+            {{-- <button class='btn btn-default' style="width:200px;" onclick="searchClicked()">Search</button> --}}
         </div>
 
 </div>
