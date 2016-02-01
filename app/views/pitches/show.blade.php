@@ -27,11 +27,6 @@
                 <div style="text-align:center" class='col-xs-12 col-sm-12 col-md-4 col-lg-4'>
                     <div class="pitches-table">
                         <h3>{{{ $pitch->brewery->name  }}}</h3>
-                       {{--  @foreach($pitch->contributions as $contribution)
-                            
-                        <h3>{{{ $total[]=$contribution->amount }}}</h3>
-                            {{{ var_dump($total) }}}
-                        @endforeach --}}
                         <h3>Funding Goal: ${{{ $pitch->goal }}}</h3>
                         <h4>Funding Deadline: {{{ $pitch->deadline }}}</h4>
 
@@ -189,7 +184,11 @@
 @stop
 
 
-
+{{--  @foreach($pitch->contributions as $contribution)
+                            
+                        <h3>{{{ $total[]=$contribution->amount }}}</h3>
+                            {{{ var_dump($total) }}}
+                        @endforeach --}}
 
 
 
