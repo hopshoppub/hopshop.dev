@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('top-script')
+    <meta id="include-homepage-js">
     <link rel="stylesheet" href="/css/home.css">
 @stop
 
@@ -85,5 +86,4 @@
 @stop
 
 @section('bottom-script')
-    <script src="/js/homepage.js"></script>
 @stop

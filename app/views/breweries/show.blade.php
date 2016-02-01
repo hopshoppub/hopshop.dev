@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('top-script')
+	<meta id='include-beer-js'>
     <link rel="stylesheet" href="/css/brewery.css">
     <link rel="stylesheet" href="/stars/style.css" />
     <style> .invisible {
@@ -21,7 +22,7 @@
 	<div class='container' id='beer-table'>
         <div class="row">
 			<div class="col-xs-8 col-md-11"><h1>{{{ $brewery->name }}}</h1></div>
-			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Website:  </strong>{{{ $brewery->website }}}</h3></div>
+			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Website:  </strong><a href="{{{ $brewery->website }}}" >{{{ $brewery->website }}}</a></h3></div>
 			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Phone:   </strong>{{{ $brewery->phone }}}</h3></div>
 			<div class="col-xs-8 col-md-11"><h3 class='beer-font'><strong>Address:   </strong>{{{ $brewery->address }}}</h3></div>
 		</div>
@@ -33,7 +34,7 @@
 	<div class='container' id='beer-table'>
 		<div class="row">
             <div class="col-xs-8 col-md-3">
-            	<img src="/img/{{{$beers->image}}}" alt="Mountain View" style="width:250px;height:200px;">
+            	<img class="beer-image" src="/img/{{{$beers->image}}}" alt="Mountain View" style="width:250px;height:200px;">
             </div>
             <div class="col-xs-5 col-md-3"><h4>Beer Name: </h4> <h3 class='beer-font'>{{{ $beers->name }}}</h3></div>
             <div class="col-xs-5 col-md-3"><h4>Rating:</h4>
@@ -63,7 +64,7 @@
 	        	<div class="col-xs-8 col-md-12"><h4> </h4> <h3 class='beer-font'>{{{ $beers->description }}}</h3></div>
 	        </div>
 	    </div>
-    		<button class='pull-right description-button' data-grab-id="{{{ $beers->beer_id }}}">Click Here For Description: </button>
+    		<button class='pull-right description-button btn' data-grab-id="{{{ $beers->beer_id }}}">Click Here For Description: </button>
     	</div>
 	</div>
     @endforeach
@@ -73,7 +74,6 @@
 @stop
 
 @section('bottom-script')
-    <script src="/js/beer.js"></script>
 @stop
 
 

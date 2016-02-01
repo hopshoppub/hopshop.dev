@@ -4,10 +4,23 @@
 }
 
 .pitches-table {
-	border: groove 2px;
+	/*border: groove 2px;*/
 	border-color: black;
-	background-color:white;
+	background-color: #f9f0e0;
 	border-radius: 10px;
 	text-align:center;
 }
+
+.pitches-title {
+	color:black;
+	text-align: center;
+}
+
+.pitchBoxes {
+	/*border: solid #4E3304 1px;*/
+    font-size: 1.5em;
+    margin: 1.5em;
+}
+
+
 
