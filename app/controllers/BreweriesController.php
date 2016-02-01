@@ -9,9 +9,17 @@ class BreweriesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$breweries = Brewery::with('beer')->get();
+		if ( Request::ajax() ){
+			
+			$breweries = Brewery::all();
+			return Response::json( $breweries );
 
-		return View::make('breweries.index')->with(['breweries' => $breweries]);
+		} else {
+
+			$breweries = Brewery::with('beer')->get();
+
+			return View::make('breweries.index')->with(['breweries' => $breweries]);
+		}
 	}
 
 	/**

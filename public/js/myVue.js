@@ -13,6 +13,10 @@ var myVue = new Vue ({
 
     data: {
 
+        search: {
+
+        },
+
         user: {
 
         },
@@ -32,6 +36,18 @@ var myVue = new Vue ({
         pitch: {
 
         },
+
+        breweries: [
+
+        ],
+
+        categories: [
+
+        ],
+
+        styles: [
+
+        ],
 
     },
 
@@ -81,20 +97,26 @@ var myVue = new Vue ({
         clearErrors: function () {
 
             myVue.$data.errors = {};
+        }, 
+
+        getInfoForDropdowns: function () {
+            myVue.clearErrors();
+
+            Vue.http.get('/categories' , function (data, status, request) {
+
+                myVue.$data.categories = data;
+
+            });//categories ajax
+            Vue.http.get('/styles', function (data, status, request) {
+
+                myVue.$data.styles = data;
+
+            });//styles ajax
+            Vue.http.get('/breweries' , function (data, status, request) {
+
+                myVue.$data.breweries = data;
+            });//breweries ajax
         },
-
-        getEditPitch: function (id) {
-
-            myVue.$data.errors = {};
-
-            Vue.http.get('/pitches/ajax/id/' + id, function (data, status, request) {
-
-                    myVue.$data.pitch = data;
-                    console.log(data);
-                    // console.log( myVue.$data.pitches);
-            }).catch(function (data, status, request) {
-            }); 
-        },  
 
         getEditBeer: function (index) {
 
@@ -105,6 +127,7 @@ var myVue = new Vue ({
             Vue.http.get('/beers/ajax/id/' + beerId , function (data, status, request) {
 
                     myVue.$data.beer = data;
+                    myVue.getInfoForDropdowns();
             }).catch(function (data, status, request) {
                 console.log('woops');
             }); 
@@ -143,10 +166,18 @@ var myVue = new Vue ({
             });
         },
 
+        getAddBeer: function () {
+
+            myVue.$data.beer = {};
+            myVue.getInfoForDropdowns();
+
+        },
+
         addBeerClicked: function() {
 
             Vue.http.post('/beers', myVue.$data.beer, function (data, status, request) {
                 myVue.$data.errors = {};
+                console.log(myVue.$data.beer);
 
                 if ( data['good job'] === 'wooot') {
 
@@ -154,6 +185,8 @@ var myVue = new Vue ({
                 } else {
                     
                     myVue.$data.errors = data;
+                    // console.log(data);
+
                 }
             }).catch(function (data, status, request) {
             }); 
@@ -206,6 +239,13 @@ var myVue = new Vue ({
             }
         },
 
+        getAddPitch: function () {
+
+            myVue.$data.pitch = {};
+            myVue.getInfoForDropdowns();
+
+        },
+
         addPitchClicked: function() {
 
             Vue.http.post('/pitches', myVue.$data.pitch, function (data, status, request) {
@@ -221,6 +261,18 @@ var myVue = new Vue ({
             }).catch(function (data, status, request) {
             });  
         },
+
+        getEditPitch: function (id) {
+
+            myVue.$data.errors = {};
+
+            Vue.http.get('/pitches/ajax/id/' + id, function (data, status, request) {
+
+                    myVue.$data.pitch = data;
+                    myVue.getInfoForDropdowns();
+            }).catch(function (data, status, request) {
+            }); 
+        },        
 
         editPitchClicked: function() {
 
@@ -330,3 +382,7 @@ var myVue = new Vue ({
         },
     }
 });
+
+// setInterval( function () {
+//     console.log( myVue.$data.search.brewery);
+// },2000);

@@ -15,15 +15,18 @@
             --}}
             <div class="modal-body">
 
-                {{-- <label for="brewery_id">Brewery Id</label> --}}
-                <input  v-model="errors.brewery_id" value='' hidden>
-                {{-- <div class="alert alert-danger" role="alert" v-for="error in errors.brewery_id">@{{ errors.brewery_id }}</div>
-                <input @keyup.enter="editPitchClicked" id="brewery_id" type="text" class="form-control" placeholder="Enter brewery id" v-model="pitch.brewery_id"> --}}
-
                 <label for="title">Pitch Title</label>
                 <input  v-model="errors.title" value='' hidden>
                 <div class="alert alert-danger" role="alert" v-for="error in errors.title">@{{ errors.title }}</div>
                 <input @keyup.enter="editPitchClicked" id="title" type="text" class="form-control" placeholder="Enter title of pitch" v-model="pitch.title">
+
+                <label for="brewery_id">Select brewery</label>
+                <input  v-model="errors.brewery_id" value='' hidden>
+                <div class="alert alert-danger" role="alert" v-for="error in errors.brewery_id">@{{ errors.brewery_id }}</div>
+                <select class="form-control" id="brewery_id" v-model="pitch.brewery_id">
+                    <option value="" selected="true" disabled >Select Brewery</option>
+                    <option value="@{{ brewery.brewery_id }}" v-for="brewery in breweries | filterBy search.brewery">@{{ brewery.name }}</option>
+                </select>
 
                 <label for="campaign">Campaign</label>
                 <input  v-model="errors.campaign" value='' hidden>

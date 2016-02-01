@@ -15,15 +15,22 @@
             --}}
             <div class="modal-body">
 
-                <label for="brewery_id">Brewery Id</label>
-                <input  v-model="errors.brewery_id" value='' hidden>
-                <div class="alert alert-danger" role="alert" v-for="error in errors.brewery_id">@{{ errors.brewery_id }}</div>
-                <input @keyup.enter="addPitchClicked" id="brewery_id" type="text" class="form-control" placeholder="Enter brewery id" v-model="pitch.brewery_id">
-
                 <label for="title">Pitch Title</label>
                 <input  v-model="errors.title" value='' hidden>
                 <div class="alert alert-danger" role="alert" v-for="error in errors.title">@{{ errors.title }}</div>
                 <input @keyup.enter="addPitchClicked" id="title" type="text" class="form-control" placeholder="Enter title of pitch" v-model="pitch.title">
+
+{{--                 <label for="brewery_search">Search Brewery</label>
+                <input  v-model="search.brewery" value='' hidden>
+                <input @keyup.enter="addPitchClicked" id="brewery_search" type="text" class="form-control" placeholder="Enter brewery name" v-model="search.brewery"> --}}
+
+                <label for="brewery_id">Select brewery</label>
+                <input  v-model="errors.brewery_id" value='' hidden>
+                <div class="alert alert-danger" role="alert" v-for="error in errors.brewery_id">@{{ errors.brewery_id }}</div>
+                <select class="form-control" id="brewery_id" v-model="pitch.brewery_id">
+                    <option value="" selected="true" disabled >Select Brewery</option>
+                    <option value="@{{ brewery.brewery_id }}" v-for="brewery in breweries | filterBy search.brewery">@{{ brewery.name }}</option>
+                </select>
                 
                 <label for="goal">Goal</label>
                 <input  v-model="errors.goal" value='' hidden>

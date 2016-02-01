@@ -15,25 +15,26 @@
             --}}
             <div class="modal-body">
 
-                {{-- <label for="brewery_id">Brewery Id</label> --}}
-                <input  v-model="errors.brewery_id" value='' hidden>
-                {{-- <div class="alert alert-danger" role="alert" v-for="error in errors.brewery_id">@{{ errors.brewery_id }}</div> --}}
-                {{-- <input @keyup.enter="editBeerClicked" id="brewery_id" type="text" class="form-control" placeholder="Enter brewery id" v-model="beer.brewery_id"> --}}
-
                 <label for="name">Beer Name</label>
                 <input  v-model="errors.name" value='' hidden>
                 <div class="alert alert-danger" role="alert" v-for="error in errors.name">@{{ errors.name }}</div>
                 <input @keyup.enter="editBeerClicked" id="name" type="text" class="form-control" placeholder="Enter beer name" v-model="beer.name">
 
-                {{-- <label for="category_id">Category Id</label> --}}
+                <label for="category_id">Select Category</label>
                 <input  v-model="errors.category_id" value='' hidden>
-                {{-- <div class="alert alert-danger" role="alert" v-for="error in errors.category_id">@{{ errors.category_id }}</div>
-                <input @keyup.enter="editBeerClicked" id="category_id" type="text" class="form-control" placeholder="Enter category id" v-model="beer.category_id"> --}}
+                <div class="alert alert-danger" role="alert" v-for="error in errors.category_id">@{{ errors.category_id }}</div>
+                <select class="form-control" id="category_id" v-model="beer.category_id">
+                    <option value="" selected="true" disabled >Select Category</option>
+                    <option value="@{{ category.category_id }}" v-for="category in categories">@{{ category.category_name }}</option>
+                </select>
 
-                {{-- <label for="style_id">Style Id</label> --}}
+                <label for="style_id">Select Style</label>
                 <input  v-model="errors.style_id" value='' hidden>
-                {{-- <div class="alert alert-danger" role="alert" v-for="error in errors.style_id">@{{ errors.style_id }}</div>
-                <input @keyup.enter="editBeerClicked" id="style_id" type="text" class="form-control" placeholder="Enter style id" v-model="beer.style_id"> --}}
+                <div class="alert alert-danger" role="alert" v-for="error in errors.style_id">@{{ errors.style_id }}</div>
+                <select class="form-control" id="style_id" v-model="beer.style_id">
+                    <option value="" selected="true" disabled >Select Style</option>
+                    <option value="@{{ style.style_id }}" v-for="style in styles">@{{ style.style_name }}</option>
+                </select>
                 
                 <label for="abv">Abv</label>
                 <input  v-model="errors.abv" value='' hidden>
@@ -50,7 +51,19 @@
                 <div class="alert alert-danger" role="alert" v-for="error in errors.upc">@{{ errors.upc }}</div>
                 <input @keyup.enter="editBeerClicked" id="upc" type="text" class="form-control" placeholder="Enter upc" v-model="beer.upc">
 
-                <label for="image">Image filename</label>
+                <label for="brewery_search">Search Brewery</label>
+                <input  v-model="search.brewery" value='' hidden>
+                <input @keyup.enter="editBeerClicked" id="brewery_search" type="text" class="form-control" placeholder="Enter brewery name" v-model="search.brewery">
+
+                <label for="brewery_id">Select brewery</label>
+                <input  v-model="errors.brewery_id" value='' hidden>
+                <div class="alert alert-danger" role="alert" v-for="error in errors.brewery_id">@{{ errors.brewery_id }}</div>
+                <select class="form-control" id="brewery_id" v-model="beer.brewery_id">
+                    <option value="" selected="true" disabled >Select Brewery</option>
+                    <option value="@{{ brewery.brewery_id }}" v-for="brewery in breweries | filterBy search.brewery">@{{ brewery.name }}</option>
+                </select>
+
+                <label for="image">Image file name</label>
                 <input  v-model="errors.image" value='' hidden>
                 <div class="alert alert-danger" role="alert" v-for="error in errors.image">@{{ errors.image }}</div>
                 <input @keyup.enter="editBeerClicked" id="image" type="text" class="form-control" placeholder="Enter image path" v-model="beer.image">
