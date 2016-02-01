@@ -11,7 +11,7 @@
   
         <h2>Search Beer</h2>
 
-        <div class="inline-form">
+        <div class="inline-form" autocomplete="on">
             <input type="text" name="search" class='form-control' id="search" size="30" value="" placeholder='Enter Beer Name...'onkeypress="searchEntered()"> 
             <input type="text" hidden id="hidden-search">
             <br>
