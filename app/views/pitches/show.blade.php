@@ -36,9 +36,9 @@
                         <h3>Funding Goal: ${{{ $pitch->goal }}}</h3>
                         <h4>Funding Deadline: {{{ $pitch->deadline }}}</h4>
 
-                        <a href="{{{ action('PitchesController@fund', $pitch->pitch_id) }}}" class="btn btn-info" role="button" >Fund the Brew for $20!</a>
-                        <button data-toggle="modal" data-target="#edit_pitch_modal" v-on:click="getEditPitch({{{ $pitch->pitch_id }}})">Edit</button>
-                        <button v-on:click="deletePitch({{{ $pitch->pitch_id }}})">Delete</button>
+                        <a href="{{{ action('PitchesController@fund', $pitch->pitch_id) }}}" class="btn btn-info btn-lg" role="button" >Fund the Brew for $20!</a>
+                        <button data-toggle="modal" class='btn btn-default' data-target="#edit_pitch_modal" v-on:click="getEditPitch({{{ $pitch->pitch_id }}})">Edit</button>
+                        <button class='btn btn-danger' v-on:click="deletePitch({{{ $pitch->pitch_id }}})">Delete</button>
                        
 
 
@@ -54,14 +54,15 @@
 
                 <ul id="myTabs" class="nav nav-tabs"  role="tablist">
                     
-                        <li class="col-lg-3" id='tab-one'role="presentation" ><a href="#comments" role="tab" data-toggle="tab">Comments</a></li>
+                        {{-- <li class="col-lg-3" id='tab-one'role="presentation" ><a href="#comments" role="tab" data-toggle="tab">Comments</a></li> --}}
                      
                     
-                        <li class="col-lg-3" id='tab-two'role="presentation"><a href="#objective"  role="tab" data-toggle="tab">Objective</a></li>
+                        <li class="col-lg-4" id='tab-two'role="presentation"><a href="#objective"  role="tab" data-toggle="tab">Objective</a></li>
+
                     
-                        <li class="col-lg-3" id='tab-two'role="presentation"><a href="#updates"  role="tab" data-toggle="tab">Updates</a></li>
+                        <li class="col-lg-4" id='tab-two'role="presentation"><a href="#updates"  role="tab" data-toggle="tab">Updates</a></li>
                     
-                        <li class="col-lg-3" id='tab-three'role="presentation"><a href="#hopmakers" role="tab" data-toggle="tab">AdoptABrew</a></li>
+                        <li class="col-lg-4" id='tab-three'role="presentation"><a href="#hopmakers" role="tab" data-toggle="tab">AdoptABrew</a></li>
                     
                 </ul>
 
@@ -71,17 +72,50 @@
                        
                     </div>
 
-                    <div role="tabpanel" class="tab-pane" id="objective">
-                        <p>this is an objective</p>
+                    <div role="tabpanel" class="tab-pane active" id="objective">
+                        <h4 class='pitchBoxes'>Come be a part of the Plan & Tentative Recipe.  We will take you on a journey.  You will take part in brewing decisions and see the brewing process firsthand.  Its time to get that brewer fix!  For only $20, we'll send you a six pack!</h4> 
                     </div>
                     <div role="tabpanel" class="tab-pane" id="updates">
-                        <p>this is a update</p>
+                       @if (Auth::check() && Auth::user()->user_id == $pitch->user_id)
+                        {{ Form::open(['method'=>'POST', 'action'=> ['PitchesController@postupdate', $pitch->pitch_id]]) }}
+                            <fieldset class="form-group">
+                                <label for="exampleTextarea">The Brew Creator posts updates below:</label>
+                                <textarea class="form-control" id="updateTextarea" name="updateText"rows="3"></textarea>
+                            </fieldset>
+                            <button  type="submit" class="btn btn-primary">Submit</button>
+                        {{ Form::close() }}
+                        @endif
+                        <div>
+                            @foreach($pitch->updates as $update)
+                            <div class='row pitchBoxes'>
+                                {{{ $update->update }}} <br> Posted: {{{ $update->updated_at->diffForHumans() }}}
+                            </div>
+
+                            @endforeach
+                        </div>
+
+                        
+
+                
                     </div>
                     <div role="tabpanel" class="tab-pane" id="hopmakers">
-                        <p>this is a brew</p>
-                    </div>
+                        <p></p>
+                        <table style="width:100%" class='table table-striped'>
+                            @foreach($pitch->contributions as $contribution)
+                              <tr class='pitchBoxes'>
+                                <td>{{{ $contribution->user->first_name }}} {{{ $contribution->user->last_name }}}</td>
+                                <td>${{{ $contribution->amount }}}</td>
+                              </tr>
+                            @endforeach
+                        </table>
 
-                </div>  
+
+
+                    </div>
+                </div>
+                    
+
+            </div>  
 
                 <!-- Tab panes -->
                {{--  <div class="tab-content">
@@ -140,9 +174,9 @@
 
         {{-- /vagrant/sites/hopshop.dev/app/views/pitches/show.blade.php --}}
 
-    </div>
-<script id="dsq-count-scr" src="//hopshop.disqus.com/count.js" async></script>
-<div class="row" style="padding: 30px">
+</div>
+    <script id="dsq-count-scr" src="//hopshop.disqus.com/count.js" async></script>
+    <div class="row" style="padding: 30px">
     <div id="disqus_thread"></div>
 </div>
    
