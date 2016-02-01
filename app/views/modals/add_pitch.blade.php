@@ -20,10 +20,6 @@
                 <div class="alert alert-danger" role="alert" v-for="error in errors.title">@{{ errors.title }}</div>
                 <input @keyup.enter="addPitchClicked" id="title" type="text" class="form-control" placeholder="Enter title of pitch" v-model="pitch.title">
 
-{{--                 <label for="brewery_search">Search Brewery</label>
-                <input  v-model="search.brewery" value='' hidden>
-                <input @keyup.enter="addPitchClicked" id="brewery_search" type="text" class="form-control" placeholder="Enter brewery name" v-model="search.brewery"> --}}
-
                 <label for="brewery_id">Select brewery</label>
                 <input  v-model="errors.brewery_id" value='' hidden>
                 <div class="alert alert-danger" role="alert" v-for="error in errors.brewery_id">@{{ errors.brewery_id }}</div>
