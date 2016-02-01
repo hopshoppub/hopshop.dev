@@ -67,6 +67,16 @@ Route::resource('/breweries', 'BreweriesController');
 
 Route::get('/beers/{id}/{rating}', 'RatingsController@storeRating');
 
+/*
+ *		Category Routes
+ */
+Route::resource('/categories', 'CategoriesController');
+
+/*
+ *		Styles Routes
+ */
+Route::resource('/styles', 'StylesController');
+
 
 
 

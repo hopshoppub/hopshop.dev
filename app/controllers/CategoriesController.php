@@ -9,9 +9,17 @@ class CategoriesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$categories = Category::all();
+		if ( Request::ajax() ){
+			
+			$categories = Category::all();
+			return Response::json( $categories );
 
-		return View::make('categories.index', compact('categories'));
+		} else {
+
+			$categories = Category::all();
+
+			return View::make('categories.index', compact('categories'));
+		}
 	}
 
 	/**

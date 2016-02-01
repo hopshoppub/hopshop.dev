@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('top-script')
+    <meta id="include-beer-js">
     <link rel="stylesheet" href="/css/brewery.css">
     <link rel="stylesheet" href="/stars/style.css" />
 @stop
@@ -64,5 +65,4 @@
 @stop
 
 @section('bottom-script')
-    <script src="/js/beer.js"></script>
 @stop

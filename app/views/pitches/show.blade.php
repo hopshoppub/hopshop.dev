@@ -4,12 +4,11 @@
 @section('top-script')
 
 @stop
-    <head>
     <link rel="stylesheet" href="/css/pitches.css">
+    <meta id="include-pitchesTabs-js">
+    <meta id="include-disqusPitches-js">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-
-</head>
    
 
 @section('content')
@@ -183,8 +182,7 @@
 
 @stop
 @section('bottom-script')
-<script src="/js/pitchesTabs.js"></script>
-<script src="/js/disqusPitches.js"></script>
+
 
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 

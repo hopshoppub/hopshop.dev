@@ -1,4 +1,4 @@
-// function run(myVue){
+function run(myVue){
 
     /*
      *  This is called with the results from from FB.getLoginStatus().
@@ -89,6 +89,6 @@
     FB.api('/me', function(response) {
     });
     }
-// }
+}
 
-// module.exports = run;
+module.exports = run;
