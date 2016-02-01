@@ -1,6 +1,6 @@
-// var Vue = require('vue');
+var Vue = require('vue');
 
-// Vue.use(require('vue-resource'));
+Vue.use(require('vue-resource'));
 
 Vue.http.options.root = '/root';
 Vue.http.headers.common['csrftoken'] = document.querySelector('#token').getAttribute('value');
@@ -13,10 +13,12 @@ var myVue = new Vue ({
 
     data: {
 
+        loggedIn: 'fasle',
+
         search: {
 
         },
-
+        
         user: {
 
         },
@@ -48,6 +50,9 @@ var myVue = new Vue ({
         styles: [
 
         ],
+        errors: {
+
+        },
 
     },
 
@@ -382,7 +387,7 @@ var myVue = new Vue ({
         },
     }
 });
-
 // setInterval( function () {
 //     console.log( myVue.$data.search.brewery);
 // },2000);
+module.exports = myVue;

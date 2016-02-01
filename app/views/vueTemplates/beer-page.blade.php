@@ -2,6 +2,7 @@
 @extends('layouts.master')
 
 @section('top-script')
+    <meta id="include-beerlist-js">
     <link rel="stylesheet" href="/css/beer.css">
     <link rel="stylesheet" href="/stars/style.css" />
 @stop
@@ -55,7 +56,7 @@
                     <button class="btn btn-danger"v-on:click="deleteBeer($index)" v-if="user.role == 3">Delete</button>
             </div>
             <div class='row'>
-                <div class="description-toggle" data-beer-id="@{{ beer.beer_id }}">
+                <div class="description-toggle " data-beer-id="@{{ beer.beer_id }}">
                     <h2>Description: </h2>
                     <span class="col-xs-8 col-md-12"><h4> </h4> <h3 class='beer-font'>@{{ beer.description }}</h3></span>
                 </div>
@@ -69,7 +70,6 @@
 @stop
 
 @section('bottom-script')
-    <script src="/js/beerlist.js"></script>
 @stop
 
 
