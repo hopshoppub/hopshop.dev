@@ -41,6 +41,12 @@ class ContributionsTableSeeder extends Seeder {
 		$contribution->save();
 
 		$contribution = new Contribution();
+		$contribution->user_id = 6;
+		$contribution->pitch_id = 1;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
 		$contribution->user_id = 1;
 		$contribution->pitch_id = 2;
 		$contribution->amount = "20";
@@ -67,6 +73,156 @@ class ContributionsTableSeeder extends Seeder {
 		$contribution = new Contribution();
 		$contribution->user_id = 5;
 		$contribution->pitch_id = 2;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 6;
+		$contribution->pitch_id = 2;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 1;
+		$contribution->pitch_id = 3;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 2;
+		$contribution->pitch_id = 3;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 3;
+		$contribution->pitch_id = 3;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 4;
+		$contribution->pitch_id = 3;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 5;
+		$contribution->pitch_id = 3;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 6;
+		$contribution->pitch_id = 3;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 1;
+		$contribution->pitch_id = 4;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 2;
+		$contribution->pitch_id = 4;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 3;
+		$contribution->pitch_id = 4;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 4;
+		$contribution->pitch_id = 4;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 5;
+		$contribution->pitch_id = 4;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 6;
+		$contribution->pitch_id = 4;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 1;
+		$contribution->pitch_id = 5;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 2;
+		$contribution->pitch_id = 5;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 3;
+		$contribution->pitch_id = 5;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 4;
+		$contribution->pitch_id = 5;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 5;
+		$contribution->pitch_id = 5;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 6;
+		$contribution->pitch_id = 5;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 1;
+		$contribution->pitch_id = 6;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 2;
+		$contribution->pitch_id = 6;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 3;
+		$contribution->pitch_id = 6;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 4;
+		$contribution->pitch_id = 6;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 5;
+		$contribution->pitch_id = 6;
+		$contribution->amount = "20";
+		$contribution->save();
+
+		$contribution = new Contribution();
+		$contribution->user_id = 6;
+		$contribution->pitch_id = 6;
 		$contribution->amount = "20";
 		$contribution->save();
 
