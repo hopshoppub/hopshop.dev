@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder {
  		$user->email = 'admin@hop.com';
  		$user->password = Hash::make('expo');
  		$user->zip_code = '78163';
- 		$user->role = '1';
+ 		$user->role = '3';
  		$user->save();
 
  		$user = new User();
