@@ -41,6 +41,7 @@ class ContributionsTableSeeder extends Seeder {
 		$contribution->amount = "20";
 		$contribution->save();
 
+
 		$contribution = new Contribution();
 		$contribution->user_id = 1;
 		$contribution->pitch_id = 2;
@@ -220,6 +221,7 @@ class ContributionsTableSeeder extends Seeder {
 		$contribution->pitch_id = 6;
 		$contribution->amount = "20";
 		$contribution->save();
+
 
 		$contribution = new Contribution();
 		$contribution->user_id = 7;
@@ -281,6 +283,7 @@ class ContributionsTableSeeder extends Seeder {
 		$contribution->pitch_id = 1;
 		$contribution->amount = "20";
 		$contribution->save();
+
 
 	}
 

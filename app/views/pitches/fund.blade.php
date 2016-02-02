@@ -1,7 +1,8 @@
 @extends('layouts.pitchesmaster')
 
 @section('top-script')
-	{{-- // <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> --}}
+	<meta id="include-billing-js">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 @stop
 @section('content')
 
@@ -48,6 +49,5 @@
 @stop
 
 @section('footer')
-	<script src="/js/billing.js"></script>
 @stop
 

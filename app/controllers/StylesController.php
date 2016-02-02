@@ -9,9 +9,17 @@ class StylesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$styles = Style::all();
+		if ( Request::ajax() ){
+			
+			$styles = Style::all();
+			return Response::json( $styles );
 
-		return View::make('styles.index', compact('styles'));
+		} else {
+
+			$styles = Style::all();
+
+			return View::make('styles.index', compact('styles'));
+		}
 	}
 
 	/**

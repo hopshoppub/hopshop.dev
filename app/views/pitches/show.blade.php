@@ -4,12 +4,11 @@
 @section('top-script')
 
 @stop
-    <head>
     <link rel="stylesheet" href="/css/pitches.css">
+    <meta id="include-pitchesTabs-js">
+    <meta id="include-disqusPitches-js">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-
-</head>
    
 
 @section('content')
@@ -28,11 +27,6 @@
                 <div style="text-align:center" class='col-xs-12 col-sm-12 col-md-4 col-lg-4'>
                     <div class="pitches-table">
                         <h3>{{{ $pitch->brewery->name  }}}</h3>
-                       {{--  @foreach($pitch->contributions as $contribution)
-                            
-                        <h3>{{{ $total[]=$contribution->amount }}}</h3>
-                            {{{ var_dump($total) }}}
-                        @endforeach --}}
                         <h3>Funding Goal: ${{{ $pitch->goal }}}</h3>
                         <h4>Funding Deadline: {{{ $pitch->deadline }}}</h4>
 
@@ -183,15 +177,18 @@
 
 @stop
 @section('bottom-script')
-<script src="/js/pitchesTabs.js"></script>
-<script src="/js/disqusPitches.js"></script>
+
 
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 @stop
 
 
-
+{{--  @foreach($pitch->contributions as $contribution)
+                            
+                        <h3>{{{ $total[]=$contribution->amount }}}</h3>
+                            {{{ var_dump($total) }}}
+                        @endforeach --}}
 
 
 
