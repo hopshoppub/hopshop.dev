@@ -36,7 +36,7 @@
                         <h3>Funding Goal: ${{{ $pitch->goal }}}</h3>
                         <h4>Funding Deadline: {{{ $pitch->deadline }}}</h4>
 
-                        <a href="{{{ action('PitchesController@fund', $pitch->pitch_id) }}}" class="btn btn-info btn-lg" role="button" >Fund the Brew for $20!</a>
+                        <a href="{{{ action('PitchesController@fund', $pitch->pitch_id) }}}" class="btn btn-info btn-lg" role="button" >Adopt The Brew for $20!</a>
                         <button data-toggle="modal" class='btn btn-default' data-target="#edit_pitch_modal" v-on:click="getEditPitch({{{ $pitch->pitch_id }}})">Edit</button>
                         <button class='btn btn-danger' v-on:click="deletePitch({{{ $pitch->pitch_id }}})">Delete</button>
                        
@@ -62,7 +62,7 @@
                     
                         <li class="col-lg-4" id='tab-two'role="presentation"><a href="#updates"  role="tab" data-toggle="tab">Updates</a></li>
                     
-                        <li class="col-lg-4" id='tab-three'role="presentation"><a href="#hopmakers" role="tab" data-toggle="tab">AdoptABrew</a></li>
+                        <li class="col-lg-4" id='tab-three'role="presentation"><a href="#hopmakers" role="tab" data-toggle="tab">AdoptTheBrew Contributors</a></li>
                     
                 </ul>
 
