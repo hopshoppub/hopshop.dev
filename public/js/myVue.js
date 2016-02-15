@@ -183,9 +183,10 @@ var myVue = new Vue ({
             Vue.http.post('/beers', myVue.$data.beer, function (data, status, request) {
                 myVue.$data.errors = {};
                 console.log(myVue.$data.beer);
+                console.log(data);
 
                 if ( data['good job'] === 'wooot') {
-
+ 
                     $('#add_beer_modal').modal('toggle');
                 } else {
                     
@@ -214,6 +215,13 @@ var myVue = new Vue ({
                             myVue.$set( 'beers[' + index + ']', data);
                         }
                     });
+
+                    setTimeout( function () {
+                        showBeerCalculatedRating();
+                        showUserRatingInput();
+                        getBeerIdAndStarsNumber();
+                        hideDescriptionOfBeer();
+                    },500);
 
                     $('#edit_beer_modal').modal('toggle');
                 } else {
@@ -387,6 +395,67 @@ var myVue = new Vue ({
         },
     }
 });
+
+
+
+        function hideDescriptionOfBeer() {
+            $('.description-toggle').each(function() {
+                    ($(this).children().hide())
+                
+            });
+        }
+        function slideDescriptionOfBeer() {
+            $('.infinite-container').on('click', '.description-button', function() {
+                ($(this.previousElementSibling.children[0].children)).slideToggle();
+            })
+        }
+
+
+        function showBeerCalculatedRating() {
+            $('.stars').each(function() {
+                $calculatedRating = ($(this).data('ratingId'));
+                $percent = $calculatedRating * 20;
+                // console.log($percent);
+                ($(this).children().last().css('width', $percent + '%'));
+            })
+        }
+        function showUserRatingInput() {
+            $('.stars').click(function() {
+                $target = event.target.innerHTML * 20;
+                ($(this).children().last().css('width', $target + '%'))
+            })
+        }
+        function getBeerIdAndStarsNumber() {
+            $('.stars').click(function(e) {
+                if (myVue.$data.loggedIn == 'true') {
+                    $idOfBeerStars = ($(this).data('starId'));
+                    $ratingNumber = event.target.innerHTML;
+                    sendRating($idOfBeerStars, $ratingNumber);
+                } else {
+                    myVue.clearErrors();
+                    $('#login_modal').modal('show');
+                }
+            });
+        }
+
+        function sendRating(id, ratingNumber) {
+
+            $.get("/beers/" + id + "/" + ratingNumber , function(data){
+                console.log(ratingNumber)
+            }).done(function(data) {
+                console.log(data);
+            });
+        }
+
+
+
+
+
+
+
+
+
+
 // setInterval( function () {
 //     console.log( myVue.$data.search.brewery);
 // },2000);

@@ -127,10 +127,11 @@ class UsersTableSeeder extends Seeder {
  		$user->save();
 
  		$user = new User();
- 		$user->first_name = 'Luke';
- 		$user->last_name = 'Skywalker';
- 		$user->user_name = 'luke';
- 		$user->email = 'luke@hop.com';
+
+ 		$user->first_name = 'M';
+ 		$user->last_name = 'K';
+ 		$user->user_name = 'mk';
+ 		$user->email = 'mk@hop.com';
  		$user->password = Hash::make('root');
  		$user->zip_code = '77861';
  		$user->role = 1;
