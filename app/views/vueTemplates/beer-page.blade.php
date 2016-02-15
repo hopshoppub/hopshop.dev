@@ -12,12 +12,14 @@
   
         <h2>Search Beer</h2>
 
+
         <div class="inline-form">
             <input type="text" name="search" class='form-control' id="search" size="30" value="" placeholder='Enter Beer Name...'> 
             <input type="text" hidden id="hidden-search">
             <br>
             <button class='btn btn-default' style="width:200px;" id="search-button">Search</button>
         </div>
+
 
 </div>
 <div class="infinite-container" id="contents">
