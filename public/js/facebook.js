@@ -40,7 +40,7 @@ function run(myVue){
 
     window.fbAsyncInit = function() {
         FB.init({
-            appId      : '1670397703235376',
+            appId      : '826958780759446',
             cookie     : true,  // enable cookies to allow the server to access 
                                 // the session
             xfbml      : true,  // parse social plugins on this page

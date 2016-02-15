@@ -154,6 +154,10 @@ class BeersController extends \BaseController {
 		}
 
 		$beer->update($data);
+		// $beers = Beer::with('brewery', 'style')->where('beer_id', '=', Input::get('beer_id') )->get();
+		$beer->aveRating = $beer->rating;
+		$beer->style->style_id = $beer->style->style_id;
+		$beer->brewery->name = $beer->brewery->name;
 		return Response::json( $beer );
 	}
 

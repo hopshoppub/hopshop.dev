@@ -102,6 +102,14 @@ function run(myVue){
 
 		}
 
+		$('#search').keypress(function() {
+			searchEntered();
+		});
+
+		$('#search-button').click(function() {
+			searchClicked();
+		});
+
 		slideDescriptionOfBeer();
 
 
